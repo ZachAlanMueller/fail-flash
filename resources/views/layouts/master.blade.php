@@ -26,6 +26,12 @@
         <!-- Custom Fonts -->
         <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+        <style>
+            .form-control .top-bar{
+                width: unset;
+            }
+        </style>
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -55,7 +61,7 @@
 
                         <!-- Title form input -->
                         <div class="search_area">
-                            {{ Form::text('search', "Search Summoner", array('class' => 'form-control')) }}
+                            {{ Form::text('search', "Search Summoner", array('class' => 'form-control top-bar')) }}
                             {{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
                             
                         </div>

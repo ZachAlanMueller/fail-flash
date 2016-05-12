@@ -115,12 +115,18 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
+                        @if(Auth::check())
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="/auth/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                        @else
+                        <li><a href="/auth/login"><i class="fa fa-sign-in fa-fw"></i>Login</a>
+                        </li>
+                        <li><a href="/auth/register"><i class="fa fa-registered"></i>Login</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

@@ -111,19 +111,19 @@
                 </li>
                 <!-- /.dropdown -->
                 <li class="dropdown">
+                    {{ Form::open(['route' => 'search-summoner']) }}
+
+                        <!-- Title form input -->
+                        <div class="search_area">
+                            {!! Form::text('search', "Search Summoner Name") !!}
+                            {!! Form::submit('Submit') !!}
+                        </div>
+
+                    {{ Form::close() }}
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        {{ Form::open(['route' => 'search-summoner']) }}
-
-                            <!-- Title form input -->
-                            <div class="search_area">
-                                {!! Form::text('search', "Search Summoner Name") !!}
-                                {!! Form::submit('Submit') !!}
-                            </div>
-
-                        {{ Form::close() }}
                         @if (Auth::guest())
                         <li><a href="/auth/login"><i class="fa fa-sign-in fa-fw"></i>Login</a>
                         </li>

@@ -55,12 +55,9 @@
 
                         <!-- Title form input -->
                         <div class="search_area">
-                            <div class='form-control'>
-                                {{ Form::text('search', "Search Summoner") }}
-                            </div>
-                            <div class='btn btn-default'>
-                                {{ Form::submit('Submit')}}
-                            </div>
+                            {{ Form::text('search', "Search Summoner") }}
+                            {{ Form::submit('Submit')}}
+                            
                         </div>
 
                     {{ Form::close() }}

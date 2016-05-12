@@ -9,5 +9,5 @@
 @stop
 
 @section('content')
-    <p>This is my body content.</p>
+    <h1>Hello, world!</h1>
 @stop

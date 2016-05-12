@@ -72,7 +72,7 @@ class AuthController extends Controller
     public function getLogout()
     {
         $this->auth->logout();
-        Session::flush();
+        \Session::flush();
         return redirect('/');
     }
 }

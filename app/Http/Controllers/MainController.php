@@ -10,8 +10,6 @@ class MainController extends Controller
 {
     public function home()
     {
-    	$user = Auth::user();
-    	var_dump($user);
-    	die();
+    	return view('main');
     }
 }

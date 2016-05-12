@@ -118,7 +118,7 @@
                         @if (Auth::guest())
                         <li><a href="/auth/login"><i class="fa fa-sign-in fa-fw"></i>Login</a>
                         </li>
-                        <li><a href="/auth/register"><i class="fa fa-registered"></i>Login</a>
+                        <li><a href="/auth/register"><i class="fa fa-users"></i>Register</a>
                         </li>
                         @else
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>

@@ -258,6 +258,7 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
+        </nav>
         @show
 
         <div class="container">

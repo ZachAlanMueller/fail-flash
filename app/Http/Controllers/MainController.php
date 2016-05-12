@@ -17,8 +17,8 @@ class MainController extends Controller
     	 return Redirect::route('home');
     }
     public function searchSummoner(){
-    	$name = Input::all('post');
-        
+    	$form = Input::all('post');
+        $name = $form['search']; 
     	var_dump($name);
     	die();
     }

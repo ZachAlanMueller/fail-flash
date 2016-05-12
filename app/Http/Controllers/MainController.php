@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Input;
 use App\Http\Requests;
 
 class MainController extends Controller
@@ -15,7 +16,10 @@ class MainController extends Controller
     public function redirectHome(){
     	 return Redirect::route('home');
     }
-    public function searchSummoner($name){
+    public function searchSummoner(){
+    	$search = Input::all('post');
+        $name = str_replace(" ", "", $search['title']);
+        $name = strtolower($name);
     	var_dump($name);
     	die();
     }

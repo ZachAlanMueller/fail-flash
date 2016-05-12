@@ -55,8 +55,12 @@
 
                         <!-- Title form input -->
                         <div class="search_area">
-                            {{ Form::text('search', "Search Summoner", array('class' => 'form-control')) }}
-                            {{ Form::submit('Submit') array('class' => 'btn btn-default') }}
+                            <div class='form-control'>
+                                {{ Form::text('search', "Search Summoner" }}
+                            </div>
+                            <div class='btn btn-default'>
+                                {{ Form::submit('Submit')}}
+                            </div>
                         </div>
 
                     {{ Form::close() }}

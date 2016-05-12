@@ -16,6 +16,9 @@ Route::get('/home', function() {
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/testing', function() {
+	return view('main');
+});
 
 
 

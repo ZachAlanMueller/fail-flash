@@ -33,8 +33,8 @@
                             <!-- /.navbar-header -->
                         </div>
                         <div class="col-xs-6"> 
-                            <div class="navbar-right">
-                                Login Button Here
+                            <div class="navbar-header">
+                                <a class="navbar-brand text-xs-right" href="/auth/login">Login Here</a>
                             </div>
                         </div>
                     </div>

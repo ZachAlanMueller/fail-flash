@@ -156,6 +156,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        'Illuminate\Html\HtmlServiceProvider',
+
     ],
 
     /*
@@ -201,6 +204,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        
+        'Form'=> 'Illuminate\Html\FormFacade', 
+        'Html'=> 'Illuminate\Html\HtmlFacade',
 
     ],
 

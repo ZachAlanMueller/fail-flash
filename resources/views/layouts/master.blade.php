@@ -50,6 +50,17 @@
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    {{ Form::open(['route' => 'search-summoner']) }}
+
+                        <!-- Title form input -->
+                        <div class="search_area">
+                            {!! Form::text('search', "Search Summoner Name") !!}
+                            {!! Form::submit('Submit') !!}
+                        </div>
+
+                    {{ Form::close() }}
+                </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -111,15 +122,6 @@
                 </li>
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                    {{ Form::open(['route' => 'search-summoner']) }}
-
-                        <!-- Title form input -->
-                        <div class="search_area">
-                            {!! Form::text('search', "Search Summoner Name") !!}
-                            {!! Form::submit('Submit') !!}
-                        </div>
-
-                    {{ Form::close() }}
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>

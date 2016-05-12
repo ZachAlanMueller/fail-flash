@@ -15,4 +15,8 @@ class MainController extends Controller
     public function redirectHome(){
     	 return Redirect::route('home');
     }
+    public function searchSummoner($name){
+    	var_dump($name);
+    	die();
+    }
 }

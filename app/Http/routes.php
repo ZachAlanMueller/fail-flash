@@ -14,7 +14,7 @@
 Route::get('/home', array('uses' => 'MainController@redirectHome'));
 Route::get('/register', array('uses' => 'MainController@redirectHome'));
 Route::get('/', array('as' => 'home', 'uses' => 'MainController@home'));
-
+Route::get('/search-summoner/{name}', array('as' => 'search-summoner', 'uses' => 'MainController@searchSummoner'));
 
 
 

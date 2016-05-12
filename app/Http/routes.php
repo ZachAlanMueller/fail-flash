@@ -10,7 +10,17 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+<<<<<<< HEAD
 Route::get('/', array('as' => 'home', 'uses' => 'MainController@home'));
+=======
+
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/home', function() {
+	return view('welcome');
+});
+>>>>>>> 56da2ff42c513ff1ecf2c9c1f66b8fe247a9a0cf
 Route::get('/testing', function() {
 	return view('main');
 });

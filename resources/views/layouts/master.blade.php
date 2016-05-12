@@ -128,6 +128,7 @@
                         </li>
                         <li><a href="/auth/register"><i class="fa fa-registered"></i>Login</a>
                         </li>
+                        @endif
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>

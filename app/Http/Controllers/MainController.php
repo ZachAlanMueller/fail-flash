@@ -19,7 +19,6 @@ class MainController extends Controller
     public function searchSummoner(){
     	$form = Input::all('post');
         $name = $form['search']; 
-    	var_dump($name);
-    	die();
+    	print $name;
     }
 }

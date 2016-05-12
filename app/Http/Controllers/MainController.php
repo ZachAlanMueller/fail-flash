@@ -8,5 +8,10 @@ use App\Http\Requests;
 
 class MainController extends Controller
 {
-    //
+    public function home()
+    {
+    	$user = Auth::user();
+    	var_dump($user);
+    	die();
+    }
 }

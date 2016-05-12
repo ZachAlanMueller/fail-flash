@@ -62,7 +62,7 @@
 
                         <!-- Title form input -->
                         <div class="search_area">
-                            {{ Form::text('search', "Search Summoner", array('class' => 'form-control top-bar')) }}
+                            {{ Form::text('search', null, array('class' => 'form-control top-bar', 'placeholder' => 'Search Summoner')) }}
                             {{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
                             
                         </div>

@@ -31,7 +31,7 @@
                 width: unset;
                 display: inline;
             }
-            .form{
+            form{
                 margin-bottom: 0px;
             }
         </style>

@@ -56,7 +56,7 @@
                         <!-- Title form input -->
                         <div class="search_area">
                             {{ Form::text('search', "Search Summoner", array('class' => 'form-control')) }}
-                            {{ Form::submit('Submit')}}
+                            {{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
                             
                         </div>
 

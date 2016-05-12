@@ -11,16 +11,10 @@
 |
 */
 
-Route::get('/home', function() {
-	return view('welcome');
-});
-Route::get('/', function() {
-	return view('welcome');
-});
+Route::get('/home', array('uses' => 'MainController@redirectHome'));
+Route::get('/register', array('uses' => 'MainController@redirectHome'));
+Route::get('/', array('as' => 'home', 'uses' => 'MainController@home'));
 
-Route::get('/testing', function() {
-	return view('main');
-});
 
 
 

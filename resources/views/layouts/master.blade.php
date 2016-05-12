@@ -27,7 +27,7 @@
         <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
         <style>
-            .form-control .top-bar{
+            .form-control{
                 width: unset;
                 display: inline;
             }

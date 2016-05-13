@@ -18,6 +18,7 @@ class MainController extends Controller
     	if(Auth::check()){
     		$user = Auth::user();
     		$userInfo->name = $user->name;
+    		$userInfo->group = $user->group;
     	}
 
 

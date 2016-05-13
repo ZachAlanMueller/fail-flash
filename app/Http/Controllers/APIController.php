@@ -17,9 +17,13 @@ class APIController extends Controller
     	if(Input::has('champions')){
     		$champions = json_decode(file_get_contents('https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=image,info,skins&api_key='.$api_key));
     		foreach($champions->data as $champion){
-    			var_dump($champion);
-    			die();
-
+    			$checker = DB::table('champions')->where('id', $champion->id)->count();
+    			if($checker < 1){
+    				DB::table('champions')->insert(array('id' => $champion->id, 'name' => $champion->name, 'key' => $champion->key, 'title' => $champion->title));
+    			}
+    			else{
+    				DB::table('champions')->where('id', $champion->id)->update(array('id' => $champion->id, 'name' => $champion->name, 'key' => $champion->key, 'title' => $champion->title));
+    			}
     		}
     	}
 

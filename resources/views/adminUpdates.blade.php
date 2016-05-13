@@ -16,12 +16,6 @@
 	    					{{ Form::checkbox('champions', 'value') }}
 	    					{{ Form::label('Update Champions Table')}}
 	    				</div>
-	    				<div class='col-xs-4'>
-
-	    				</div>
-	    				<div class='col-xs-4'>
-
-	    				</div>
 	    			</div>
 	    		</div>
     			<div class ='panel-footer'>

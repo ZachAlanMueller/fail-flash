@@ -15,7 +15,7 @@ class AdminController extends Controller
 {
     public function updates() {
     	$user = Auth::user();
-    	
+    	$userInfo = getUserInfo();
     	$isAdmin = isAdmin($user);
 	    if($isAdmin){
 	    	return view('adminUpdates')

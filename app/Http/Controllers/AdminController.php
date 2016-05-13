@@ -15,7 +15,7 @@ class AdminController extends Controller
 {
     public function updates() {
     	$user = Auth::user();
-    	$ret = authCheck($user);
+    	$ret = isAdmin($user);
 	    var_dump($ret);
 	    die();
 	}

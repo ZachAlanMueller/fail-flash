@@ -1,7 +1,12 @@
 <?php
 // My common functions
-	function authCheck($user)
+	function isAdmin($user)
 	{
-	    return true;
+	    if($user->group == 'admin'){
+	    	return true;
+	    }
+	    else {
+	    	return false;
+	    }
 	}
 ?>

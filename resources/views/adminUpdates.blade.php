@@ -11,17 +11,19 @@
     			</div>
     			<div class='panel-body'>
     				{{ Form::open(['route' => 'update-database']) }}
-    			<div class='row'>
-    				<div class='col-xs-4'>
-    					{{ Form::checkbox('champions', 'value') }}
-    				</div>
-    				<div class='col-xs-4'>
+	    			<div class='row'>
+	    				<div class='col-xs-4'>
+	    					{{ Form::checkbox('champions', 'value') }}
+	    					{{ Form::label('Update Champions Table')}}
+	    				</div>
+	    				<div class='col-xs-4'>
 
-    				</div>
-    				<div class='col-xs-4'>
+	    				</div>
+	    				<div class='col-xs-4'>
 
-    				</div>
-    			</div>
+	    				</div>
+	    			</div>
+	    		</div>
     			<div class ='panel-footer'>
     				{{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
     				{{ Form::close() }}

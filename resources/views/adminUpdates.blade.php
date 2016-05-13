@@ -14,7 +14,7 @@
 	    			<div class='row'>
 	    				<div class='col-xs-4'>
 	    					{{ Form::checkbox('champions', 'value') }}
-	    					{{ Form::label('champs, 'Update Champions Table')}}
+	    					Update Champions Table
 	    				</div>
 	    			</div>
 	    		</div>

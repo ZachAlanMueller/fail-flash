@@ -21,7 +21,7 @@ Route::post('/search-summoner', array('as' => 'search-summoner', 'uses' => 'Main
 
 
 //Admin routes
-Route::get('/admin/update', array('as' => 'admin-updates', 'uses' => 'AdminController@updates'));
+Route::get('/admin/updates', array('as' => 'admin-updates', 'uses' => 'AdminController@updates'));
 
 
 

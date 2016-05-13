@@ -16,9 +16,12 @@ class APIController extends Controller
     	$api_key = getAPI();
     	if(Input::has('champions')){
     		$champions = json_decode(file_get_contents('https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=image,info,skins&api_key='.$api_key));
+    		var_dump($champions);
+    		die();
     		foreach($champions as $champion){
     			var_dump($champion);
     			die();
+
     		}
     	}
 

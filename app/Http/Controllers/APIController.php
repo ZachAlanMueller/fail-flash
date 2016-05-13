@@ -19,10 +19,10 @@ class APIController extends Controller
     		foreach($champions->data as $champion){
     			$checker = DB::table('champions')->where('id', $champion->id)->count();
     			if($checker < 1){
-    				DB::table('champions')->insert(array('id' => $champion->id, 'name' => $champion->name, 'key' => $champion->key, 'title' => $champion->title));
+    				DB::table('champions')->insert(array('id' => $champion->id, 'name' => $champion->name, 'key' => $champion->key, 'title' => $champion->title, 'img' => $champion->image->full, 'sprite' => $champions->image->sprite));
     			}
     			else{
-    				DB::table('champions')->where('id', $champion->id)->update(array('id' => $champion->id, 'name' => $champion->name, 'key' => $champion->key, 'title' => $champion->title));
+    				DB::table('champions')->where('id', $champion->id)->update(array('id' => $champion->id, 'name' => $champion->name, 'key' => $champion->key, 'title' => $champion->title, 'img' => $champion->image->full, 'sprite' => $champions->image->sprite));
     			}
     		}
     	}

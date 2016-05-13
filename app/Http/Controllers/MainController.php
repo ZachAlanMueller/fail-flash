@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Input;
 use Auth;
+use stdClass;
+use DB;
 use App\Http\Requests;
 
 class MainController extends Controller

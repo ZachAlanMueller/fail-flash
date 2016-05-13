@@ -13,15 +13,20 @@ use App\Http\Requests;
 class APIController extends Controller
 {
     public function databaseUpdates() {
-    	$input = Input::all('post');
-    	var_dump($input);
-    	die();
+    	$api_key = getAPI();
+    	if(Input::has('champions')){
+    		$champions = json_decode(file_get_contents('https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=image,info,skins&api_key='.$api_key));
+    		foreach($champions as $champion){
+    			var_dump($champion);
+    			die();
+    		}
+    	}
 
 
 
 
 
 
-
+    	return Redirect::route('admin-updates');
     }
 }

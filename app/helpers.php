@@ -20,4 +20,7 @@
     	}
     	return $userInfo;
 	}
+	function getAPI(){
+		return '63d2786a-0782-49c7-a7fd-f1728e6c5071'
+	}
 ?>

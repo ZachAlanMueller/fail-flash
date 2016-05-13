@@ -74,7 +74,8 @@
 
                     {{ Form::close() }}
                 </li>
-                @if($userInfo->group =="admin")
+                @if (Auth::guest())
+                @elseif($userInfo->group =="admin")
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>

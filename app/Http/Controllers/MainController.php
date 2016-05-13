@@ -14,13 +14,8 @@ class MainController extends Controller
 {
     public function home()
     {
-    	$userInfo = new stdClass();
-    	if(Auth::check()){
-    		$user = Auth::user();
-    		$userInfo->name = $user->name;
-    		$userInfo->group = $user->group;
-    	}
-
+    	
+    	$userInfo = getUserInfo();
 
 
     	return view('main')

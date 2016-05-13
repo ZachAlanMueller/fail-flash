@@ -22,7 +22,7 @@ Route::post('/search-summoner', array('as' => 'search-summoner', 'uses' => 'Main
 
 //Admin routes
 Route::get('/admin/updates', array('as' => 'admin-updates', 'uses' => 'AdminController@updates'));
-Route::post('/admin/updates', array('as' => 'update-database', 'uses' => 'APIController@databaseUpdates'));
+Route::post('/admin/updates', array('as' => 'update-database', 'uses' => 'UpdateController@databaseUpdates'));
 
 
 

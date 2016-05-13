@@ -82,9 +82,9 @@
                     </a>
                     <ul class="dropdown-menu dropdown-alerts">
                         <li>
-                            <a href="#">
+                            <a href="/admin/updates">
                                 <div>
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <i class="fa fa-comment fa-fw"></i> Updates
                                     <span class="pull-right text-muted small">4 minutes ago</span>
                                 </div>
                             </a>

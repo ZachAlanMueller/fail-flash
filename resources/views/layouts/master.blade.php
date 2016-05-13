@@ -147,7 +147,7 @@
                         <li><a href="/auth/register"><i class="fa fa-users"></i>Register</a>
                         </li>
                         @else
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> {{$userInfo->name}}'s Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>

@@ -34,6 +34,9 @@
             form{
                 margin-bottom: 0px;
             }
+            .container{
+                margin-top: 20px;
+            }
         </style>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

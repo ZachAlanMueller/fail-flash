@@ -22,7 +22,7 @@ class APIController extends Controller
     				DB::table('champions')->insert(array('id' => $champion->id, 'name' => $champion->name, 'key' => $champion->key, 'title' => $champion->title, 'img' => $champion->image->full, 'sprite' => $champions->image->sprite));
     			}
     			else{
-    				var_dump($champion);
+    				var_dump($champion->image);
     				die();
     				DB::table('champions')->where('id', $champion->id)->update(array('id' => $champion->id, 'name' => $champion->name, 'key' => $champion->key, 'title' => $champion->title, 'img' => $champion->image->full, 'sprite' => $champions->image->sprite));
     			}

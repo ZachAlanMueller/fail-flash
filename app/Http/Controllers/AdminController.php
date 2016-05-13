@@ -15,9 +15,11 @@ class AdminController extends Controller
 {
     public function updates() {
     	$user = Auth::user();
+    	
     	$isAdmin = isAdmin($user);
 	    if($isAdmin){
-	    	return view('adminUpdates');
+	    	return view('adminUpdates')
+	    	->with('userInfo', $userInfo);
 	    }
 	    else{
 	    	return Redirect::route('home');

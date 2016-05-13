@@ -10,7 +10,8 @@
 	    	return false;
 	    }
 	}
-	function getUserInfo($user){
+	function getUserInfo(){
+		$user = Auth::user();
 		$userInfo = new stdClass();
     	if(Auth::check()){
     		$user = Auth::user();

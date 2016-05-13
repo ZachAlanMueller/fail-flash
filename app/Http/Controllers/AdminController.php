@@ -14,7 +14,9 @@ use App\Http\Requests;
 
 class AdminController extends Controller
 {
-    $ret = authCheck();
-    var_dump($ret);
-    die();
+    public function updates() {
+    	$ret = authCheck();
+	    var_dump($ret);
+	    die();
+	}
 }

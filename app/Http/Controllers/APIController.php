@@ -15,7 +15,7 @@ class APIController extends Controller
     public function databaseUpdates() {
     	$api_key = getAPI();
     	if(Input::has('champions')){
-    		$champions = json_decode(file_get_contents('https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=image,info,skins&api_key='.$api_key));
+    		$champions = json_decode(file_get_contents('https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=image&api_key='.$api_key));
     		foreach($champions->data as $champion){
     			$checker = DB::table('champions')->where('id', $champion->id)->count();
     			if($checker < 1){

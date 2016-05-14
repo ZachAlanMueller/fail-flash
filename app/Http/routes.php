@@ -16,6 +16,8 @@ Route::get('/register', array('uses' => 'MainController@redirectHome'));
 Route::get('/', array('as' => 'home', 'uses' => 'MainController@home'));
 Route::post('/search-summoner', array('as' => 'search-summoner', 'uses' => 'MainController@searchSummoner'));
 
+Route::get('/user/profile', array('as' => 'profile-edit', 'uses' => 'MainController@editProfile'));
+Route::post('/user/profile', array('as' => 'update-profile', 'uses' => 'MainController@saveProfile'));
 
 
 

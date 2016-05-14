@@ -14,19 +14,28 @@ class MainController extends Controller
 {
     public function home()
     {
-    	
     	$userInfo = getUserInfo();
-
-
     	return view('main')
     		->with('userInfo', $userInfo);
     }
+
     public function redirectHome(){
     	return Redirect::route('home');
     }
+
     public function searchSummoner(){
     	$form = Input::all('post');
         $name = $form['search']; 
     	print $name;
+    }
+
+    public function editProfile(){
+        $user = Auth::user();
+        $userInfo = getUserInfo($user);
+        var_dump($user);
+        die();
+    }
+    public function saveProfile(){
+
     }
 }

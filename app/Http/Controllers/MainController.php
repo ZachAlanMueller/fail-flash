@@ -31,8 +31,7 @@ class MainController extends Controller
 
     public function editProfile(){
         $user = Auth::user();
-        $userInfo = getUserInfo($user);
-        var_dump($user);
+        var_dump($user->id);
         die();
     }
     public function saveProfile(){

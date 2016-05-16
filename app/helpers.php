@@ -17,7 +17,7 @@
     		$user = Auth::user();
     		$userInfo->name = $user->name;
     		$userInfo->group = $user->group;
-    		$userInfo->summID = $user->summoner_id;
+    		$userInfo->summoner_id = $user->summoner_id;
     	}
     	return $userInfo;
 	}

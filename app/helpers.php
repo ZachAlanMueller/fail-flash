@@ -23,7 +23,7 @@
 	}
 
 	function updateSummoner($id){ //This function updates summoners, summoner_games, but doesn't update individual game information.
-		$summonerInfo = API_Summoner($id);
+		$summonerInfo = API_SummonerID($id);
 		var_dump($summonerInfo);
 	}
 

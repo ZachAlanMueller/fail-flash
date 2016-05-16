@@ -1,12 +1,26 @@
 <?php
 
-	function API_Summoner($summoner_name){ //https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/Zaedonn?api_key=63d2786a-0782-49c7-a7fd-f1728e6c5071
+	function API_SummonerName($summoner_name){ //https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/Zaedonn?api_key=63d2786a-0782-49c7-a7fd-f1728e6c5071
 		try{
 			$api_key = getAPI();
 			$summoner_name = trim($summoner_name);
 			$summoner_name = str_replace(' ', '', strtolower($summoner_name));
 			$info = json_decode(file_get_contents("https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/".$summoner_name."?api_key=".$api_key));
 			$info = $info->$summoner_name;
+			return $info;
+		}
+		catch(Exception $e){
+			var_dump("Error: ".$e);
+			die();
+		}
+		
+	}
+
+	function API_SummonerID($summoner_id){ //https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/Zaedonn?api_key=63d2786a-0782-49c7-a7fd-f1728e6c5071
+		try{
+			$api_key = getAPI();
+			$info = json_decode(file_get_contents("https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/".$summoner_id."?api_key=".$api_key));
+			$info = $info->$summoner_id;
 			return $info;
 		}
 		catch(Exception $e){

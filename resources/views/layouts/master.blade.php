@@ -78,7 +78,8 @@
                     {{ Form::close() }}
                 </li>
                 @if (Auth::guest())
-                @elseif($userInfo->group =="admin")
+                @elseif(isset($userInfo))
+                @if($userInfo->group =="admin")
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -101,6 +102,7 @@
                     <!-- /.dropdown-alerts -->
                 </li>
                 <!-- /.dropdown -->
+                @endif
                 @endif
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">

@@ -15,7 +15,10 @@ class MainController extends Controller
     public function landingPage()
     {
         if(Auth::check()){
-            return view('main'); // user IS logged in
+            $userInfo = getUserInfo();
+            return view('main')
+                ->with('userInfo', $userInfo);
+             // user IS logged in
         }
     	else{
             return view('main');

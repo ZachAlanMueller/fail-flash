@@ -24,7 +24,7 @@
 			return $info;
 		}
 		catch(Exception $e){
-			var_dump("Error: ".$e);
+			print("An Error Occured. It has been logged, please contact me and I will look into it.");
 			die();
 		}
 		

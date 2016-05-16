@@ -24,7 +24,13 @@
 
 	function updateSummoner($id){ //This function updates summoners, summoner_games, but doesn't update individual game information.
 		$summonerInfo = API_SummonerID($id);
-		var_dump($summonerInfo);
+		$count = DB::table('summoners')->where('id', $summonerInfo->id)->count();
+		if($count < 1){
+			DB::table('summoners')->insert(array('name' => $summonerInfo->name, 'id' => $summonerInfo->id, 'profile_icon_id' => $summonerInfo->profileIconId));
+		}
+		else{
+			DB::table('summoners')->where('id', $summonerInfo->id)->update(array('name' => $summonerInfo->name, 'id' => $summonerInfo->id, 'profile_icon_id' => $summonerInfo->profileIconId));
+		}
 	}
 
 	function getAPI(){

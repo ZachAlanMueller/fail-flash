@@ -54,7 +54,7 @@
                 $count = DB::table('summoner_games')->where('game_id', $game->game_id)->where('summoner_id', $participant->player->summonerId)->count();
                 if($count < 1){
                     //insert
-                    DB::table('summoner_games')->insert(array())
+                    DB::table('summoner_games')->insert(array());
                 }
                 else{
                     //update

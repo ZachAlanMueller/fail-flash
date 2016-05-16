@@ -68,7 +68,9 @@ class UpdateController extends Controller
         }
     }
     
-
+    public function updatesummonerByName($name){
+        
+    }
 
 
 

@@ -13,7 +13,7 @@
 
 Route::get('/home', array('uses' => 'MainController@redirectHome'));
 Route::get('/register', array('uses' => 'MainController@redirectHome'));
-Route::get('/', array('as' => 'home', 'uses' => 'MainController@home'));
+Route::get('/', array('as' => 'home', 'uses' => 'MainController@landingPage'));
 Route::post('/search-summoner', array('as' => 'search-summoner', 'uses' => 'MainController@searchSummoner'));
 //User Profile
 Route::get('/user/profile', array('as' => 'profile-edit', 'uses' => 'MainController@editProfile'));

@@ -12,20 +12,13 @@ use App\Http\Requests;
 
 class MainController extends Controller
 {
-    public function home()
+    public function landingPage()
     {
-        var_dump($userInfo);
-        die();
-    	$userInfo = getUserInfo();
-        if ($userInfo->summID != NULL){
-            updateSummoner($userInfo->summID);
-
-        	return view('main')
-        		->with('userInfo', $userInfo);
+        if(Auth::check()){
+            return view('main'); // user IS logged in
         }
-        else{
-            return Redirect::route('profile-edit')
-                ->with('userInfo', $userInfo);
+    	else{
+            return view('main');
         }
     }
 

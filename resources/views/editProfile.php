@@ -16,11 +16,11 @@
     				Database Updates
     			</div>
     			<div class='panel-body'>
-    				{{ Form::open(['route' => 'update-database']) }}
+    				{{ Form::open(['route' => 'update-profile']) }}
 	    			<div class='row'>
 	    				<div class='col-xs-12'>
-	    					{{ Form::checkbox('champions', 'value') }}
-	    					Update Champions Table
+	    					{{ Form::text('email', $userInfo) }}
+	    					Email
 	    				</div>
 	    			</div>
 	    		</div>

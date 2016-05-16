@@ -25,7 +25,8 @@
         },
     "files": 
         [
-            "app/helpers.php" 
+            "app/helpers.php",
+            "app/apicalls.php"
         ]
     },
     "autoload-dev": {

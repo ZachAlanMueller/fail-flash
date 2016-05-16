@@ -10,7 +10,8 @@
 			return $info;
 		}
 		catch(Exception $e){
-
+			var_dump("Error: ".$e);
+			die();
 		}
 		
 	}

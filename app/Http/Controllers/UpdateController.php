@@ -64,16 +64,10 @@ class UpdateController extends Controller
                 else{
                     //update
                 }
-            }
-
-
-
-
-
-            
+            }        
         }
     }
-    }
+    
 
 
 

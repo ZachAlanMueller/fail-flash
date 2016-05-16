@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\UpdateController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -69,7 +69,7 @@ class UpdateController extends Controller
     }
     
     public function updatesummonerByName($name){
-        
+
     }
 
 

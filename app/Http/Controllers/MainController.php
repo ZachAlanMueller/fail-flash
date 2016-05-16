@@ -14,6 +14,8 @@ class MainController extends Controller
 {
     public function home()
     {
+        var_dump($userInfo);
+        die();
     	$userInfo = getUserInfo();
         if ($userInfo->summID != NULL){
             updateSummoner($userInfo->summID);

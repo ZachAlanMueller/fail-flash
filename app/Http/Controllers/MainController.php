@@ -14,11 +14,12 @@ class MainController extends Controller
 {
     public function landingPage()
     {
+
         if(Auth::check()){
             $userInfo = getUserInfo();
             return view('main')
+
                 ->with('userInfo', $userInfo);
-             // user IS logged in
         }
     	else{
             return view('main');
@@ -34,6 +35,23 @@ class MainController extends Controller
         $name = $form['search']; 
     	print $name;
     }
+
+    public function updateSummonerById($id){
+        updateSummoner($id);
+        var_dump('Done');
+        die();
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     public function editProfile(){
         $user = Auth::user();

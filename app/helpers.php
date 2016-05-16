@@ -22,34 +22,7 @@
     	return $userInfo;
 	}
 
-	function updateSummoner($id){ //This function updates summoners, summoner_games, but doesn't update individual game information.
-		$summonerInfo = API_SummonerID($id);
-		$count = DB::table('summoners')->where('id', $summonerInfo->id)->count();
-		if($count < 1){
-			DB::table('summoners')->insert(array('name' => $summonerInfo->name, 'id' => $summonerInfo->id, 'profile_icon_id' => $summonerInfo->profileIconId));
-		}
-		else{
-			DB::table('summoners')->where('id', $summonerInfo->id)->update(array('name' => $summonerInfo->name, 'id' => $summonerInfo->id, 'profile_icon_id' => $summonerInfo->profileIconId));
-		}
-
-		$summonerGames = API_Matchlist($id);
-		foreach($summonerGames as $game){
-			$count = DB::table('summoner_games')->where('game_id', $game->matchId)->count();
-			if($count < 1){
-				DB::table('summoner_games')->insert(array('id' => $id . "-" . $game->matchId, 'summoner_id' => $id, 'champ_id' => $game->champion, 'role' => $game->role, 'lane' => $game->lane, 'timestamp' => $game->timestamp, 'queue' => $game->queue, 'season' => $game->season, 'game_id' => $game->matchId));
-			}
-			else{
-				DB::table('summoner_games')->where('id', $id . '-' . $game->matchId)->update(array('id' => $id . "-" . $game->matchId, 'summoner_id' => $id, 'champ_id' => $game->champion, 'role' => $game->role, 'lane' => $game->lane, 'timestamp' => $game->timestamp, 'queue' => $game->queue, 'season' => $game->season, 'game_id' => $game->matchId));
-			}
-		}
-
-
-
-
-
-
-	}
-
+	
 
 
 

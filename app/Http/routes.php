@@ -22,8 +22,8 @@ Route::post('/user/profile', array('as' => 'update-profile', 'uses' => 'MainCont
 
 
 //Update Summoner (Poor Optimization..)
-Route::get('/summoner-update/{id}', array('as' => 'summoner-update-id', 'uses' => 'MainController@updateSummonerById'));
-Route::get('/summoner-update/{name}', array('as' => 'summoner-update-name', 'uses' => 'MainController@updateSummonerByName'));
+Route::get('/summoner-update/{id}', array('as' => 'summoner-update-id', 'uses' => 'UpdateController@updateSummonerById'));
+Route::get('/summoner-update/{name}', array('as' => 'summoner-update-name', 'uses' => 'UpdateController@updateSummonerByName'));
 
 //Admin routes
 Route::get('/admin/updates', array('as' => 'admin-updates', 'uses' => 'AdminController@updates'));

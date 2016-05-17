@@ -35,8 +35,10 @@ class updateSummoner extends Command
      *
      * @return mixed
      */
-    public function handle($id)
+    public function handle()
     {
+        $arguments = $this->argument();
+        print($arguments);
         updateSummoner($id);
     }
 }

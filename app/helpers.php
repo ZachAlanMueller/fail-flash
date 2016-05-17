@@ -48,42 +48,42 @@
         foreach($games as $game){   //Go By Game
             $info = API_Match($game->game_id);
             foreach($info->participantIdentities as $participant){ //Go By Participant
-                $playerNumber = $participant->participantId;
+                ($playerNumber) = $participant->participantId;
                 $count = DB::table('summoner_games')->where('game_id', $game->game_id)->where('summoner_id', $participant->player->summonerId)->count();
                 if($count < 1){
                     //insert
                     DB::table('summoner_games')->insert(array(
                     	'id' => $participant->player->summonerId . "-" . $game->game_id ,
 						'summoner_id' => $participant->player->summonerId,
-						'champ_id' => $info->participants->$playerNumber->championId,
+						'champ_id' => $info->participants->($playerNumber)->championId,
 						'queue' =>  $info->queueType,
 						'season' =>  $info->season,
 						'game_id' => $info->matchId,
-						'lane' =>  $info->participants->$playerNumber->stats->lane,
-						'role' =>  $info->participants->$playerNumber->stats->role,
+						'lane' =>  $info->participants->($playerNumber)->stats->lane,
+						'role' =>  $info->participants->($playerNumber)->stats->role,
 						'timestamp' => $info->matchCreation,
-						'item0' => $info->participants->$playerNumber->stats->item0,
-						'item1' => $info->participants->$playerNumber->stats->item1,
-						'item2' => $info->participants->$playerNumber->stats->item2,
-						'item3' => $info->participants->$playerNumber->stats->item3,
-						'item4' => $info->participants->$playerNumber->stats->item4,
-						'item5' => $info->participants->$playerNumber->stats->item5,
-						'item6' => $info->participants->$playerNumber->stats->item6,
-						'total_damage_to_champs' => $info->participants->$playerNumber->stats->totalDamageDealtToChampions,
-						'magic_damage_to_champs' => $info->participants->$playerNumber->stats->magicDamageDealtToChampions,
-						'physical_damage_to_champs' => $info->participants->$playerNumber->stats->physicalDamageDealtToChampions,
-						'true_damage_to_champs' => $info->participants->$playerNumber->stats->trueDamageDealtToChampions,
-						'kills' => $info->participants->$playerNumber->stats->kills,
-						'deaths' => $info->participants->$playerNumber->stats->deaths,
-						'assits' => $info->participants->$playerNumber->stats->assists,
-						'total_damage_taken' => $info->participants->$playerNumber->stats->totalDamageTaken,
-						'magic_damage_taken' => $info->participants->$playerNumber->stats->magicDamageTaken,
-						'physical_damage_taken' => $info->participants->$playerNumber->stats->physicalDamageTaken,
-						'true_damage_taken' => $info->participants->$playerNumber->stats->trueDamageTaken,
-						'wards_placed' => $info->participants->$playerNumber->stats->wardsPlaced,
-						'wards_killed' => $info->participants->$playerNumber->stats->wardsKilled,
-						'gold_earned' => $info->participants->$playerNumber->stats->goldEarned,
-						'minions_killed' => $info->participants->$playerNumber->stats->mnionsKilled));
+						'item0' => $info->participants->($playerNumber)->stats->item0,
+						'item1' => $info->participants->($playerNumber)->stats->item1,
+						'item2' => $info->participants->($playerNumber)->stats->item2,
+						'item3' => $info->participants->($playerNumber)->stats->item3,
+						'item4' => $info->participants->($playerNumber)->stats->item4,
+						'item5' => $info->participants->($playerNumber)->stats->item5,
+						'item6' => $info->participants->($playerNumber)->stats->item6,
+						'total_damage_to_champs' => $info->participants->($playerNumber)->stats->totalDamageDealtToChampions,
+						'magic_damage_to_champs' => $info->participants->($playerNumber)->stats->magicDamageDealtToChampions,
+						'physical_damage_to_champs' => $info->participants->($playerNumber)->stats->physicalDamageDealtToChampions,
+						'true_damage_to_champs' => $info->participants->($playerNumber)->stats->trueDamageDealtToChampions,
+						'kills' => $info->participants->($playerNumber)->stats->kills,
+						'deaths' => $info->participants->($playerNumber)->stats->deaths,
+						'assits' => $info->participants->($playerNumber)->stats->assists,
+						'total_damage_taken' => $info->participants->($playerNumber)->stats->totalDamageTaken,
+						'magic_damage_taken' => $info->participants->($playerNumber)->stats->magicDamageTaken,
+						'physical_damage_taken' => $info->participants->($playerNumber)->stats->physicalDamageTaken,
+						'true_damage_taken' => $info->participants->($playerNumber)->stats->trueDamageTaken,
+						'wards_placed' => $info->participants->($playerNumber)->stats->wardsPlaced,
+						'wards_killed' => $info->participants->($playerNumber)->stats->wardsKilled,
+						'gold_earned' => $info->participants->($playerNumber)->stats->goldEarned,
+						'minions_killed' => $info->participants->($playerNumber)->stats->mnionsKilled));
                 }
                 else{
                     //update

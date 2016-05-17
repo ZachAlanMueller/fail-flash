@@ -38,7 +38,6 @@ class updateSummoner extends Command
     public function handle()
     {
         $arguments = $this->argument();
-        print($arguments);
-        updateSummoner($id);
+        updateSummoner($arguments[0]);
     }
 }

@@ -56,7 +56,7 @@
 		                    DB::table('summoner_games')->insert(array(
 		                    	'id' => $participantIdentity->player->summonerId . "-" . $info->matchId ,
 								'summoner_id' => $participantIdentity->player->summonerId,
-								'champ_id' => $participantIdentity->championId,
+								'champ_id' => $participant->championId,
 								'queue' =>  $info->queue,
 								'season' =>  $info->season,
 								'game_id' => $info->matchId,

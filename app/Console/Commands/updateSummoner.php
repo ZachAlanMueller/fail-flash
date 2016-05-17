@@ -3,7 +3,13 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\helpers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Input;
+use Auth;
+use stdClass;
+use DB;
+use App\Http\Requests;
 
 class updateSummoner extends Command
 {

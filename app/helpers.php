@@ -57,7 +57,7 @@
 		                    	'id' => $participantIdentity->player->summonerId . "-" . $info->matchId ,
 								'summoner_id' => $participantIdentity->player->summonerId,
 								'champ_id' => $participant->championId,
-								'queue' =>  $info->queue,
+								'queue' =>  $info->queueType,
 								'season' =>  $info->season,
 								'game_id' => $info->matchId,
 								'team_id' => $participant->teamId,

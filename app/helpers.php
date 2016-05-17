@@ -50,12 +50,12 @@
             foreach($info->participantIdentities as $participantIdentity){ //Go By Participant
                 foreach($info->participants as $participant){
                 	if($participantIdentity->participantId == $participant->participantId){
-		                $count = DB::table('summoner_games')->where('game_id', $game->game_id)->where('summoner_id', $participant->player->summonerId)->count();
+		                $count = DB::table('summoner_games')->where('game_id', $game->game_id)->where('summoner_id', $participantIdentity->player->summonerId)->count();
 		                if($count < 1){
 		                    //insert
 		                    DB::table('summoner_games')->insert(array(
 		                    	'id' => $participant->player->summonerId . "-" . $info->matchId ,
-								'summoner_id' => $participantIdentity->summonerId,
+								'summoner_id' => $participantIdentity->player->summonerId,
 								'champ_id' => $participantIdentity->championId,
 								'queue' =>  $info->queue,
 								'season' =>  $info->season,

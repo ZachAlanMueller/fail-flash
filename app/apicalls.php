@@ -26,7 +26,7 @@
 			return $info;
 		}
 		catch(Exception $e){
-			print("An Error Occured. It has been logged, please contact me and I will look into it.");
+			print("An Error Occured\n\n" . $e);
 			die();
 		}
 		
@@ -41,7 +41,7 @@
 			return $info;
 		}
 		catch(Exception $e){
-			print("An Error Occured. It has been logged, please contact me and I will look into it.");
+			print("An Error Occured\n\n" . $e);
 			die();
 		}
 	}
@@ -54,7 +54,7 @@
 			return $info;
 		}
 		catch(Exception $e){
-			print("An Error Occured. It has been logged, please contact me and I will look into it.");
+			print("An Error Occured\n\n" . $e);
 			die();
 		}
 	}

@@ -48,7 +48,7 @@
         foreach($games as $game){   //Go By Game
             $info = API_Match($game->game_id);
             foreach($info->participantIdentities as $participant){ //Go By Participant
-                $playerNumber = $participant;
+                $playerNumber = $participant->participantId;
                 var_dump($playerNumber);
                 die();
                 $count = DB::table('summoner_games')->where('game_id', $game->game_id)->where('summoner_id', $participant->player->summonerId)->count();

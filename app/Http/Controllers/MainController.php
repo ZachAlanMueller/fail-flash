@@ -17,6 +17,8 @@ class MainController extends Controller
 
         if(Auth::check()){
             $userInfo = getUserInfo();
+            var_dump($userInfo->summoner_id);
+            die();
             updateSummonerById($userInfo->summoner_id);
             return view('main')
                 ->with('userInfo', $userInfo);

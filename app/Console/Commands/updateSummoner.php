@@ -39,9 +39,7 @@ class updateSummoner extends Command
     public function handle()
     {
         $arguments = $this->argument();
-        var_dump($arguments);
-        die();
-        $id = $arguments[0];
+        $id = $arguments['id'];
         $summonerInfo = API_SummonerID($id);
         $count = DB::table('summoners')->where('id', $summonerInfo->id)->count();
         if($count < 1){

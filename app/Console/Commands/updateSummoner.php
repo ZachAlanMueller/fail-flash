@@ -11,14 +11,14 @@ class updateSummoner extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'updateSummoner {id}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Update a summoner';
 
     /**
      * Create a new command instance.
@@ -35,8 +35,8 @@ class updateSummoner extends Command
      *
      * @return mixed
      */
-    public function handle()
+    public function handle($id)
     {
-        //
+        updateSummoner($id);
     }
 }

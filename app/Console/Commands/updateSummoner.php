@@ -109,7 +109,39 @@ class updateSummoner extends Command
                                 'minions_killed' => $participant->stats->minionsKilled));
                         }
                         else{
-                            //update
+                            DB::table('summoner_games')->where('id', $participantIdentity->player->summonerId . "-" . $info->matchId)->update(array(
+                                'id' => $participantIdentity->player->summonerId . "-" . $info->matchId ,
+                                'summoner_id' => $participantIdentity->player->summonerId,
+                                'champ_id' => $participant->championId,
+                                'queue' =>  $info->queueType,
+                                'season' =>  $info->season,
+                                'game_id' => $info->matchId,
+                                'team_id' => $participant->teamId,
+                                'lane' =>  $participant->timeline->lane,
+                                'role' =>  $participant->timeline->role,
+                                'timestamp' => $info->matchCreation,
+                                'item0' => $participant->stats->item0,
+                                'item1' => $participant->stats->item1,
+                                'item2' => $participant->stats->item2,
+                                'item3' => $participant->stats->item3,
+                                'item4' => $participant->stats->item4,
+                                'item5' => $participant->stats->item5,
+                                'item6' => $participant->stats->item6,
+                                'total_damage_to_champs' => $participant->stats->totalDamageDealtToChampions,
+                                'magic_damage_to_champs' => $participant->stats->magicDamageDealtToChampions,
+                                'physical_damage_to_champs' => $participant->stats->physicalDamageDealtToChampions,
+                                'true_damage_to_champs' => $participant->stats->trueDamageDealtToChampions,
+                                'kills' => $participant->stats->kills,
+                                'deaths' => $participant->stats->deaths,
+                                'assits' => $participant->stats->assists,
+                                'total_damage_taken' => $participant->stats->totalDamageTaken,
+                                'magic_damage_taken' => $participant->stats->magicDamageTaken,
+                                'physical_damage_taken' => $participant->stats->physicalDamageTaken,
+                                'true_damage_taken' => $participant->stats->trueDamageTaken,
+                                'wards_placed' => $participant->stats->wardsPlaced,
+                                'wards_killed' => $participant->stats->wardsKilled,
+                                'gold_earned' => $participant->stats->goldEarned,
+                                'minions_killed' => $participant->stats->minionsKilled));
                         }
                     }
                 }

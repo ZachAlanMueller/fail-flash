@@ -54,7 +54,7 @@
 		                if($count < 1){
 		                    //insert
 		                    DB::table('summoner_games')->insert(array(
-		                    	'id' => $participant->player->summonerId . "-" . $info->matchId ,
+		                    	'id' => $participantIdentity->player->summonerId . "-" . $info->matchId ,
 								'summoner_id' => $participantIdentity->player->summonerId,
 								'champ_id' => $participantIdentity->championId,
 								'queue' =>  $info->queue,

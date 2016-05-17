@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\helpers
+use App\helpers;
 
 class updateSummoner extends Command
 {

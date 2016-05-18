@@ -196,7 +196,7 @@ class updateSummoner extends Command
                             DB::table('frame_events')->insert($arrayTemp);
                         }
                         else{
-                            DB::talbE('frame_events')->where('id', $info->matchId . '-' . $eventId . '-' . $event->timestamp . '-' . $event->participantId)->update($arrayTemp);
+                            DB::table('frame_events')->where('id', $info->matchId . '-' . $eventId . '-' . $event->timestamp . '-' . $event->participantId)->update($arrayTemp);
                         }
                     }
                 }

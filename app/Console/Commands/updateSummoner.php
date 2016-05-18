@@ -181,24 +181,22 @@ class updateSummoner extends Command
                 }
                 if(isset($frame->events)){
                     foreach($frame->events as $eventId => $event){
-                        $count = DB::table('frame_events')->where('id', $info->matchId . '-' . $eventId . '-' . $event->timestamp . '-' . $event->participantId)->count();
+                        $count = DB::table('frame_events')->where('id', $info->matchId . '-' . $eventId . '-' . $event->timestamp)->count();
                         $arrayTemp = array(
-                                'id' => $info->matchId . '-' . $eventId . '-' . $event->timestamp . '-' . $event->participantId,
+                                'id' => $info->matchId . '-' . $eventId . '-' . $event->timestamp,
                                 'game_id' => $info->matchId,
                                 'event_type' => $event->eventType,
                                 'timestamp' => $event->timestamp,
                                 'event_id' => $eventId);
                         if(isset($event->participantId)){
-                            print "a1\n";
                             $arrayTemp['participant_id'] = $event->participantId;
-                            print "a1:success\n";
                         }
 
                         if($count < 1){
                             DB::table('frame_events')->insert($arrayTemp);
                         }
                         else{
-                            DB::table('frame_events')->where('id', $info->matchId . '-' . $eventId . '-' . $event->timestamp . '-' . $event->participantId)->update($arrayTemp);
+                            DB::table('frame_events')->where('id', $info->matchId . '-' . $eventId . '-' . $event->timestamp)->update($arrayTemp);
                         }
                     }
                 }

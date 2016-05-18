@@ -68,6 +68,9 @@ class updateSummoner extends Command
         $games = DB::table('summoner_games')->where('summoner_id', $id)->get();//Get All Games...
         foreach($games as $game){   //Go By Game
             $info = API_Match($game->game_id);
+            if($info == 500){
+                continue;
+            }
             foreach($info->participantIdentities as $participantIdentity){ //Go By Participant
                 foreach($info->participants as $participant){
                     if($participantIdentity->participantId == $participant->participantId){

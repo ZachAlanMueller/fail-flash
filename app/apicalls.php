@@ -54,8 +54,17 @@
 			return $info;
 		}
 		catch(Exception $e){
-			print("An Error Occured\n\n" . $e);
-			die();
+			if (strpos($e, '404 Not Found') !== false) {
+				return 404;
+			}
+			elseif (strpos($e, '500 Server Error') !== false){
+				return 500;
+			}
+			else{
+				print "An Error Occured!!!!!: \n\n" . $e;
+				die();
+			}
+
 		}
 	}
 

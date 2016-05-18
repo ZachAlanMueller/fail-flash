@@ -155,7 +155,31 @@ class updateSummoner extends Command
                 var_dump($frame);
                 die();
                 foreach($frame->participantFrames as $pFrame){
-                    
+                    $count = DB::table('frames')->where('id', $info->matchId . '-' . $frame->timestamp . '-' . $pFrame->participantId)->count();
+                    if($count < 1){
+                        DB::table('frames')->insert(array(
+                            'id' => $info->matchId . "-" . $frame->timestamp . "-" . $pFrame->participantId,
+                            'game_id' => $info->matchId,
+                            'participant_id' => $pFrame->participantId,
+                            'timestamp' => $frame->timestamp,
+                            'current_gold' => $pFrame->currentGold,
+                            'total_gold' => $pFrame->totalGold,
+                            'minions_killed' => $pFrame->minionsKilled,
+                            'level' => $pFrame->level,
+                            'xp' => $pFrame->xp));
+                    }
+                    else{
+                        DB::table('frames')->where('id', $info->matchId .'-' .$fram->timestamp . '-' . $pframe->participantId)->update(array(
+                            'id' => $info->matchId . "-" . $frame->timestamp . "-" . $pFrame->participantId,
+                            'game_id' => $info->matchId,
+                            'participant_id' => $pFrame->participantId,
+                            'timestamp' => $frame->timestamp,
+                            'current_gold' => $pFrame->currentGold,
+                            'total_gold' => $pFrame->totalGold,
+                            'minions_killed' => $pFrame->minionsKilled,
+                            'level' => $pFrame->level,
+                            'xp' => $pFrame->xp));
+                    }
                 }
             }       
         }

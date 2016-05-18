@@ -189,7 +189,9 @@ class updateSummoner extends Command
                                 'timestamp' => $event->timestamp,
                                 'event_id' => $eventId);
                         if(isset($event->participantId)){
+                            print "a1\n";
                             $arrayTemp['participant_id'] = $event->participantId;
+                            print "a1:success\n";
                         }
 
                         if($count < 1){

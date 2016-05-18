@@ -60,7 +60,7 @@
 			elseif (strpos($e, '500 Server Error') !== false){
 				return 500;
 			}
-			elseif(strpos($e, '504 GATE') != false){
+			elseif(strpos($e, '504 GATEWAY_TIMEOUT') != false){
 				return 504;
 			}
 			else{

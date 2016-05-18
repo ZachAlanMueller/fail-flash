@@ -167,7 +167,7 @@ class updateSummoner extends Command
                             'xp' => $pFrame->xp));
                     }
                     else{
-                        DB::table('frames')->where('id', $info->matchId .'-' .$fram->timestamp . '-' . $pframe->participantId)->update(array(
+                        DB::table('frames')->where('id', $info->matchId .'-' .$frame->timestamp . '-' . $pframe->participantId)->update(array(
                             'id' => $info->matchId . "-" . $frame->timestamp . "-" . $pFrame->participantId,
                             'game_id' => $info->matchId,
                             'participant_id' => $pFrame->participantId,

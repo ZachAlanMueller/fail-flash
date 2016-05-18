@@ -179,7 +179,12 @@ class updateSummoner extends Command
                             'xp' => $pFrame->xp));
                     }
                 }
-            }       
+                if(isset($frame->events)){
+                    foreach($frame->events as $event){
+                        $count = DB::table('frame_events')
+                    }
+                }
+            }  
         }
     }
 }

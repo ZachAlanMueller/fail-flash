@@ -60,6 +60,9 @@
 			elseif (strpos($e, '500 Server Error') !== false){
 				return 500;
 			}
+			elseif(strpos($e, '504 GATE') != false){
+				return 504;
+			}
 			else{
 				print "An Error Occured!!!!!: \n\n" . $e;
 				die();

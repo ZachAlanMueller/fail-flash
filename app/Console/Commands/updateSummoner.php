@@ -68,7 +68,7 @@ class updateSummoner extends Command
         $games = DB::table('summoner_games')->where('summoner_id', $id)->get();//Get All Games...
         foreach($games as $game){   //Go By Game
             $info = API_Match($game->game_id);
-            if(is_int($info){
+            if(is_int($info)){
                 continue;
             }
             foreach($info->participantIdentities as $participantIdentity){ //Go By Participant

@@ -180,7 +180,7 @@ class updateSummoner extends Command
                     }
                 }
                 if(isset($frame->events)){
-                    foreach($frame->events as $eventID => $event){
+                    foreach($frame->events as $eventId => $event){
                         $count = DB::table('frame_events')->where('id', $info->matchId . '-' . $eventId . '-' . $event->timestamp . '-' . $event->participantId)->count();
                         if($count < 1){
                             DB::table('frame_events')->insert(array(

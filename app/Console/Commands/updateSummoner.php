@@ -150,7 +150,14 @@ class updateSummoner extends Command
                         }
                     }
                 }
-            }        
+            } 
+            foreach($info->timeline->frames as $frame){
+                var_dump($frame);
+                die();
+                foreach($frame->participantFrames as $pFrame){
+                    
+                }
+            }       
         }
     }
 }

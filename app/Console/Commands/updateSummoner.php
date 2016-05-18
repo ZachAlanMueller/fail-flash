@@ -180,8 +180,26 @@ class updateSummoner extends Command
                     }
                 }
                 if(isset($frame->events)){
-                    foreach($frame->events as $event){
-                        $count = DB::table('frame_events')
+                    foreach($frame->events as $eventID => $event){
+                        $count = DB::table('frame_events')->where('id', $info->matchId . '-' . $eventId . '-' . $event->timestamp . '-' . $event->participantId)->count();
+                        if($count < 1){
+                            DB::table('frame_events')->insert(array(
+                                'id' => $info->matchId . '-' . $eventId . '-' . $event->timestamp . '-' . $event->participantId, 
+                                'participant_id' => $event->participantId,
+                                'game_id' => $info->matchId,
+                                'event_type' => $event->eventType,
+                                'timestamp' => $event->timestamp,
+                                'event_id' => $eventId));
+                        }
+                        else{
+                            DB::talbE('frame_events')->where('id', $info->matchId . '-' . $eventId . '-' . $event->timestamp . '-' . $event->participantId)->update(array(
+                                'id' => $info->matchId . '-' . $eventId . '-' . $event->timestamp . '-' . $event->participantId, 
+                                'participant_id' => $event->participantId,
+                                'game_id' => $info->matchId,
+                                'event_type' => $event->eventType,
+                                'timestamp' => $event->timestamp,
+                                'event_id' => $eventId));
+                        }
                     }
                 }
             }  

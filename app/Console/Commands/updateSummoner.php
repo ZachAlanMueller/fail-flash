@@ -182,23 +182,21 @@ class updateSummoner extends Command
                 if(isset($frame->events)){
                     foreach($frame->events as $eventId => $event){
                         $count = DB::table('frame_events')->where('id', $info->matchId . '-' . $eventId . '-' . $event->timestamp . '-' . $event->participantId)->count();
-                        if($count < 1){
-                            DB::table('frame_events')->insert(array(
-                                'id' => $info->matchId . '-' . $eventId . '-' . $event->timestamp . '-' . $event->participantId, 
-                                'participant_id' => $event->participantId,
+                        $arrayTemp = array(
+                                'id' => $info->matchId . '-' . $eventId . '-' . $event->timestamp . '-' . $event->participantId,
                                 'game_id' => $info->matchId,
                                 'event_type' => $event->eventType,
                                 'timestamp' => $event->timestamp,
-                                'event_id' => $eventId));
+                                'event_id' => $eventId);
+                        if(isset($event->participantId)){
+                            $arrayTemp['participant_id'] = $event->participantId;
+                        }
+
+                        if($count < 1){
+                            DB::table('frame_events')->insert($arrayTemp);
                         }
                         else{
-                            DB::talbE('frame_events')->where('id', $info->matchId . '-' . $eventId . '-' . $event->timestamp . '-' . $event->participantId)->update(array(
-                                'id' => $info->matchId . '-' . $eventId . '-' . $event->timestamp . '-' . $event->participantId, 
-                                'participant_id' => $event->participantId,
-                                'game_id' => $info->matchId,
-                                'event_type' => $event->eventType,
-                                'timestamp' => $event->timestamp,
-                                'event_id' => $eventId));
+                            DB::talbE('frame_events')->where('id', $info->matchId . '-' . $eventId . '-' . $event->timestamp . '-' . $event->participantId)->update($arrayTemp);
                         }
                     }
                 }

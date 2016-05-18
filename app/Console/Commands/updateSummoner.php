@@ -106,7 +106,8 @@ class updateSummoner extends Command
                                 'wards_placed' => $participant->stats->wardsPlaced,
                                 'wards_killed' => $participant->stats->wardsKilled,
                                 'gold_earned' => $participant->stats->goldEarned,
-                                'minions_killed' => $participant->stats->minionsKilled));
+                                'minions_killed' => $participant->stats->minionsKilled,
+                                'participant_id' => $participant->participantId));
                         }
                         else{
                             DB::table('summoner_games')->where('id', $participantIdentity->player->summonerId . "-" . $info->matchId)->update(array(
@@ -141,7 +142,8 @@ class updateSummoner extends Command
                                 'wards_placed' => $participant->stats->wardsPlaced,
                                 'wards_killed' => $participant->stats->wardsKilled,
                                 'gold_earned' => $participant->stats->goldEarned,
-                                'minions_killed' => $participant->stats->minionsKilled));
+                                'minions_killed' => $participant->stats->minionsKilled,
+                                'participant_id' => $participant->participantId));
                         }
                     }
                 }

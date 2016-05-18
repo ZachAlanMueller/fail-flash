@@ -70,7 +70,7 @@ class updateSummoner extends Command
             $info = API_Match($game->game_id);
             var_dump($info);
             die();
-            if($info == 500 || $info == 404){
+            if(is_int($info){
                 continue;
             }
             foreach($info->participantIdentities as $participantIdentity){ //Go By Participant

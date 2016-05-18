@@ -7,20 +7,17 @@
     	<div class="col-xs-4">
     		<div class='panel panel-info'>
     			<div class='panel-heading'>
-    				Database Updates
+    				Starting..
     			</div>
     			<div class='panel-body'>
-    				{{ Form::open(['route' => 'update-profile']) }}
-	    			<div class='row'>
+    				<div class='row'>
 	    				<div class='col-xs-12'>
-	    					{{ Form::text('email', $userInfo) }}
-	    					Email
+	    					
 	    				</div>
 	    			</div>
 	    		</div>
     			<div class ='panel-footer'>
-    				{{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
-    				{{ Form::close() }}
+    				
     			</div>
 
     	</div>

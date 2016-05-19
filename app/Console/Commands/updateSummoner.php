@@ -193,12 +193,10 @@ class updateSummoner extends Command
                         }
                         if(isset($event->assistingParticipantIds)){
                             foreach($event->assistingParticipantIds as $PNumber => $assistingParticipant){
-                                
-                                var_dump($assistingParticipant);
-                                print "\n\n" . $info->matchId . '-' . $eventId . '-' . $event->timestamp . "\n\n";
-                                $num = $PNumber + 1;
                                 $ref = 'assisting_participant_id_'.$num;
                                 $arrayTest[$ref] = $assistingParticipant;
+                                var_dump($arrayTest);
+                                die();
                             }
                         }
                         if(isset($event->creatorId)){

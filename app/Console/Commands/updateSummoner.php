@@ -251,7 +251,7 @@ class updateSummoner extends Command
                         }
                     }
                 }
-                $counter = DB::table('games')->where('id', $matchID)->count();
+                $counter = DB::table('games')->where('id', $info->matchId)->count();
                 $option = -1;
                 $t1_kills = 0;
                 $t2_kills = 0;
@@ -332,7 +332,7 @@ class updateSummoner extends Command
                                     't2_kills' => $t2_kills ));
                     }
                 }
-                
+
             }  
         }
     }

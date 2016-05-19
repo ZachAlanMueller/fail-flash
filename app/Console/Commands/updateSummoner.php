@@ -191,7 +191,58 @@ class updateSummoner extends Command
                         if(isset($event->participantId)){
                             $arrayTemp['participant_id'] = $event->participantId;
                         }
-
+                        if(isset($event->assistingParticipantIds)){
+                            foreach($event->assistingParticipantIds as $PNumber => $assistingParticipant){
+                                $num = $PNumber + 1;
+                                $ref = 'assisting_participant_id_'.$num;
+                                $arrayTest[$ref]->assistingParticipant;
+                            }
+                        }
+                        if(isset($event->creatorId)){
+                            $arrayTest['creator_id'] = $event->creatorId;
+                        }
+                        if(isset($event->position)){
+                            $arrayTest['position_x'] = $event->position->x;
+                        }
+                        if(isset($event->position)){
+                            $arrayTest['position_y'] = $event->position->y;
+                        }
+                        if(isset($event->itemId)){
+                            $arrayTest['item_id'] = $event->itemId;
+                        }
+                        if(isset($event->killerId)){
+                            $arrayTest['killer_id'] = $event->killerId;
+                        }
+                        if(isset($event->victimId)){
+                            $arrayTest['victim_id'] = $event->victimId;
+                        }
+                        if(isset($event->laneType)){
+                            $arrayTest['lane_type'] = $event->laneType;
+                        }
+                        if(isset($event->buildingType)){
+                            $arrayTest['building_type'] = $event->buildingType;
+                        }
+                        if(isset($event->levelUpType)){
+                            $arrayTest['level_up_type'] = $event->levelUpType;
+                        }
+                        if(isset($event->skillSlot)){
+                            $arrayTest['skill_slot'] = $event->skillSlot;
+                        }
+                        if(isset($event->monsterType)){
+                            $arrayTest['monster_type'] = $event->monsterType;
+                        }
+                        if(isset($event->teamId)){
+                            $arrayTest['team_id'] = $event->teamId;
+                        }
+                        if(isset($event->wardType)){
+                            $arrayTest['ward_type'] = $event->wardType;
+                        }
+                        if(isset($event->itemBefore)){
+                            $arrayTest['item_before'] = $event->itemBefore;
+                        }
+                        if(isset($event->itemAfter)){
+                            $arrayTest['item_after'] = $event->itemAfter;
+                        }
                         if($count < 1){
                             DB::table('frame_events')->insert($arrayTemp);
                         }

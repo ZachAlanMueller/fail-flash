@@ -5,7 +5,7 @@
 @section('content')
     <div class="row">
     	<div class="col-xs-3">
-    		<div class='panel panel-info-primary'>
+    		<div class='panel panel-primary'>
     			<div class='panel-heading'>
     				Top Played Champions
     			</div>

@@ -15,11 +15,12 @@
     			<div class ='panel-footer'>
     				
     			</div>
-
+    		</div>
     	</div>
     	<div class="col-xs-9">
-    		<div class='panel-heading'>
-    				Latest Game
+    		<div class='panel panel-primary'>
+    			<div class='panel-heading'>
+    				Top Played Champions
     			</div>
     			<div class='panel-body'>
     				
@@ -27,6 +28,7 @@
     			<div class ='panel-footer'>
     				
     			</div>
+    		</div>
     	</div>
     </div>
 @stop

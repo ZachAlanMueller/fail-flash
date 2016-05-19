@@ -195,7 +195,7 @@ class updateSummoner extends Command
                             foreach($event->assistingParticipantIds as $PNumber => $assistingParticipant){
                                 $num = $PNumber + 1;
                                 $ref = 'assisting_participant_id_'.$num;
-                                $arrayTest[$ref]->assistingParticipant;
+                                $arrayTest[$ref] = $assistingParticipant;
                             }
                         }
                         if(isset($event->creatorId)){

@@ -69,6 +69,7 @@ class updateSummoner extends Command
         foreach($games as $game){   //Go By Game
             $info = API_Match($game->game_id);
             if(is_int($info)){
+                sleep(3);
                 continue;
             }
             foreach($info->participantIdentities as $participantIdentity){ //Go By Participant

@@ -31,7 +31,7 @@
 		$state = DB::table('admin')->where('id', 1)->get();
 		$state = $state[0]->state;
 		if($state == 1){
-			sleep(3);
+			sleep(3.5);
 			return;
 		}
 		else{

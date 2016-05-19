@@ -195,7 +195,8 @@ class updateSummoner extends Command
                             foreach($event->assistingParticipantIds as $PNumber => $assistingParticipant){
                                 
                                 var_dump($assistingParticipant);
-                                die();$num = $PNumber + 1;
+                                print "\n\n" . $info->matchId . '-' . $eventId . '-' . $event->timestamp . "\n\n";
+                                $num = $PNumber + 1;
                                 $ref = 'assisting_participant_id_'.$num;
                                 $arrayTest[$ref] = $assistingParticipant;
                             }

@@ -197,9 +197,10 @@ class updateSummoner extends Command
                                 $ref = 'assisting_participant_id_'.$num;
                                 $arrayTest[$ref] = $assistingParticipant;
                                 var_dump($arrayTest);
-                                die();
                             }
                         }
+                        var_dump($arrayTest);
+                        die();
                         if(isset($event->creatorId)){
                             $arrayTest['creator_id'] = $event->creatorId;
                         }

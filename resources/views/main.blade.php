@@ -60,7 +60,7 @@
     			<div class='panel-heading' style="text-align:center">
     				<b>Summoner Name</b>
     			</div>
-    			<div class='panel-body flex-grow'>
+    			<div class='panel-body'>
     				
 	    		</div>
     			<div class ='panel-footer'>
@@ -73,7 +73,7 @@
     			<div class='panel-heading' style="text-align:center">
     				<b>Latest Game</b>
     			</div>
-    			<div class='panel-body flex-grow'>
+    			<div class='panel-body'>
     				<canvas id="myChart" width="400" height="200"></canvas>
 	    		</div>
     			<div class ='panel-footer'>
@@ -86,7 +86,7 @@
     			<div class='panel-heading' style="text-align:center">
     				<b>Recent Games</b>
     			</div>
-    			<div class='panel-body flex-grow'>
+    			<div class='panel-body'>
     				
 	    		</div>
     			<div class ='panel-footer'>

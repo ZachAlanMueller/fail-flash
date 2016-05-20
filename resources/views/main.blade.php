@@ -56,11 +56,11 @@
 
     <div class="row">
     	<div class="col-xs-3">
-    		<div class='panel panel-primary'>
+    		<div class='panel panel-primary flex-col'>
     			<div class='panel-heading' style="text-align:center">
     				<b>Summoner Name</b>
     			</div>
-    			<div class='panel-body'>
+    			<div class='panel-body flex-grow'>
     				
 	    		</div>
     			<div class ='panel-footer'>
@@ -69,11 +69,11 @@
     		</div>
     	</div>
     	<div class="col-xs-6">
-    		<div class='panel panel-primary'>
+    		<div class='panel panel-primary flex-col'>
     			<div class='panel-heading' style="text-align:center">
     				<b>Latest Game</b>
     			</div>
-    			<div class='panel-body'>
+    			<div class='panel-body flex-grow'>
     				<canvas id="myChart" width="400" height="200"></canvas>
 	    		</div>
     			<div class ='panel-footer'>
@@ -82,11 +82,11 @@
     		</div>
     	</div>
     	<div class="col-xs-3">
-    		<div class='panel panel-primary'>
+    		<div class='panel panel-primary flex-col'>
     			<div class='panel-heading' style="text-align:center">
     				<b>Recent Games</b>
     			</div>
-    			<div class='panel-body'>
+    			<div class='panel-body flex-grow'>
     				
 	    		</div>
     			<div class ='panel-footer'>

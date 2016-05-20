@@ -45,6 +45,27 @@
                 overflow: hidden;}[class*="col-"]{
                 margin-bottom:-99999px;
                 padding-bottom:99999px;}
+            .flex-row, .flex-row > div[class*='col-'] {  
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                flex:0 auto;
+                height:100%;
+            }   
+            .flex-col {
+                display: flex;
+                display: -webkit-flex;
+                flex: 1;
+                flex-flow: column nowrap;
+            }
+
+            .flex-grow {
+                display: flex;
+                -webkit-flex: 2;
+                flex: 2;
+            }
         </style>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

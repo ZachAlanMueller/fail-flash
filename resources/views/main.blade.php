@@ -58,7 +58,7 @@
     	<div class="col-xs-3">
     		<div class='panel panel-primary'>
     			<div class='panel-heading' style="text-align:center">
-    				<b>Top Played Champions</b>
+    				<b>Summoner Name</b>
     			</div>
     			<div class='panel-body'>
     				
@@ -68,13 +68,26 @@
     			</div>
     		</div>
     	</div>
-    	<div class="col-xs-9">
+    	<div class="col-xs-6">
     		<div class='panel panel-primary'>
     			<div class='panel-heading' style="text-align:center">
     				<b>Latest Game</b>
     			</div>
     			<div class='panel-body'>
     				<canvas id="myChart" width="400" height="200"></canvas>
+	    		</div>
+    			<div class ='panel-footer'>
+    				
+    			</div>
+    		</div>
+    	</div>
+    	<div class="col-xs-3">
+    		<div class='panel panel-primary'>
+    			<div class='panel-heading' style="text-align:center">
+    				<b>Recent Games</b>
+    			</div>
+    			<div class='panel-body'>
+    				
 	    		</div>
     			<div class ='panel-footer'>
     				

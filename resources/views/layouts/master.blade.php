@@ -45,7 +45,15 @@
                 overflow: hidden;}[class*="col-"]{
                 margin-bottom:-99999px;
                 padding-bottom:99999px;}
-            
+            .equal, .equal > div[class*='col-'] {  
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                flex:1 1 auto;
+            }
+
         </style>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

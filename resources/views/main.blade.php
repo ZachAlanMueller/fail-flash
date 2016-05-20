@@ -17,7 +17,7 @@
 			            borderCapStyle: 'butt',
 			            borderDash: [],
 			            borderDashOffset: 0.0,
-			            borderJoinStyle: 'miter',
+			            borderJoinStyle: 'round',
 			            pointBorderColor: "rgba(75,192,192,1)",
 			            pointBackgroundColor: "#fff",
 			            pointBorderWidth: 1,
@@ -87,7 +87,18 @@
     				<b>Recent Games</b>
     			</div>
     			<div class='panel-body'>
-    				
+    				<div class="panel-group" id="accordion">
+    				@foreach($recentGames as $gameId => $game)
+    				<div class="panel panel-default">
+    					<div class="panel-heading">	
+    						<h4> $game->champions.name;
+    						<div id="collapse-{{$gameId}}" class="panel-collapse collapse in">
+    							<div class="panel-body">
+
+    							</div>
+    						</div>
+    					</div>
+    				</div>
 	    		</div>
     			<div class ='panel-footer'>
     				

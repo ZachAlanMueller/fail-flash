@@ -91,10 +91,10 @@
     				@foreach($recentGames as $gameId => $game)
     				<div class="panel panel-default">
     					<div class="panel-heading">	
-    						<h4> {{$game->name}} </h4>
+    						{{$game->name}}
     						<div id="collapse-{{$gameId}}" class="panel-collapse collapse in">
     							<div class="panel-body">
-
+    								Body
     							</div>
     						</div>
     					</div>

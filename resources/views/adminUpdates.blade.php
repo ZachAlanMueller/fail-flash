@@ -13,7 +13,7 @@
     				{{ Form::open(['route' => 'update-database']) }}
 	    			<div class='row'>
 	    				<div class='col-xs-12'>
-	    					{{ Form::checkbox('champions', 'value', ['class' => 'checkbox-tv']) }}
+	    					{{ Form::checkbox('champions', 'value', null, ['class' => 'checkbox-tv']) }}
 	    					Update Champions Table
 	    				</div>
 	    			</div>

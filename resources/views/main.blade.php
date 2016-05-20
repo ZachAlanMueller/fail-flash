@@ -27,7 +27,7 @@
 			            pointHoverBorderWidth: 2,
 			            pointRadius: 1,
 			            pointHitRadius: 10,
-			            data: [30, 10, , -33, -23, 10, -20],
+			            data: [30, 10, -10, 40, -20, -30, 12],
 			        }
 			    ]
 			};

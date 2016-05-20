@@ -95,7 +95,7 @@
 	                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}">{{$game->name}}</a>
 	                        </h4>
 	                    </div>
-	                    <div id="collapse-{{$gameId}}" class="panel-collapse collapse in">
+	                    <div id="collapse-{{$gameId}}" class="panel-collapse collapse">
 	                        <div class="panel-body">
 	                            Body
 	                        </div>

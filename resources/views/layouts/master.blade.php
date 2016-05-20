@@ -37,9 +37,8 @@
             form{
                 margin-bottom: 0px;
             }
-            .container{
+            .page-wrapper{
                 margin: 20px;
-                width: 100%;
             }
         </style>
 

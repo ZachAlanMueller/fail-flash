@@ -73,8 +73,7 @@ class UpdateController extends Controller
                     file_put_contents(PROFILE_DIRECTORY.'/'.$id.'.png', $content);
                 }
                 catch(Exception $e){
-                    //small problem occured...
-                    // need better catch for this
+                    
                 }
             }
         }

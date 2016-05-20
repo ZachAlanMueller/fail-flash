@@ -34,14 +34,15 @@ class UpdateController extends Controller
                 $champions = json_decode(file_get_contents("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?api_key=".$api_key));
                 define('CHAMP_DIRECTORY', '/home/forge/default/public/images/champions');
                 foreach($champions->data as $champion){
+                    
+            var_dump('HELLA');
+            die();
                     try{
                         $champ_key = $champion->key;
-                        $url = 'http://ddragon.leagueoflegends.com/cdn/'.$version.'/img/champion/'.$champ_key.'.png';
-                        var_dump($url);
-                        $content = file_get_contents($url);
+                        
+                        $content = file_get_contents('http://ddragon.leagueoflegends.com/cdn/'.$version.'/img/champion/'.$champ_key.'.png');
                         fopen(CHAMP_DIRECTORY.'/'.$champ_key.'.png', 'w');
                         file_put_contents(CHAMP_DIRECTORY.'/'.$champ_key.'.png', $content);
-                        die();
                     }
                     catch(\Exception $e){
                         var_dump($e);

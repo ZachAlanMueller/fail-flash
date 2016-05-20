@@ -90,9 +90,9 @@
     				<div class="panel-group" id="accordion">
     				@foreach($recentGames as $gameId => $game)
     				<div class="panel panel-default">
-	                    <div class="panel-heading">
+	                    <div class="panel-heading" data-parent="#accordion" href="#collapse-{{$gameId}}">
 	                        <h4 class="panel-title">
-	                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}">{{$game->name}}</a>
+	                            <a data-toggle="collapse">{{$game->name}}</a>
 	                        </h4>
 	                    </div>
 	                    <div id="collapse-{{$gameId}}" class="panel-collapse collapse">

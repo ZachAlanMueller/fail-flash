@@ -22,8 +22,6 @@ class MainController extends Controller
                 $champImgLink = "/public/images/champions/".$game->key.".png";
                 $game->champImgLink = $champImgLink;
             }
-            var_dump($recentGames);
-            die();
             return view('main')
                 ->with('userInfo', $userInfo)
                 ->with('recentGames', $recentGames);

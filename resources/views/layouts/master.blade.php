@@ -41,6 +41,10 @@
             .page-wrapper{
                 margin: 20px;
             }
+            .row{
+                overflow: hidden;}[class*="col-"]{
+                margin-bottom:-99999px;
+                padding-bottom:99999px;}
         </style>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

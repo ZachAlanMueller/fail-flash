@@ -58,8 +58,6 @@ class UpdateController extends Controller
                 catch(\Exception $e){
                     var_dump($e);
                     die();
-                    
-                    
                 }
             }
             $profile_icon_ids = DB::table('summoners')->select('profile_icon_id')->whereNotNull('profile_icon_id')->groupBy('profile_icon_id')->get();

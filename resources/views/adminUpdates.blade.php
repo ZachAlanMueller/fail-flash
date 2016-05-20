@@ -14,7 +14,13 @@
 	    			<div class='row'>
 	    				<div class='col-xs-12'>
 	    					{{ Form::checkbox('champions', 'value', null, ['class' => 'checkbox-tv']) }}
-	    					Update Champions Table
+	    					Update Champions Table<br>
+                            {{ Form::checkbox('profile-icons', 'value', null, ['class' => 'checkbox-tv']) }}
+                            Update Profile Icon Pictures<br>
+                            {{ Form::checkbox('champion-icons', 'value', null, ['class' => 'checkbox-tv']) }}
+                            Update Champion Icon Pictures (Small)<br>
+                            {{ Form::checkbox('champion-splashes', 'value', null, ['class' => 'checkbox-tv']) }}
+                            Update Champion Splash Images (Large)<br>
 	    				</div>
 	    			</div>
 	    		</div>

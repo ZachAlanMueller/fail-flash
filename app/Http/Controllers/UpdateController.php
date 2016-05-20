@@ -50,7 +50,7 @@ class UpdateController extends Controller
             foreach($items->data as $item){
                 try{
                     $item_id = $item->id;
-    
+                    
                     $content = file_get_contents('http://ddragon.leagueoflegends.com/cdn/'.$version.'/img/item/'.$item_id.'.png');
                     fopen(ITEM_DIRECTORY.'/'.$item_id.'.png', 'w');
                     file_put_contents(ITEM_DIRECTORY.'/'.$item_id.'.png', $content);
@@ -58,6 +58,8 @@ class UpdateController extends Controller
                 catch(\Exception $e){
                     var_dump($e);
                     die();
+                    
+                    
                 }
             }
             $profile_icon_ids = DB::table('summoners')->select('profile_icon_id')->whereNotNull('profile_icon_id')->groupBy('profile_icon_id')->get();
@@ -75,11 +77,9 @@ class UpdateController extends Controller
                     // need better catch for this
                 }
             }
-                
         }
-    }
     	return Redirect::route('admin-updates');
-}
+    }
 
 
 

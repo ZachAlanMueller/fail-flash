@@ -33,10 +33,10 @@ class UpdateController extends Controller
                 $version = $version->v;
                 $champions = json_decode(file_get_contents("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?api_key=".$api_key));
                 define('CHAMP_DIRECTORY', '/home/forge/default/public/images/champions');
-                foreach($champions->data as $champion){
-                    
+                
             var_dump('HELLA');
             die();
+                foreach($champions->data as $champion){
                     try{
                         $champ_key = $champion->key;
                         

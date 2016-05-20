@@ -74,7 +74,7 @@
     				<b>Latest Game</b>
     			</div>
     			<div class='panel-body'>
-    				<canvas id="myChart" width="400" height="400"></canvas>
+    				<canvas id="myChart" width="400" height="200"></canvas>
 	    		</div>
     			<div class ='panel-footer'>
     				

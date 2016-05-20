@@ -56,7 +56,7 @@
 
     <div class="row">
     	<div class="col-xs-3">
-    		<div class='panel panel-primary flex-col'>
+    		<div class='panel panel-primary'>
     			<div class='panel-heading' style="text-align:center">
     				<b>Summoner Name</b>
     			</div>
@@ -69,7 +69,7 @@
     		</div>
     	</div>
     	<div class="col-xs-6">
-    		<div class='panel panel-primary flex-col'>
+    		<div class='panel panel-primary'>
     			<div class='panel-heading' style="text-align:center">
     				<b>Latest Game</b>
     			</div>
@@ -82,7 +82,7 @@
     		</div>
     	</div>
     	<div class="col-xs-3">
-    		<div class='panel panel-primary flex-col'>
+    		<div class='panel panel-primary'>
     			<div class='panel-heading' style="text-align:center">
     				<b>Recent Games</b>
     			</div>

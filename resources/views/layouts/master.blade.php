@@ -136,7 +136,7 @@
         </nav>
         @show
 
-        <div class="container">
+        <div class="page-wrapper">
             @yield('content')
         </div>
 

@@ -17,7 +17,7 @@ class MainController extends Controller
         if(Auth::check()){
             $userInfo = getUserInfo();
             $summoner_id = $userInfo->summoner_id;
-            $recentGames = DB::raw('select * from summoner_games sg join champions c on c.id = sg.champ_id where summoner_id = 23703122 order by game_id desc limit 10');
+            $recentGames = DB::table('summoner_games')->join('champions', 'champions.id', '=', 'summoner_games.champ_id')->where('summoner_id', $summoner_id)->orderBy('summoner_games.id', 'desc')->limit(10)->get();
             var_dump($recentGames);
             die();
             return view('main')

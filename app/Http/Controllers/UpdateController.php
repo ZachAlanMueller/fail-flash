@@ -27,6 +27,8 @@ class UpdateController extends Controller
     		}
     	}
         if(Input::has('images')){
+            var_dump('HELLA');
+            die();
             function updateImageFiles() {
                 $counter = 0;
                 $version = json_decode(file_get_contents("http://ddragon.leagueoflegends.com/realms/na.json"));

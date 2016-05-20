@@ -80,3 +80,11 @@ class UpdateController extends Controller
     }
     	return Redirect::route('admin-updates');
 }
+
+
+
+
+
+
+
+}

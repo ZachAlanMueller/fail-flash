@@ -31,7 +31,7 @@
 			        }
 			    ]
 			};
-			options: {
+			var options: {
 		        xAxes: [{
 		            display: false
 		        }]

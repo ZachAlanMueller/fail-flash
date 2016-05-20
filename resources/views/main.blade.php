@@ -92,8 +92,8 @@
     				<div class="panel panel-default">
 	                    <div class="panel-heading">
 	                        <h4 class="panel-title">
-	               				<img class = "img-rounded" border="0" src="{{$game->champImgLink}}" alt="Image" width="40" height="40">
-	                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}">{{$game->name}}</a>
+	               				<img data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}"class = "img-rounded" border="0" src="{{$game->champImgLink}}" alt="Image" width="40" height="40">
+	                            <a >{{$game->name}}</a>
 	                        </h4>
 	                    </div>
 	                    <div id="collapse-{{$gameId}}" class="panel-collapse collapse">

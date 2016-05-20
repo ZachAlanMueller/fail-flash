@@ -31,6 +31,9 @@
 			        }
 			    ]
 			};
+			options: {
+		        showLines: true;
+		    }
 			var ctx = document.getElementById("myChart");
 
 		    var myLineChart = new Chart(ctx, {
@@ -40,7 +43,7 @@
 			});
 
 
-			
+
 		});
     </script>
 

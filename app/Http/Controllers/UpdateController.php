@@ -27,8 +27,6 @@ class UpdateController extends Controller
     		}
     	}
         if(Input::has('images')){
-            var_dump('HELLA');
-            die();
             function updateImageFiles() {
                 $counter = 0;
                 $version = json_decode(file_get_contents("http://ddragon.leagueoflegends.com/realms/na.json"));
@@ -38,10 +36,12 @@ class UpdateController extends Controller
                 foreach($champions->data as $champion){
                     try{
                         $champ_key = $champion->key;
-                        
-                        $content = file_get_contents('http://ddragon.leagueoflegends.com/cdn/'.$version.'/img/champion/'.$champ_key.'.png');
+                        $url = 'http://ddragon.leagueoflegends.com/cdn/'.$version.'/img/champion/'.$champ_key.'.png';
+                        var_dump($url);
+                        $content = file_get_contents($url);
                         fopen(CHAMP_DIRECTORY.'/'.$champ_key.'.png', 'w');
                         file_put_contents(CHAMP_DIRECTORY.'/'.$champ_key.'.png', $content);
+                        die();
                     }
                     catch(\Exception $e){
                         var_dump($e);

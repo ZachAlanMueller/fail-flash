@@ -32,8 +32,10 @@
 			    ]
 			};
 			options: {
-		        showLines: true;
-		    }
+		        xAxes: [{
+		            display: false
+		        }]
+		    };
 			var ctx = document.getElementById("myChart");
 
 		    var myLineChart = new Chart(ctx, {

@@ -18,6 +18,12 @@ class MainController extends Controller
             $userInfo = getUserInfo();
             $summoner_id = $userInfo->summoner_id;
             $recentGames = DB::table('summoner_games')->join('champions', 'champions.id', '=', 'summoner_games.champ_id')->where('summoner_id', $summoner_id)->orderBy('summoner_games.id', 'desc')->limit(10)->get();
+            foreach($recentGames as $game){
+                $champImgLink = "/public/images/champions/".$game->key.".png";
+                $game->champImgLink = $champImgLink;
+            }
+            var_dump($recentGames);
+            die();
             return view('main')
                 ->with('userInfo', $userInfo)
                 ->with('recentGames', $recentGames);

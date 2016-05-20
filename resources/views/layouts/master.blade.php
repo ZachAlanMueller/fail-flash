@@ -53,6 +53,12 @@
                 display: flex;
                 flex:1 1 auto;
             }
+            .row-eq-height {
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                display:         flex;
+            }
 
         </style>
 

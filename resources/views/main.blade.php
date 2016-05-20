@@ -54,7 +54,7 @@
 
 
 
-    <div class="row equal">
+    <div class="row row-eq-height">
     	<div class="col-xs-3">
     		<div class='panel panel-primary'>
     			<div class='panel-heading' style="text-align:center">

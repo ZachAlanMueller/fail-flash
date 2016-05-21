@@ -48,7 +48,12 @@
 
 		});
     </script>
-
+    <style> 
+    	#recent-games{
+    		max-height:400px;
+    		overflow-y:scroll;
+    	}
+    </style>
 
 
 
@@ -81,7 +86,7 @@
     			</div>
     		</div>
     	</div>
-    	<div class="col-xs-3" style="max-height:400px overflow-y:scroll">
+    	<div class="col-xs-3" id="recent-games">
     		<div class='panel panel-primary'>
     			<div class='panel-heading' style="text-align:center">
     				<b>Recent Games</b>

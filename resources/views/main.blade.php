@@ -81,7 +81,7 @@
     			</div>
     		</div>
     	</div>
-    	<div class="col-xs-3">
+    	<div class="col-xs-3" style="max-height:400px overflow-y:scroll">
     		<div class='panel panel-primary'>
     			<div class='panel-heading' style="text-align:center">
     				<b>Recent Games</b>
@@ -93,7 +93,7 @@
 	                    <div class="panel-heading">
 	                        <h4 class="panel-title">
 	               				<img class = "img-rounded" border="0" src="{{$game->champImgLink}}" alt="Image" width="40" height="40">
-	                            <a >{{$game->name}}</a>
+	                            {{$game->name}}
 	                        </h4>
 	                    </div>
 	                    <div id="collapse-{{$gameId}}" class="panel-collapse collapse">

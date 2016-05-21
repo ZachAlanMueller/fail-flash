@@ -93,7 +93,7 @@
     			</div>
     			<div class='panel-body'>
     				<div class="panel-group" id="accordion">
-    				@foreach($recentGames as $gameId => $game)
+    				<!-- @foreach($recentGames as $gameId => $game)
     				<div class="panel panel-default" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}">
 	                    <div class="panel-heading">
 	                        <h4 class="panel-title">
@@ -107,7 +107,7 @@
 	                        </div>
 	                    </div>
 	                </div>
-    				@endforeach 
+    				@endforeach  -->
 	    		</div>
     		</div>
     	</div>

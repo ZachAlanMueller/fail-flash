@@ -86,7 +86,7 @@
     				<div class="panel-group" id="accordion">
     				@foreach($recentGames as $gameId => $game)
     				<div class="panel panel-default" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}">
-	                    <div class="panel-heading">
+	                    <div class="panel-heading"> <!-- Test -->
 	                        <h4 class="panel-title">
 	               				<img class = "img-rounded" border="0" src="{{$game->champImgLink}}" alt="Image" width="40" height="40">
 	                            {{$game->name}}

@@ -58,7 +58,7 @@
     	#recent-games{
     		overflow: scroll;
     	}
-    	li#clickable-games{ 
+    	#clickable-games{ 
     		cursor: pointer; 
     	}
 

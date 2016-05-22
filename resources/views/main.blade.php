@@ -79,12 +79,12 @@
     			</div>
     		</div>
     	</div>
-    	<div class="col-xs-3" id="recent-games">
+    	<div class="col-xs-3">
     		<div class='panel panel-primary'>
     			<div class='panel-heading' style="text-align:center">
     				<b>Recent Games</b>
     			</div>
-    			<div class='panel-body'>
+    			<div class='panel-body'  id="recent-games">
     				<div class="panel-group" id="accordion">
     				@foreach($recentGames as $gameId => $game)
     				<div class="panel panel-default" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}">

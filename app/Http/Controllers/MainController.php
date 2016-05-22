@@ -13,13 +13,13 @@ use App\Http\Requests;
 class MainController extends Controller
 {
     public function landingPage()
-    {  
-        var_dump('text');
-        die();
+    { 
         if(Auth::check()){
             $userInfo = getUserInfo();
             $summoner_id = $userInfo->summoner_id;
             $recentGames = DB::table('summoner_games')->join('champions', 'champions.id', '=', 'summoner_games.champ_id')->where('summoner_id', $summoner_id)->orderBy('summoner_games.id', 'desc')->limit(10)->get();
+            var_dump('text');
+            die();
             foreach($recentGames as $game){
                 $champImgLink = "/images/champions/".$game->key.".png";
                 $game->champImgLink = $champImgLink;

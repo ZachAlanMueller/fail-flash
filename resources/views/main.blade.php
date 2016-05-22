@@ -43,12 +43,14 @@
 			        }]
 			    }
 			});
-
-
-
 		});
     </script>
-
+    <style>
+    	#recent-games{
+    		overflow: scroll;
+    		max-height: 600px;
+    	}
+    </style>
 
     <div class="row row-eq-height">
     	<div class="col-xs-3">

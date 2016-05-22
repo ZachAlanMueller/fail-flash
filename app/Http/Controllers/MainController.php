@@ -17,6 +17,8 @@ class MainController extends Controller
         if(Auth::check()){
             $userInfo = getUserInfo();
             $summoner_id = $userInfo->summoner_id;
+            var_dump('test');
+            die();
             $recentGames = DB::table('summoner_games')->join('champions', 'champions.id', '=', 'summoner_games.champ_id')->where('summoner_id', $summoner_id)->orderBy('summoner_games.id', 'desc')->limit(10)->get();
             var_dump('text');
             die();

@@ -48,9 +48,7 @@
 
     <script>
     	$( document ).ready(function() {
-    		var hh = document.getElementById('#game-graph').height();
-    		document.getElementById("recent-games").setAttribute("style","width:"+hh);
-
+    		$('#recent-games').height($('#game-graph').height());
     	});
     </script>
 
@@ -59,7 +57,6 @@
     <style>
     	#recent-games{
     		overflow: scroll;
-    		max-height: 600px;
     	}
     </style>
 

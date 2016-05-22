@@ -45,6 +45,17 @@
 			});
 		});
     </script>
+
+    <script>
+    	$( document ).ready(function() {
+    		var hh = $('#game-graph').height();
+    		$('#recent-games').setAttribute("style","width:"+hh);
+
+    	});
+    </script>
+
+
+
     <style>
     	#recent-games{
     		overflow: scroll;
@@ -71,7 +82,7 @@
     			<div class='panel-heading' style="text-align:center">
     				<b>Latest Game</b>
     			</div>
-    			<div class='panel-body'>
+    			<div class='panel-body' id="game-graph">
     				<canvas id="myChart" width="400" height="200"></canvas>
 	    		</div>
     			<div class ='panel-footer'>

@@ -48,8 +48,8 @@
 
     <script>
     	$( document ).ready(function() {
-    		var hh = $('#game-graph').height();
-    		$('#recent-games').setAttribute("style","width:"+hh);
+    		var hh = document.getElementById('#game-graph').height();
+    		document.getElementById("recent-games").setAttribute("style","width:"+hh);
 
     	});
     </script>

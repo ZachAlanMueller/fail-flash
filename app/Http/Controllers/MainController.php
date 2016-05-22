@@ -13,7 +13,9 @@ use App\Http\Requests;
 class MainController extends Controller
 {
     public function landingPage()
-    {
+    {  
+        var_dump('text');
+        die();
         if(Auth::check()){
             $userInfo = getUserInfo();
             $summoner_id = $userInfo->summoner_id;
@@ -22,8 +24,6 @@ class MainController extends Controller
                 $champImgLink = "/images/champions/".$game->key.".png";
                 $game->champImgLink = $champImgLink;
             }
-            var_dump('text');
-            die();
             return view('main')
                 ->with('userInfo', $userInfo)
                 ->with('recentGames', $recentGames);

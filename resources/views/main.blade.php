@@ -3,7 +3,5 @@
 @section('title', 'Fail Flash')
 
 @section('content')
-    <style>
-    	background-image: url({{$img_link}});
-    </style>
+    <img src="{{$img_link}}" style="display: block;margin-left: auto;margin-right: auto;">
 @stop

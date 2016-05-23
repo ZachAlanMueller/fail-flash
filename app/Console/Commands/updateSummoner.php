@@ -76,8 +76,14 @@ class updateSummoner extends Command
                 foreach($info->participants as $participant){
                     if($participantIdentity->participantId == $participant->participantId){
                         $count = DB::table('summoner_games')->where('game_id', $game->game_id)->where('summoner_id', $participantIdentity->player->summonerId)->count();
+                        $winner = -1;
+                        if($participant->winner == TRUE){
+                            $winner = 1;
+                        }
+                        else{
+                            $winner = 0;
+                        }
                         if($count < 1){
-                            //insert
                             DB::table('summoner_games')->insert(array(
                                 'id' => $participantIdentity->player->summonerId . "-" . $info->matchId ,
                                 'summoner_id' => $participantIdentity->player->summonerId,
@@ -112,7 +118,7 @@ class updateSummoner extends Command
                                 'gold_earned' => $participant->stats->goldEarned,
                                 'minions_killed' => $participant->stats->minionsKilled,
                                 'participant_id' => $participant->participantId,
-                                'win' => $participant->winner));
+                                'winner' => $winner));
                         }
                         else{
                             DB::table('summoner_games')->where('id', $participantIdentity->player->summonerId . "-" . $info->matchId)->update(array(
@@ -148,7 +154,8 @@ class updateSummoner extends Command
                                 'wards_killed' => $participant->stats->wardsKilled,
                                 'gold_earned' => $participant->stats->goldEarned,
                                 'minions_killed' => $participant->stats->minionsKilled,
-                                'participant_id' => $participant->participantId));
+                                'participant_id' => $participant->participantId,
+                                'winner' => $winner));
                         }
                     }
                 }

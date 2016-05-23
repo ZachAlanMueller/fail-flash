@@ -11,6 +11,7 @@
 			return $info;
 		}
 		catch(Exception $e){
+			stall();
 			var_dump("Error: ".$e);
 			die();
 		}
@@ -26,6 +27,7 @@
 			return $info;
 		}
 		catch(Exception $e){
+			stall();
 			print("An Error Occured\n\n" . $e);
 			die();
 		}
@@ -41,6 +43,7 @@
 			return $info;
 		}
 		catch(Exception $e){
+			stall();
 			print("An Error Occured\n\n" . $e);
 			die();
 		}
@@ -50,10 +53,12 @@
 		try{
 			$api_key = getAPI();
 			stall();
+			print date("D M d, Y G:i a");
 			$info = json_decode(file_get_contents("https://na.api.pvp.net/api/lol/na/v2.2/match/".$match_id."?includeTimeline=true&api_key=".$api_key));
 			return $info;
 		}
 		catch(Exception $e){
+			stall();
 			if (strpos($e, '404 Not Found') !== false) {
 				return 404;
 			}

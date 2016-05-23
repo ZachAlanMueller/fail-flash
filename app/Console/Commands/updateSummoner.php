@@ -80,6 +80,7 @@ class updateSummoner extends Command
             $option = -1;
             $t1_kills = 0;
             $t2_kills = 0;
+            $winner = -1;
             if($info->teams[0]->teamId == 100){
                 $option = 1;
             }
@@ -169,8 +170,6 @@ class updateSummoner extends Command
                             $winner = 0;
                         }
                         if($count < 1){
-                            var_dump($winner);
-                            die();
                             DB::table('summoner_games')->insert(array(
                                 'id' => $participantIdentity->player->summonerId . "-" . $info->matchId ,
                                 'summoner_id' => $participantIdentity->player->summonerId,
@@ -208,8 +207,6 @@ class updateSummoner extends Command
                                 'winner' => $winner));
                         }
                         else{
-                            var_dump($winner);
-                            die();
                             DB::table('summoner_games')->where('id', $participantIdentity->player->summonerId . "-" . $info->matchId)->update(array(
                                 'id' => $participantIdentity->player->summonerId . "-" . $info->matchId ,
                                 'summoner_id' => $participantIdentity->player->summonerId,

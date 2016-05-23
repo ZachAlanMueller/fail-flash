@@ -103,31 +103,30 @@
                 @if (Auth::guest())
                     @if(isset($userInfo))
                         @if($userInfo->group =="admin")
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-alerts">
-                                    <li>
-                                        <a href="/admin/updates">
-                                            <div>
-                                                <i class="fa fa-angle-double-up fa-fw"></i> Updates
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="text-center" href="#">
-                                            <strong>See Admins</strong>
-                                            <i class="fa fa-angle-right"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <!-- /.dropdown-alerts -->
-                            </li>
-                            <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="/admin/updates">
+                                <div>
+                                    <i class="fa fa-angle-double-up fa-fw"></i> Updates
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See Admins</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
                         @endif
                     @endif
-                @endif
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>

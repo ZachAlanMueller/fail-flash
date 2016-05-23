@@ -69,7 +69,7 @@ class updateSummoner extends Command
             }
         }
 
-        $games = DB::table('summoner_games')->where('summoner_id', $id)->get();//Get All Games...
+        $games = DB::table('summoner_games')->where('summoner_id', $id)->orderBy('game_id', 'desc')->get();//Get All Games...
         foreach($games as $game){   //Go By Game
             $info = API_Match($game->game_id);
             if(is_int($info)){

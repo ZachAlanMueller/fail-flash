@@ -72,6 +72,87 @@ class updateSummoner extends Command
                 sleep(3);
                 continue;
             }
+            $counter = DB::table('games')->where('id', $info->matchId)->count();
+            $option = -1;
+            $t1_kills = 0;
+            $t2_kills = 0;
+            if($info->teams[0]->teamId == 100){
+                $option = 1;
+            }
+            foreach($info->participants as $participantInfo){
+                if ($participantInfo->teamId == 100){
+                    $t1_kills += $participantInfo->stats->kills;
+                }
+                else{
+                    $t2_kills += $participantInfo->stats->kills;   
+                }
+            }
+            if($counter == 0){
+                if($option == 1){
+                    DB::table('games')->insert(array(
+                                'id' => $info->matchId,
+                                'queue' => $info->queueType,
+                                'match_duration' => $info->matchDuration,
+                                'season' => $info->season,
+                                'timestamp' => $info->matchCreation,
+                                't1_dragons' => $info->teams[0]->dragonKills,
+                                't2_dragons' => $info->teams[1]->dragonKills,
+                                't1_barons' => $info->teams[0]->baronKills,
+                                't2_barons' => $info->teams[1]->baronKills,
+                                't1_heralds' => $info->teams[0]->riftHeraldKills,
+                                't2_heralds' => $info->teams[1]->riftHeraldKills,
+                                't1_kills' => $t1_kills,
+                                't2_kills' => $t2_kills ));
+                }
+                else{
+                    DB::table('games')->insert(array(
+                                'id' => $info->matchId,
+                                'queue' => $info->queueType,
+                                'match_duration' => $info->matchDuration,
+                                'season' => $info->season,
+                                'timestamp' => $info->matchCreation,
+                                't1_dragons' => $info->teams[1]->dragonKills,
+                                't2_dragons' => $info->teams[0]->dragonKills,
+                                't1_barons' => $info->teams[1]->baronKills,
+                                't2_barons' => $info->teams[0]->baronKills,
+                                't1_heralds' => $info->teams[1]->riftHeraldKills,
+                                't2_heralds' => $info->teams[0]->riftHeraldKills,
+                                't1_kills' => $t1_kills,
+                                't2_kills' => $t2_kills ));
+                }
+            }
+            else{
+                if($option == 1){
+                    DB::table('games')->where('id', $info->matchId)->update(array(
+                                'queue' => $info->queueType,
+                                'match_duration' => $info->matchDuration,
+                                'season' => $info->season,
+                                'timestamp' => $info->matchCreation,
+                                't1_dragons' => $info->teams[0]->dragonKills,
+                                't2_dragons' => $info->teams[1]->dragonKills,
+                                't1_barons' => $info->teams[0]->baronKills,
+                                't2_barons' => $info->teams[1]->baronKills,
+                                't1_heralds' => $info->teams[0]->riftHeraldKills,
+                                't2_heralds' => $info->teams[1]->riftHeraldKills,
+                                't1_kills' => $t1_kills,
+                                't2_kills' => $t2_kills ));
+                }
+                else{
+                    DB::table('games')->where('id', $info->matchId)->update(array(
+                                'queue' => $info->queueType,
+                                'match_duration' => $info->matchDuration,
+                                'season' => $info->season,
+                                'timestamp' => $info->matchCreation,
+                                't1_dragons' => $info->teams[1]->dragonKills,
+                                't2_dragons' => $info->teams[0]->dragonKills,
+                                't1_barons' => $info->teams[1]->baronKills,
+                                't2_barons' => $info->teams[0]->baronKills,
+                                't1_heralds' => $info->teams[1]->riftHeraldKills,
+                                't2_heralds' => $info->teams[0]->riftHeraldKills,
+                                't1_kills' => $t1_kills,
+                                't2_kills' => $t2_kills ));
+                }
+            }
             foreach($info->participantIdentities as $participantIdentity){ //Go By Participant
                 foreach($info->participants as $participant){
                     if($participantIdentity->participantId == $participant->participantId){
@@ -260,88 +341,6 @@ class updateSummoner extends Command
                         }
                     }
                 }
-                $counter = DB::table('games')->where('id', $info->matchId)->count();
-                $option = -1;
-                $t1_kills = 0;
-                $t2_kills = 0;
-                if($info->teams[0]->teamId == 100){
-                    $option = 1;
-                }
-                foreach($info->participants as $participantInfo){
-                    if ($participantInfo->teamId == 100){
-                        $t1_kills += $participantInfo->stats->kills;
-                    }
-                    else{
-                        $t2_kills += $participantInfo->stats->kills;   
-                    }
-                }
-                if($counter == 0){
-                    if($option == 1){
-                        DB::table('games')->insert(array(
-                                    'id' => $info->matchId,
-                                    'queue' => $info->queueType,
-                                    'match_duration' => $info->matchDuration,
-                                    'season' => $info->season,
-                                    'timestamp' => $info->matchCreation,
-                                    't1_dragons' => $info->teams[0]->dragonKills,
-                                    't2_dragons' => $info->teams[1]->dragonKills,
-                                    't1_barons' => $info->teams[0]->baronKills,
-                                    't2_barons' => $info->teams[1]->baronKills,
-                                    't1_heralds' => $info->teams[0]->riftHeraldKills,
-                                    't2_heralds' => $info->teams[1]->riftHeraldKills,
-                                    't1_kills' => $t1_kills,
-                                    't2_kills' => $t2_kills ));
-                    }
-                    else{
-                        DB::table('games')->insert(array(
-                                    'id' => $info->matchId,
-                                    'queue' => $info->queueType,
-                                    'match_duration' => $info->matchDuration,
-                                    'season' => $info->season,
-                                    'timestamp' => $info->matchCreation,
-                                    't1_dragons' => $info->teams[1]->dragonKills,
-                                    't2_dragons' => $info->teams[0]->dragonKills,
-                                    't1_barons' => $info->teams[1]->baronKills,
-                                    't2_barons' => $info->teams[0]->baronKills,
-                                    't1_heralds' => $info->teams[1]->riftHeraldKills,
-                                    't2_heralds' => $info->teams[0]->riftHeraldKills,
-                                    't1_kills' => $t1_kills,
-                                    't2_kills' => $t2_kills ));
-                    }
-                }
-                else{
-                    if($option == 1){
-                        DB::table('games')->where('id', $info->matchId)->update(array(
-                                    'queue' => $info->queueType,
-                                    'match_duration' => $info->matchDuration,
-                                    'season' => $info->season,
-                                    'timestamp' => $info->matchCreation,
-                                    't1_dragons' => $info->teams[0]->dragonKills,
-                                    't2_dragons' => $info->teams[1]->dragonKills,
-                                    't1_barons' => $info->teams[0]->baronKills,
-                                    't2_barons' => $info->teams[1]->baronKills,
-                                    't1_heralds' => $info->teams[0]->riftHeraldKills,
-                                    't2_heralds' => $info->teams[1]->riftHeraldKills,
-                                    't1_kills' => $t1_kills,
-                                    't2_kills' => $t2_kills ));
-                    }
-                    else{
-                        DB::table('games')->where('id', $info->matchId)->update(array(
-                                    'queue' => $info->queueType,
-                                    'match_duration' => $info->matchDuration,
-                                    'season' => $info->season,
-                                    'timestamp' => $info->matchCreation,
-                                    't1_dragons' => $info->teams[1]->dragonKills,
-                                    't2_dragons' => $info->teams[0]->dragonKills,
-                                    't1_barons' => $info->teams[1]->baronKills,
-                                    't2_barons' => $info->teams[0]->baronKills,
-                                    't1_heralds' => $info->teams[1]->riftHeraldKills,
-                                    't2_heralds' => $info->teams[0]->riftHeraldKills,
-                                    't1_kills' => $t1_kills,
-                                    't2_kills' => $t2_kills ));
-                    }
-                }
-
             }  
         }
     }

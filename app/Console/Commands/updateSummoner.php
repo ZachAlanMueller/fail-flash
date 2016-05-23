@@ -56,6 +56,10 @@ class updateSummoner extends Command
         }
         $summonerGames = API_Matchlist($id);
         foreach($summonerGames as $game){
+            $count = DB::table('games')->where('id', $game->matchId)->count();
+            if($count == 0){
+                DB::table('games')->insert(array('id' => $game->matchId));
+            }
             $count = DB::table('summoner_games')->where('game_id', $game->matchId)->count();
             if($count < 1){
                 DB::table('summoner_games')->insert(array('id' => $id . "-" . $game->matchId, 'summoner_id' => $id, 'champ_id' => $game->champion, 'role' => $game->role, 'lane' => $game->lane, 'timestamp' => $game->timestamp, 'queue' => $game->queue, 'season' => $game->season, 'game_id' => $game->matchId));

@@ -99,7 +99,11 @@
     			<div class='panel-body'  id="recent-games">
     				<div class="panel-group" id="accordion">
     				@foreach($recentGames as $gameId => $game)
-    				<div class="panel panel-default" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}" id="clickable-games">
+    				@if($game->winner = 1)
+    				<div class="panel panel-success" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}" id="clickable-games">
+    				@else
+    				<div class="panel panel-danger" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}" id="clickable-games">
+    				@endif
 	                    <div class="panel-heading"> <!-- Test -->
 	                        <h4 class="panel-title">
 	               				<img class = "img-rounded" border="0" src="{{$game->champImgLink}}" alt="Image" width="40" height="40">

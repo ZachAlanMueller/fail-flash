@@ -53,7 +53,7 @@
 		try{
 			$api_key = getAPI();
 			stall();
-			print date("D M d, Y G:i a");
+			print date("D M d, Y G:i:s a") . "\n";
 			$info = json_decode(file_get_contents("https://na.api.pvp.net/api/lol/na/v2.2/match/".$match_id."?includeTimeline=true&api_key=".$api_key));
 			return $info;
 		}

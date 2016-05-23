@@ -46,7 +46,10 @@ class MainController extends Controller
             return Redirect('/summoner/'.$summoner[0]->id);
         }
     }
-
+    public function softUpdate($id){
+        softUpdate($id);
+        return Redirect('/summoner/'.$id);
+    }
     public function displaySummoner($id){
         return view('displaySummoner');
     }

@@ -20,7 +20,7 @@ Route::get('/user/profile', array('as' => 'profile-edit', 'uses' => 'MainControl
 Route::post('/user/profile', array('as' => 'update-profile', 'uses' => 'MainController@saveProfile'));
 //Search User
 Route::get('/summoner/{id}', array('as' => 'display-summoner', 'uses' => 'MainController@displaySummoner'));
-
+Route::get('/summoner/{id}/softUpdate', array('as' => 'summoner-soft-update', 'uses' => 'MainController@softUpdate'));
 
 
 //Admin routes

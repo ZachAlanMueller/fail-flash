@@ -22,7 +22,6 @@
     	return $userInfo;
 	}
 
-
 	// ------------- API CALL HELPERS ------------- \\
 	function getAPI(){
 		return '63d2786a-0782-49c7-a7fd-f1728e6c5071';
@@ -45,4 +44,71 @@
         $version = $version->v;
         return $version;
 	}
+
+	function softUpdate($summoner_id){
+		// --- --- --- --- --- --- --- --- --- --- 
+		$info = API_SummonerID($summoner_id);
+		$count = DB::table('summoners')->where('id', $summoner_id)->count();
+		$infoArray = array('name' => $info->name, 'id' => $info->id, 'profile_icon_id' => $info->profileIconId);
+		if($count == 0){
+			DB::table('summoners')->insert($infoArray);
+		}
+		else{
+			DB::table('summoners')->where('id', $summoner_id)->update($infoArray);
+		}
+		// --- --- --- --- --- --- --- --- --- --- 
+		$info = API_League($summoner_id);
+		$count = DB::table('summoners')->where('id', $summoner_id)->count();
+		$infoArray = array();
+		foreach($info as $region){
+			if($region->queue == "RANKED_SOLO_5x5"){
+				foreach($region->entries as $user){
+					$count = DB::table('summoners')->where('id', $user->id)->count();
+					$infoArray = array('name' => $user->playerOrTeamName, 'id' => $user->playerOrTeamId, 'league_points' => $user->leaguePoints, 'division' => $user->division, 'tier' => $region->tier, 'last_update' => date('m/d/Y h:i:s a', time()));
+					if($count == 0){
+						DB::table('summoners')->insert($infoArray);
+					}
+					else{
+						DB::table('summoners')->where('id', $user->playerOrTeamId)->update($infoArray);
+					}
+				}
+			}
+		}
+		$info = API_Matchlist($summoner_id);
+		foreach($info as $game){
+			$count = DB::table('games')->where('id', $game->matchId)->count();
+            if($count == 0){
+                DB::table('games')->insert(array('id' => $game->matchId));
+            }
+            $count = DB::table('summoner_games')->where('game_id', $game->matchId)->count();
+            if($count < 1){
+                DB::table('summoner_games')->insert(array('id' => $id . "-" . $game->matchId, 'summoner_id' => $id, 'champ_id' => $game->champion, 'role' => $game->role, 'lane' => $game->lane, 'timestamp' => $game->timestamp, 'queue' => $game->queue, 'season' => $game->season, 'game_id' => $game->matchId));
+            }
+            else{
+                DB::table('summoner_games')->where('id', $id . '-' . $game->matchId)->update(array('id' => $id . "-" . $game->matchId, 'summoner_id' => $id, 'champ_id' => $game->champion, 'role' => $game->role, 'lane' => $game->lane, 'timestamp' => $game->timestamp, 'queue' => $game->queue, 'season' => $game->season, 'game_id' => $game->matchId));
+            }
+		}
+
+
+
+
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>

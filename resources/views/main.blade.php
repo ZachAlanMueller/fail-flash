@@ -8,7 +8,7 @@
 			display: block;
 			margin-left: auto;
 			margin-right: auto;
-			height: 600px;
+			height: 85vh;
 			width: auto;
 		}
 	</style>

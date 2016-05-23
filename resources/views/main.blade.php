@@ -100,11 +100,11 @@
     				<div class="panel-group" id="accordion">
     				@foreach($recentGames as $gameId => $game)
     				@if($game->winner == 1)
-    				<div class="panel panel-success" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}" id="clickable-games">
+    					<div class="panel panel-success" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}" id="clickable-games">
     				@elseif($game->winner == 0)
-    				<div class="panel panel-danger" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}" id="clickable-games">
+    					<div class="panel panel-danger" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}" id="clickable-games">
     				@else
-    				<div class="panel panel-default" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}" id="clickable-games">
+    					<div class="panel panel-default" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}" id="clickable-games">
     				@endif
 	                    <div class="panel-heading"> <!-- Test -->
 	                        <h4 class="panel-title">

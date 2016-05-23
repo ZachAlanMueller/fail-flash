@@ -137,13 +137,15 @@
                         <li><a href="/auth/register"><i class="fa fa-users"></i>Register</a>
                         </li>
                         @else
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> {{$userInfo->name}}'s Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="/auth/logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
-                        </li>
+                            @if(isset($userInfo))
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i> {{$userInfo->name}}'s Profile</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="/auth/logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                            </li>
+                            @endif
                         @endif
                     </ul>
                     <!-- /.dropdown-user -->

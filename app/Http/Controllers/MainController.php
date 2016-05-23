@@ -14,21 +14,11 @@ class MainController extends Controller
 {
     public function landingPage()
     { 
-        if(Auth::check()){
-            $userInfo = getUserInfo();
-            $summoner_id = $userInfo->summoner_id;
-            $recentGames = DB::table('summoner_games')->join('champions', 'champions.id', '=', 'summoner_games.champ_id')->where('summoner_id', $summoner_id)->orderBy('summoner_games.id', 'desc')->limit(10)->get();
-            foreach($recentGames as $game){
-                $champImgLink = "/images/champions/".$game->key.".png";
-                $game->champImgLink = $champImgLink;
-            }
-            return view('main')
-                ->with('userInfo', $userInfo)
-                ->with('recentGames', $recentGames);
-        }
-    	else{
-            return view('main');
-        }
+        $files = glob($dir . '/images/posters/*.*');
+        $file = array_rand($files);
+        $img_link = $files[$file];
+        return view('main')
+            ->with('img_link', $img_link);
     }
 
     public function redirectHome(){

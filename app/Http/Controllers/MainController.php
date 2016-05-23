@@ -14,9 +14,9 @@ class MainController extends Controller
 {
     public function landingPage()
     { 
-        $files = glob($dir . '/images/posters/*.*');
+        $files = glob('/images/posters/*.*');
         $file = array_rand($files);
-        $img_link = $files[$file];
+        $img_link =  $files[$file];
         return view('main')
             ->with('img_link', $img_link);
     }

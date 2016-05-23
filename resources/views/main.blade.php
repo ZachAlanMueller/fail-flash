@@ -114,9 +114,9 @@
 	                </div>
     				@endforeach 
 	    		</div>
-	    		<div class='panel-footer'>
+    		<div class='panel-footer'>
 	    		
-	    		</div>
+	    	</div>
     		</div>
     	</div>
     </div>

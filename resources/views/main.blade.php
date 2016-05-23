@@ -99,7 +99,7 @@
     			<div class='panel-body'  id="recent-games">
     				<div class="panel-group" id="accordion">
     				@foreach($recentGames as $gameId => $game)
-    				@if($game->winner = 1)
+    				@if($game->winner == 1)
     				<div class="panel panel-success" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}" id="clickable-games">
     				@else
     				<div class="panel panel-danger" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}" id="clickable-games">

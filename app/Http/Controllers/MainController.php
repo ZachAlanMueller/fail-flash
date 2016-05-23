@@ -14,7 +14,7 @@ class MainController extends Controller
 {
     public function landingPage()
     { 
-        $files = glob('/images/posters/*.*');
+        $files = glob('/home/forge/default/public/images/posters/*.*');
         var_dump($files);
         die();
         $file = array_rand($files);

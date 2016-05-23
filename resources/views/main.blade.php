@@ -106,7 +106,7 @@
     				@else
     					<div class="panel panel-default" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$gameId}}" id="clickable-games">
     				@endif
-	                    <div class="panel-heading"> <!-- Test -->
+	                    <div class="panel-heading" style="padding-left:5px;padding-right:5px;padding-top:5px;padding-bottom:5px;"> <!-- Test -->
 	                        <h4 class="panel-title">
 	               				<img class = "img-rounded" border="0" src="{{$game->champImgLink}}" alt="Image" width="40" height="40">
 	                            {{$game->name}}

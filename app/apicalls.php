@@ -73,6 +73,7 @@
 			}
 			elseif(strpos($e, '429 Too Many Requests') != false){
 				print "\n\n 429: sleeping for 10 \n\n";
+				sleep(10);
 				return 429;
 			}
 			else{

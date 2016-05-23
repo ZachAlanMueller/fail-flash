@@ -39,7 +39,7 @@ class MainController extends Controller
     	$form = Input::all('post');
         $name = $form['search']; 
     	$summoner = DB::table('summoners')->where('name', $name)->get();
-        if(isempty($summoner)){
+        if(empty($summoner)){
             //soft update summoner
         }
         else{

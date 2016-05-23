@@ -12,8 +12,10 @@ use App\Http\Requests;
 
 class MainController extends Controller
 {
-    public function landingPage()
+    public function landingPage() 
     { 
+        //Description:
+        // Landing page that currently displayes a random poster image. 
         $files = glob('/home/forge/default/public/images/posters/*.*');
         $file = array_rand($files);
         $img_link =  $files[$file];
@@ -36,7 +38,13 @@ class MainController extends Controller
     public function searchSummoner(){
     	$form = Input::all('post');
         $name = $form['search']; 
-    	print $name;
+    	$count = DB::table('summoners')->where('name', $name)->count();
+        if($count > 0){
+            return view('summonerDisplay');
+        }
+        else{
+            return view('summonerDisplay');
+        }
     }
 
     public function updateSummonerById($id){

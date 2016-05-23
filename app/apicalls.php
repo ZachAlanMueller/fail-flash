@@ -6,6 +6,7 @@
 			$summoner_name = trim($summoner_name);
 			$summoner_name = str_replace(' ', '', strtolower($summoner_name));
 			stall();
+			print date("D M d, Y G:i:s a") . " - Summoner By Name\n";
 			$info = json_decode(file_get_contents("https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/".$summoner_name."?api_key=".$api_key));
 			$info = $info->$summoner_name;
 			return $info;
@@ -22,6 +23,7 @@
 		try{
 			$api_key = getAPI();
 			stall();
+			print date("D M d, Y G:i:s a") . " - Summoner By ID\n";
 			$info = json_decode(file_get_contents("https://na.api.pvp.net/api/lol/na/v1.4/summoner/".$summoner_id."?api_key=".$api_key));
 			$info = $info->$summoner_id;
 			return $info;
@@ -38,6 +40,7 @@
 		try{
 			$api_key = getAPI();
 			stall();
+			print date("D M d, Y G:i:s a") . " - Matchlist\n";
 			$info = json_decode(file_get_contents("https://na.api.pvp.net/api/lol/na/v2.2/matchlist/by-summoner/".$summoner_id."?rankedQueues=TEAM_BUILDER_DRAFT_RANKED_5x5,RANKED_SOLO_5x5&seasons=SEASON2016&api_key=".$api_key));
 			$info = $info->matches;
 			return $info;
@@ -53,7 +56,7 @@
 		try{
 			$api_key = getAPI();
 			stall();
-			print date("D M d, Y G:i:s a") . "\n";
+			print date("D M d, Y G:i:s a") . " - Match\n";
 			$info = json_decode(file_get_contents("https://na.api.pvp.net/api/lol/na/v2.2/match/".$match_id."?includeTimeline=true&api_key=".$api_key));
 			return $info;
 		}

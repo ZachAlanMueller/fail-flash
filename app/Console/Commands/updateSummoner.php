@@ -111,7 +111,8 @@ class updateSummoner extends Command
                                 'wards_killed' => $participant->stats->wardsKilled,
                                 'gold_earned' => $participant->stats->goldEarned,
                                 'minions_killed' => $participant->stats->minionsKilled,
-                                'participant_id' => $participant->participantId));
+                                'participant_id' => $participant->participantId,
+                                'win' => $participant->winner));
                         }
                         else{
                             DB::table('summoner_games')->where('id', $participantIdentity->player->summonerId . "-" . $info->matchId)->update(array(

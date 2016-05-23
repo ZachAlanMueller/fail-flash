@@ -43,7 +43,7 @@ class MainController extends Controller
             //soft update summoner
         }
         else{
-            return Redirect('/summoner/'.$summoner->id);
+            return Redirect('/summoner/'.$summoner[0]->id);
         }
     }
 

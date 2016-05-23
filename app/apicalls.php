@@ -71,6 +71,10 @@
 			elseif(strpos($e, '504 GATEWAY_TIMEOUT') != false){
 				return 504;
 			}
+			elseif(strpos($e, '429 Too Many Requests') != false){
+				print "\n\n 429: sleeping for 10 \n\n";
+				return 429;
+			}
 			else{
 				print "An Error Occured!!!!!: \n\n" . $e;
 				die();

@@ -108,7 +108,7 @@
     				@endif
 	                    <div class="panel-heading" style="padding-left:5px;padding-right:5px;padding-top:5px;padding-bottom:5px;"> <!-- Test -->
 	                        <h4 class="panel-title">
-	               				<img class = "img-rounded" border="0" src="{{$game->champImgLink}}" alt="Image" width="40" height="40">
+	               				<img class = "img-rounded" border="0" src="{{$game->champImgLink}}" alt="Image" width="70" height="70">
 	                            {{$game->name}}
 	                        </h4>
 	                    </div>

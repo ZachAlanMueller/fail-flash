@@ -38,19 +38,17 @@ class MainController extends Controller
     public function searchSummoner(){
     	$form = Input::all('post');
         $name = $form['search']; 
-    	$count = DB::table('summoners')->where('name', $name)->count();
-        if($count > 0){
-            return view('summonerDisplay');
+    	$summoner = DB::table('summoners')->where('name', $name)->get();
+        if(isempty($summoner)){
+            //soft update summoner
         }
         else{
-            return view('summonerDisplay');
+            return Redirect('/summoner/'.$summoner->id);
         }
     }
 
-    public function updateSummonerById($id){
-        updateSummoner($id);
-        var_dump('Done');
-        die();
+    public function displaySummoner($id){
+        return view('displaySummoner');
     }
 
 

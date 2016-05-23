@@ -19,7 +19,7 @@ Route::post('/search-summoner', array('as' => 'search-summoner', 'uses' => 'Main
 Route::get('/user/profile', array('as' => 'profile-edit', 'uses' => 'MainController@editProfile'));
 Route::post('/user/profile', array('as' => 'update-profile', 'uses' => 'MainController@saveProfile'));
 //Search User
-
+Route::get('/summoner/{id}', array('as' => 'display-summoner', 'uses' => 'MainController@displaySummoner'));
 
 
 

@@ -15,8 +15,6 @@ class MainController extends Controller
     public function landingPage()
     { 
         $files = glob('/home/forge/default/public/images/posters/*.*');
-        var_dump($files);
-        die();
         $file = array_rand($files);
         $img_link =  $files[$file];
         return view('main')

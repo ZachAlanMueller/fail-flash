@@ -17,6 +17,8 @@ class MainController extends Controller
         $files = glob('/home/forge/default/public/images/posters/*.*');
         $file = array_rand($files);
         $img_link =  $files[$file];
+        $pos = strpos($img_link, '/images');
+        $img_link = substr($img_link, $pos);
         if(Auth::check()){
             $userInfo = getUserInfo();
             return view('main')

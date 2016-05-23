@@ -63,7 +63,7 @@
 		foreach($info as $region){
 			if($region->queue == "RANKED_SOLO_5x5"){
 				foreach($region->entries as $user){
-					$count = DB::table('summoners')->where('id', $user->id)->count();
+					$count = DB::table('summoners')->where('id', $user->playerOrTeamId)->count();
 					$infoArray = array('name' => $user->playerOrTeamName, 'id' => $user->playerOrTeamId, 'league_points' => $user->leaguePoints, 'division' => $user->division, 'tier' => $region->tier, 'last_update' => date('m/d/Y h:i:s a', time()));
 					if($count == 0){
 						DB::table('summoners')->insert($infoArray);

@@ -25,9 +25,6 @@
 					<div class="col-xs-2">
 						<img src="{{$summonerInfo->badge_img_link}}" class="img-circle" height="100px" width="auto">
 					</div>
-					<div class="col-xs-6">
-
-					</div>
 				</div>
             </div>
             <!-- /.panel-heading -->

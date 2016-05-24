@@ -7,11 +7,17 @@
 		<div class="col-xs-6">
 			<div class="row">
 				<div class="col-xs-7">
-					<h1 class="text-center" style="margin-top:0px;font-family: Georgia, serif">
-						{{$summonerInfo->name}}
-					</h1>
-					<br>
+					<div class="panel panel-primary">
+						<div class='panel-heading'>
+							<img class="img-circle" src="{{$summonerInfo->profile_img_link}}">
+							<h2 class="text-center" style="margin-top:0px;font-family: Georgia, serif">
+								{{$summonerInfo->name}}
+							</h2>
+						</div>
+						<div class='panel-footer'>
 
+						</div>
+					</div>
 				</div>
 				<div class="col-xs-5">
 				Refresh/Something

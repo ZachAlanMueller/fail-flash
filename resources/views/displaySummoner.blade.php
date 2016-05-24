@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-xs-6">
 			<div class="row">
-				<div class="col-xs-7">
+				<div class="col-xs-7" style="margin-bottom:20px">
 					<h1 class='text-center'>
 						{{$summonerInfo->name}}
 					</h1>

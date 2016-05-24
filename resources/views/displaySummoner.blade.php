@@ -10,7 +10,7 @@
 					<div class="col-xs-2">
 						<img src="{{$summonerInfo->profile_img_link}}" class="img-circle" width="80px" height="80px">
 					</div>
-					<div class="col-xs-2">
+					<div class="col-xs-4">
 						<div class="row">
 							<h2 class="text-center" style="margin-top:0px;font-family: Georgia, serif">
 								{{$summonerInfo->name}}
@@ -25,10 +25,7 @@
 					<div class="col-xs-2">
 						<img src="{{$summonerInfo->badge_img_link}}" class="img-circle" height="100px" width="auto">
 					</div>
-					<div class="col-xs-4">
-
-					</div>
-					<div class="col-xs-2">
+					<div class="col-xs-6">
 
 					</div>
 				</div>

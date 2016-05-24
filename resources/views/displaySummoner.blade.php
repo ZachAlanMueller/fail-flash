@@ -19,7 +19,7 @@
 										{{$summonerInfo->name}}
 										</h2>
 									</div>
-									<div class="row"
+									<div class="row">
 										<div class="btn btn-warning btn-xs"> 
 										{{ucwords($summonerInfo->tier)}}
 										</div>

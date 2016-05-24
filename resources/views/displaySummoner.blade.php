@@ -7,11 +7,13 @@
 		<div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
-					<div class="col-xs-3">
+					<div class="col-xs-2">
 						<img src="{{$summonerInfo->profile_img_link}}" class="img-circle" width="80px" height="80px">
 					</div>
-					<div class="col-xs-3">
-						Name
+					<div class="col-xs-4">
+						<h2 class="text-center" style="margin-top:0px;font-family: Georgia, serif">
+							{{$summonerInfo->name}}
+						</h2>
 					</div>
 					<div class="col-xs-6">
 						Badge

@@ -8,7 +8,7 @@
             <div class="panel-heading">
                 <div class="row">
 					<div class="col-xs-3">
-						Profile Icon
+						<img src="{{$summonerInfo->profile_img_link}}" width="45px" height="45px">
 					</div>
 					<div class="col-xs-3">
 						Name

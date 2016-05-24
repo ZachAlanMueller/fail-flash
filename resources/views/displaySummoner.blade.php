@@ -7,11 +7,11 @@
 		<div class="col-xs-6">
 			<div class="row">
 				<div class="col-xs-7">
-					<h1 class='text-center'>
+					<h1 class="text-center" style="margin-top:0px;font-family: Georgia, serif">
 						{{$summonerInfo->name}}
 					</h1>
 					<br>
-					
+
 				</div>
 				<div class="col-xs-5">
 				Refresh/Something

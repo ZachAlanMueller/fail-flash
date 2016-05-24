@@ -18,7 +18,7 @@
 						</div>
 						<div class="row">
 							<h4 class="text-center btn-warning btn-small"> 
-								{{ucwords(strtolower($summonerInfo->tier)) $summonerInfo->division}} 
+								{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}} 
 							</h4>
 						</div>
 					</div>

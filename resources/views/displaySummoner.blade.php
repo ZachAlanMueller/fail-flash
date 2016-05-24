@@ -9,10 +9,10 @@
                 <div class="row">
 					<div class="col-xs-6">
 						<div class="row">
-							<div class="col-xs-3" style="border-style: solid;border-width: 5px;border-color: red;">
+							<div class="col-xs-3">
 								<img src="{{$summonerInfo->profile_img_link}}" class="img-circle" width="80px" height="80px">
 							</div>
-							<div class="col-xs-6" style="border-style: solid;border-width: 5px;border-color: red;">
+							<div class="col-xs-6">
 								<div class="row">
 									<h2 class="text-center" style="margin-top:0px;font-family: Georgia, serif">
 										{{$summonerInfo->name}}
@@ -24,7 +24,7 @@
 									</h4>
 								</div>
 							</div>
-							<div class="col-xs-3" style="border-style: solid;border-width: 5px;border-color: red;">
+							<div class="col-xs-3">
 								<img src="{{$summonerInfo->badge_img_link}}" class="img-circle" height="100px" width="auto">
 							</div>
 						</div>

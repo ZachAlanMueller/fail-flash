@@ -10,9 +10,13 @@
 					<div class="panel panel-primary">
 						<div class='panel-heading'>
 							<h2 class="text-center" style="margin-top:0px;font-family: Georgia, serif">
-							<img class="img-circle" src="{{$summonerInfo->profile_img_link}}" width="80px" height="80px">
+							<img class="img-circle" src="{{$summonerInfo->profile_img_link}}" width="60px" height="60px">
 								{{$summonerInfo->name}}
 							</h2>
+							<br>
+							<div class="btn btn-primary btn-xs"> 
+							{{ucwords($summonerInfo->tier)}}
+							</div>
 						</div>
 						<div class='panel-footer'>
 
@@ -20,7 +24,7 @@
 					</div>
 				</div>
 				<div class="col-xs-5">
-				Refresh/Something
+				
 				</div>
 			</div>
 		</div>

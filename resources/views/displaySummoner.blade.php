@@ -9,12 +9,12 @@
 				<div class="col-xs-7">
 					<div class="panel panel-primary">
 						<div class='panel-heading'>
+							
+							<img class="img-circle text-center" src="{{$summonerInfo->profile_img_link}}" width="60px" height="60px">
 							<h2 class="text-center" style="margin-top:0px;font-family: Georgia, serif">
-							<img class="img-circle" src="{{$summonerInfo->profile_img_link}}" width="60px" height="60px">
-								{{$summonerInfo->name}}
+							{{$summonerInfo->name}}
 							</h2>
-							<br>
-							<div class="btn btn-primary btn-xs"> 
+							<div class="btn btn-warning btn-xs"> 
 							{{ucwords($summonerInfo->tier)}}
 							</div>
 						</div>

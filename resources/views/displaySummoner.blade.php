@@ -11,15 +11,22 @@
 						<img src="{{$summonerInfo->profile_img_link}}" class="img-circle" width="80px" height="80px">
 					</div>
 					<div class="col-xs-4">
-						<h2 style="margin-top:0px;font-family: Georgia, serif">
-							{{$summonerInfo->name}}
-						</h2>
+						<div class="row">
+							<h2 style="margin-top:0px;font-family: Georgia, serif">
+								{{$summonerInfo->name}}
+							</h2>
+						</div>
+						<div class="row">
+							<h4 class="text-center"> 
+								{{ucwords($summonerInfo->division)}}
+							</h4>
+						</div>
 					</div>
 					<div class="col-xs-2">
 						Badge
 					</div>
 					<div class="col-xs-4">
-						
+
 					</div>
 				</div>
             </div>
@@ -27,11 +34,11 @@
             <div class="panel-body">
                 <!-- Nav tabs -->
                 <ul class="nav nav-pills">
-                    <li class="active"><a href="#home-pills" data-toggle="tab">Home</a>
+                    <li class="active"><a href="#overview-pills" data-toggle="tab">Overview</a>
                     </li>
-                    <li><a href="#profile-pills" data-toggle="tab">Profile</a>
+                    <li><a href="#games-pills" data-toggle="tab">Recent Games</a>
                     </li>
-                    <li><a href="#messages-pills" data-toggle="tab">Messages</a>
+                    <li><a href="#champions-pills" data-toggle="tab">Champions</a>
                     </li>
                     <li><a href="#settings-pills" data-toggle="tab">Settings</a>
                     </li>
@@ -39,11 +46,11 @@
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div class="tab-pane fade in active" id="home-pills">
+                    <div class="tab-pane fade in active" id="overview-pills">
                         <h4>Home Tab</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
-                    <div class="tab-pane fade" id="profile-pills">
+                    <div class="tab-pane fade" id="champions-pills">
                         <h4>Profile Tab</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>

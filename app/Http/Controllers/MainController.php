@@ -42,7 +42,7 @@ class MainController extends Controller
         if(empty($summoner)){
             $summonerAPI = API_SummonerName($name);
             softUpdate($summonerAPI->id);
-            return Redirect('/summoner'.$summonerAPI->id);
+            return Redirect('/summoner/'.$summonerAPI->id);
         }
         else{
             return Redirect('/summoner/'.$summoner[0]->id);

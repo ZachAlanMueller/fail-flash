@@ -6,10 +6,12 @@
 	<div class="row">
 		<div class="col-xs-6">
 			<div class="row">
-				<div class="col-xs-7" style="margin-bottom:20px">
+				<div class="col-xs-7">
 					<h1 class='text-center'>
 						{{$summonerInfo->name}}
 					</h1>
+					<br>
+					
 				</div>
 				<div class="col-xs-5">
 				Refresh/Something

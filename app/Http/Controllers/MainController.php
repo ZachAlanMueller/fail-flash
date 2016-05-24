@@ -48,7 +48,9 @@ class MainController extends Controller
     }
     public function softUpdate($id){
         softUpdate($id);
-        return Redirect('/summoner/'.$id);
+        $userInfo = getUserInfo();
+        return Redirect('/summoner/'.$id)
+            ->with('userInfo', $userInfo);
     }
     public function displaySummoner($id){
         return view('displaySummoner');

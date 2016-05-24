@@ -10,15 +10,15 @@
 					<div class="col-xs-2">
 						<img src="{{$summonerInfo->profile_img_link}}" class="img-circle" width="80px" height="80px">
 					</div>
-					<div class="col-xs-4">
+					<div class="col-xs-2">
 						<div class="row">
-							<h2 style="margin-top:0px;font-family: Georgia, serif">
+							<h2 class="text-center" style="margin-top:0px;font-family: Georgia, serif">
 								{{$summonerInfo->name}}
 							</h2>
 						</div>
 						<div class="row">
 							<h4 class="text-center"> 
-								{{ucwords($summonerInfo->division)}}
+								{{ucwords(strtolower($summonerInfo->tier))}}
 							</h4>
 						</div>
 					</div>
@@ -26,6 +26,9 @@
 						Badge
 					</div>
 					<div class="col-xs-4">
+
+					</div>
+					<div class="col-xs-2">
 
 					</div>
 				</div>

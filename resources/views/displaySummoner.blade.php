@@ -7,7 +7,10 @@
 		<div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
-					<div class="col-xs-6">
+					<div class="col-xs-3">
+						Profile Icon
+					</div>
+					<div class="col-xs-3">
 						Name
 					</div>
 					<div class="col-xs-6">

@@ -41,9 +41,8 @@ class MainController extends Controller
     	$summoner = DB::table('summoners')->where('name', $name)->get();
         if(empty($summoner)){
             $summonerAPI = API_SummonerName($name);
-            $name_key = strtolower(str_replace(' ', '', $name));
-            softUpdate($summonerAPI->{$name_key}->id);
-            return Redirect('/summoner'.$summonerAPI->{$name_key}->id);
+            softUpdate($summonerAPI->id);
+            return Redirect('/summoner'.$summonerAPI->id);
         }
         else{
             return Redirect('/summoner/'.$summoner[0]->id);

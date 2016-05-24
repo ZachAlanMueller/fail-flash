@@ -15,8 +15,11 @@
 							{{$summonerInfo->name}}
 						</h2>
 					</div>
-					<div class="col-xs-6">
+					<div class="col-xs-2">
 						Badge
+					</div>
+					<div class="col-xs-4">
+						
 					</div>
 				</div>
             </div>

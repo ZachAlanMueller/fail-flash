@@ -17,13 +17,13 @@
 							</h2>
 						</div>
 						<div class="row">
-							<h4 class="text-center btn-warning btn-small"> 
+							<h4 class="text-center"> 
 								{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}} 
 							</h4>
 						</div>
 					</div>
 					<div class="col-xs-2">
-						Badge
+						<img src="{{$summonerInfo->badge_img_link}}" class="img-circle" height="100%" width="auto">
 					</div>
 					<div class="col-xs-4">
 

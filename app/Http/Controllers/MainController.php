@@ -59,6 +59,7 @@ class MainController extends Controller
         $summonerInfo = DB::table('summoners')->where('id', $id)->get();
         $summonerInfo = $summonerInfo[0];
         $summonerInfo->profile_img_link = "/images/profile-icons/".$summonerInfo->profile_icon_id.".png";
+        $summonerInfo->badge_img_link = "/images/badges/".ucwords(strtolower($summonerInfo->tier)).".png";
         return view('displaySummoner')
             ->with('userInfo', $userInfo)
             ->with('summonerInfo', $summonerInfo);

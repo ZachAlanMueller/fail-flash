@@ -9,7 +9,7 @@
 				<div class="col-xs-7">
 					<div class="panel panel-primary">
 						<div class='panel-heading'>
-							<img class="img-circle" src="{{$summonerInfo->profile_img_link}}">
+							<img class="img-circle" src="{{$summonerInfo->profile_img_link}}" width="40px" height="40px">
 							<h2 class="text-center" style="margin-top:0px;font-family: Georgia, serif">
 								{{$summonerInfo->name}}
 							</h2>

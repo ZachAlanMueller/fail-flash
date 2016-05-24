@@ -57,7 +57,8 @@ class MainController extends Controller
         $summonerInfo = DB::table('summoners')->where('id', $id)->get();
         $summonerInfo = $summonerInfo[0];
         return view('displaySummoner')
-            ->with('userInfo', $userInfo);
+            ->with('userInfo', $userInfo)
+            ->with('summonerInfo', $summonerInfo);
     }
 
 

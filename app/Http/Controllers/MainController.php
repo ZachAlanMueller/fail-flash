@@ -55,8 +55,7 @@ class MainController extends Controller
     public function displaySummoner($id){
         $userInfo = getUserInfo();
         $summonerInfo = DB::table('summoners')->where('id', $id)->get();
-        var_dump($summonerInfo);
-        die();
+        $summonerInfo = $summonerInfo[0];
         return view('displaySummoner')
             ->with('userInfo', $userInfo);
     }

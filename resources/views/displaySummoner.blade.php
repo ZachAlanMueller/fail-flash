@@ -9,13 +9,22 @@
 				<div class="col-xs-7">
 					<div class="panel panel-primary">
 						<div class='panel-heading'>
-							
-							<img class="img-circle text-center" src="{{$summonerInfo->profile_img_link}}" width="60px" height="60px">
-							<h2 class="text-center" style="margin-top:0px;font-family: Georgia, serif">
-							{{$summonerInfo->name}}
-							</h2>
-							<div class="btn btn-warning btn-xs"> 
-							{{ucwords($summonerInfo->tier)}}
+							<div class="row">
+								<div class="col-xs-3">
+									<img class="img-circle text-center" src="{{$summonerInfo->profile_img_link}}" width="60px" height="60px">
+								</div>
+								<div class="col-xs-9">
+									<div class="row">
+										<h2 class="text-center" style="margin-top:0px;font-family: Georgia, serif">
+										{{$summonerInfo->name}}
+										</h2>
+									</div>
+									<div class="row"
+										<div class="btn btn-warning btn-xs"> 
+										{{ucwords($summonerInfo->tier)}}
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class='panel-footer'>

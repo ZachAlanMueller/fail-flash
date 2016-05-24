@@ -8,7 +8,26 @@
             <div class="panel-heading">
                 <div class="row">
 					<div class="col-xs-6">
-					Text
+						<div class="row">
+							<div class="col-xs-2">
+								<img src="{{$summonerInfo->profile_img_link}}" class="img-circle" width="80px" height="80px">
+							</div>
+							<div class="col-xs-4">
+								<div class="row">
+									<h2 class="text-center" style="margin-top:0px;font-family: Georgia, serif">
+										{{$summonerInfo->name}}
+									</h2>
+								</div>
+								<div class="row">
+									<h4 class="text-center"> 
+										{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}} 
+									</h4>
+								</div>
+							</div>
+							<div class="col-xs-2">
+								<img src="{{$summonerInfo->badge_img_link}}" class="img-circle" height="100px" width="auto">
+							</div>
+						</div>
 					</div>
 					<div class="col-xs-6">
 					Text 2

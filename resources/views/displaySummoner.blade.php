@@ -7,7 +7,13 @@
 		<div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
-					<div class="col-xs-2">
+					<div class="col-xs-6">
+					Text
+					</div>
+					<div class="col-xs-6">
+					Text 2
+					</div>
+					<!--<div class="col-xs-2">
 						<img src="{{$summonerInfo->profile_img_link}}" class="img-circle" width="80px" height="80px">
 					</div>
 					<div class="col-xs-4">
@@ -24,7 +30,7 @@
 					</div>
 					<div class="col-xs-2">
 						<img src="{{$summonerInfo->badge_img_link}}" class="img-circle" height="100px" width="auto">
-					</div>
+					</div>-->
 				</div>
             </div>
             <!-- /.panel-heading -->

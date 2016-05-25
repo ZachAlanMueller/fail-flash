@@ -21,9 +21,13 @@
 			<div class="col-xs-2">
 				<p style="visibility:hidden;"> Blarg</p>
 			</div>
-			<div class="col-xs-3">
+			<div class="col-xs-2">
 				<img src="{{$summonerInfo->badge_img_link}}" width="80px" height="80px">
 				<p>{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}}</p>
+			</div>
+			<div class="col-xs-1" style="font-family: Georgia, serif;"> 
+				<p>{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}}</p>
+				<p>{{$summonerInfo->league_points}} LP </p>
 			</div>
 		</div>
     </div>

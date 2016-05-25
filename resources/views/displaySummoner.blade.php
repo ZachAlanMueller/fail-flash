@@ -30,7 +30,7 @@
 						</div>
 					</div>
 					<div class="col-xs-6">
-					Text 2
+						
 					</div>
 					<!--<div class="col-xs-2">
 						<img src="{{$summonerInfo->profile_img_link}}" class="img-circle" width="80px" height="80px">

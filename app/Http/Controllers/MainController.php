@@ -60,6 +60,10 @@ class MainController extends Controller
         $summonerInfo = $summonerInfo[0];
         $summonerInfo->profile_img_link = "/images/profile-icons/".$summonerInfo->profile_icon_id.".png";
         $summonerInfo->badge_img_link = "/images/badges/".ucwords(strtolower($summonerInfo->tier)).".png";
+        // Link to images for Rank-Badge and Profile Icon
+        $recentGames = DB::table('summoner_games')->select('game_id')->where('summoner_id', $id)->limit(10)->get();
+        var_dump($recentGames);
+        die();
         return view('displaySummoner')
             ->with('userInfo', $userInfo)
             ->with('summonerInfo', $summonerInfo);

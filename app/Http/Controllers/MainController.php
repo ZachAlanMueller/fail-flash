@@ -66,11 +66,11 @@ class MainController extends Controller
         foreach($recentGames as $game){
             array_push($gameIds, $game->game_id);
         }
-        var_dump($gameIds);
-        die();
+        $recentGames = DB::table('summoner_games')->join('games', 'games.id', '=', 'summoner_games.game_id')->whereIn('game_id', $gameIds)->get();
         return view('displaySummoner')
             ->with('userInfo', $userInfo)
-            ->with('summonerInfo', $summonerInfo);
+            ->with('summonerInfo', $summonerInfo)
+            ->with('recentGames', $recentGames);
     }
 
 

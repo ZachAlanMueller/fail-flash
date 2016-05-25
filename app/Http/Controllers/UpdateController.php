@@ -18,11 +18,12 @@ class UpdateController extends Controller
     		$champions = json_decode(file_get_contents('https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData&api_key='.$api_key));
     		foreach($champions->data as $champion){
     			$checker = DB::table('champions')->where('id', $champion->id)->count();
+                $updateArray = array('id' => $champion->id, 'name' => $champion->name, 'key' => $champion->key, 'title' => $champion->title, 'img_link' => $champion->key . ".png");
     			if($checker < 1){
-    				DB::table('champions')->insert(array('id' => $champion->id, 'name' => $champion->name, 'key' => $champion->key, 'title' => $champion->title));
+    				DB::table('champions')->insert($updateArray);
     			}
     			else{
-    				DB::table('champions')->where('id', $champion->id)->update(array('id' => $champion->id, 'name' => $champion->name, 'key' => $champion->key, 'title' => $champion->title));
+    				DB::table('champions')->where('id', $champion->id)->update($updateArray);
     			}
     		}
     	}

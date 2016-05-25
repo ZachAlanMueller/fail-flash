@@ -22,8 +22,7 @@
 				<p style="visibility:hidden;"> Blarg</p>
 			</div>
 			<div class="col-xs-3">
-				<img src="{{$summonerInfo->badge_img_link}}" width="80px" height="80px">
-				<div class="text-center">{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}} </div>
+				<img src="{{$summonerInfo->badge_img_link}}" width="80px" height="80px"><p>{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}}</p>
 			</div>
 		</div>
     </div>

@@ -9,7 +9,7 @@
 			<div class="col-xs-2 text-center" style="border-right: solid;border-color: black">
 				<img src="{{$summonerInfo->profile_img_link}}" class="img-circle" width="80px" height="80px">
 			</div>
-			<div class="col-xs-3" style="border-right: solid;border-color: black">
+			<div class="col-xs-3" style="border-right: solid;border-color: black"  style="vertical-align: middle;">
 				<h2 class="text-center" style="margin-top:0px;font-family: Georgia, serif; vertical-align: middle;">
 					{{$summonerInfo->name}}
 				</h2>
@@ -25,7 +25,7 @@
 			<div class="col-xs-2"  style="border-right: solid;border-color: black">
 c
 			</div>
-			<div class="col-xs-3" style="border-right: solid;border-color: black" style="vertical-align: middle;">
+			<div class="col-xs-3" style="border-right: solid;border-color: black">
 				<img src="{{$summonerInfo->badge_img_link}}" class="img-circle" height="100px" width="auto">{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}} 
 			</div>
 		</div>

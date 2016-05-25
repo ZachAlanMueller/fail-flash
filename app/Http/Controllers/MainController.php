@@ -75,6 +75,7 @@ class MainController extends Controller
                 ->with('userInfo', $userInfo)
                 ->with('summonerInfo', $summonerInfo)
                 ->with('recentGames', $recentGames);
+        }
         else{
             return view('main')
                 ->with('img_link', $img_link);return view('displaySummoner')

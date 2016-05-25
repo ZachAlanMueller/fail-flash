@@ -31,7 +31,7 @@
 					</div>
 					<div class="col-xs-6">
 						@foreach($last3Games as $game)
-							{{$game->champions.img_link}}
+							{{$game->img_link}}
 						@endforeach
 					</div>
 				</div>

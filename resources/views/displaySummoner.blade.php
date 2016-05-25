@@ -24,19 +24,19 @@
 						<!-- <img src="{{$summonerInfo->badge_img_link}}" class="img-circle" height="100px" width="auto"> -->
 					</div>
 					<div class="col-xs-2" style="border-right: solid;border-color: black">
-
+					a
 					</div>
 					<div class="col-xs-3" style="border-right: solid;border-color: black">
-
+					b
 					</div>
 					<div class="col-xs-1" style="border-right: solid;border-color: black">
-
+					c
 					</div>
 					<div class="col-xs-1" style="border-right: solid;border-color: black">
-
+					d
 					</div>
 					<div class="col-xs-1" style="border-right: solid;border-color: black">
-
+					e
 					</div>
 				</div>
             </div>

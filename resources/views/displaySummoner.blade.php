@@ -13,14 +13,10 @@
 				<h2 class="text-center" style="font-family: Georgia, serif;">
 					{{$summonerInfo->name}}
 				</h2>
-				<!-- <div class="row">
-					<h4 class="text-center"> 
-						{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}} 
-					</h4>
-				</div> -->
 			</div>
 			<div class="col-xs-2" style="border-right: solid;border-color: black">
-				b<!-- <img src="{{$summonerInfo->badge_img_link}}" class="img-circle" height="100px" width="auto"> -->
+				<button type="button" class="btn btn-info btn-sm btn-block">Refresh Info</button>
+				<button type="button" class="btn btn-warning btn-sm btn-block">Look for Live Game</button>
 			</div>
 			<div class="col-xs-2"  style="border-right: solid;border-color: black">
 c

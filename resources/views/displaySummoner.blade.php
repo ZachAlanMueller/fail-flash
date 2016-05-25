@@ -7,10 +7,10 @@
 		<div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
-					<div class="col-xs-2">
+					<div class="col-xs-2" style="border-right: solid;border-color: black">
 						<img src="{{$summonerInfo->profile_img_link}}" class="img-circle" width="80px" height="80px">
 					</div>
-					<div class="col-xs-3">
+					<div class="col-xs-3" style="border-right: solid;border-color: black">
 						<h2 class="text-center" style="margin-top:0px;font-family: Georgia, serif">
 							{{$summonerInfo->name}}
 						</h2>
@@ -20,17 +20,14 @@
 							</h4>
 						</div> -->
 					</div>
-					<div class="col-xs-2">
-						
+					<div class="col-xs-2" style="border-right: solid;border-color: black">
+						b<!-- <img src="{{$summonerInfo->badge_img_link}}" class="img-circle" height="100px" width="auto"> -->
 					</div>
-					<div class="col-xs-2" >
+					<div class="col-xs-2"  style="border-right: solid;border-color: black">
 c
 					</div>
-					<div class="col-xs-3">
-						<img src="{{$summonerInfo->badge_img_link}}" class="img-circle" height="100px" width="auto">
-						<h4 class="text-center"> 
-							{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}} 
-						</h4>
+					<div class="col-xs-3" style="border-right: solid;border-color: black">
+						<img src="{{$summonerInfo->badge_img_link}}" class="img-circle" height="100px" width="auto">{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}} 
 					</div>
 				</div>
             </div>

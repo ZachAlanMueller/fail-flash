@@ -30,8 +30,8 @@
 						</div>
 					</div>
 					<div class="col-xs-6">
-						@for($i = 0; $i < 3, $i++)
-							
+						@for($i = 0; $i < 3; $i++)
+
 						@endfor
 					</div>
 				</div>

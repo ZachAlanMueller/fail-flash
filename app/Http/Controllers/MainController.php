@@ -67,12 +67,12 @@ class MainController extends Controller
             return view('displaySummoner')
                 ->with('userInfo', $userInfo)
                 ->with('summonerInfo', $summonerInfo)
-                ->with('recentGames', $recentGames);
+                ->with('last3Games', $last3Games);
         }
         else{
             return view('displaySummoner')
                 ->with('summonerInfo', $summonerInfo)
-                ->with('recentGames', $recentGames);
+                ->with('last3Games', $last3Games);
         }
     }
 

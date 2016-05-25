@@ -31,6 +31,15 @@
 					<div class="col-xs-3" style="border-right: solid;border-color: black">
 
 					</div>
+					<div class="col-xs-1" style="border-right: solid;border-color: black">
+
+					</div>
+					<div class="col-xs-1" style="border-right: solid;border-color: black">
+
+					</div>
+					<div class="col-xs-1" style="border-right: solid;border-color: black">
+
+					</div>
 				</div>
             </div>
             <!-- /.panel-heading -->

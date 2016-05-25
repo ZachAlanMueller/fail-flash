@@ -55,7 +55,7 @@ class MainController extends Controller
     }
 
     public function displaySummoner($id){
-
+        $userInfo = getUserInfo();
         $summonerInfo = DB::table('summoners')->where('id', $id)->get();
         $summonerInfo = $summonerInfo[0];
         $summonerInfo->profile_img_link = "/images/profile-icons/".$summonerInfo->profile_icon_id.".png";
@@ -70,16 +70,13 @@ class MainController extends Controller
         
         if(Auth::check()){
             $userInfo = getUserInfo();
-            return view('main')
-                ->with('img_link', $img_link);return view('displaySummoner')
+            return view('displaySummoner')
                 ->with('userInfo', $userInfo)
                 ->with('summonerInfo', $summonerInfo)
                 ->with('recentGames', $recentGames);
         }
         else{
-            return view('main')
-                ->with('img_link', $img_link);return view('displaySummoner')
-                ->with('userInfo', $userInfo)
+            return view('displaySummoner')
                 ->with('summonerInfo', $summonerInfo)
                 ->with('recentGames', $recentGames);
         }

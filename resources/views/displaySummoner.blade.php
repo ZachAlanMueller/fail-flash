@@ -27,7 +27,7 @@
 c
 					</div>
 					<div class="col-xs-3">
-						<img src="{{$summonerInfo->badge_img_link}}" class="img-circle" height="100px" width="auto"><br>
+						<img src="{{$summonerInfo->badge_img_link}}" class="img-circle" height="100px" width="auto">
 						<h4 class="text-center"> 
 							{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}} 
 						</h4>

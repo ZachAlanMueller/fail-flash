@@ -62,10 +62,10 @@ class updateSummoner extends Command
             }
             $count = DB::table('summoner_games')->where('game_id', $game->matchId)->count();
             if($count < 1){
-                DB::table('summoner_games')->insert(array('id' => $id . "-" . $game->matchId, 'summoner_id' => $id, 'champ_id' => $game->champion, 'role' => $game->role, 'lane' => $game->lane, 'timestamp' => $game->timestamp, 'queue' => $game->queue, 'season' => $game->season, 'game_id' => $game->matchId));
+                DB::table('summoner_games')->insert(array('id' => $id . "-" . $game->matchId, 'summoner_id' => $id, 'champion_id' => $game->champion, 'role' => $game->role, 'lane' => $game->lane, 'timestamp' => $game->timestamp, 'queue' => $game->queue, 'season' => $game->season, 'game_id' => $game->matchId));
             }
             else{
-                DB::table('summoner_games')->where('id', $id . '-' . $game->matchId)->update(array('id' => $id . "-" . $game->matchId, 'summoner_id' => $id, 'champ_id' => $game->champion, 'role' => $game->role, 'lane' => $game->lane, 'timestamp' => $game->timestamp, 'queue' => $game->queue, 'season' => $game->season, 'game_id' => $game->matchId));
+                DB::table('summoner_games')->where('id', $id . '-' . $game->matchId)->update(array('id' => $id . "-" . $game->matchId, 'summoner_id' => $id, 'champion_id' => $game->champion, 'role' => $game->role, 'lane' => $game->lane, 'timestamp' => $game->timestamp, 'queue' => $game->queue, 'season' => $game->season, 'game_id' => $game->matchId));
             }
         }
 
@@ -165,7 +165,7 @@ class updateSummoner extends Command
                             DB::table('summoner_games')->insert(array(
                                 'id' => $participantIdentity->player->summonerId . "-" . $info->matchId ,
                                 'summoner_id' => $participantIdentity->player->summonerId,
-                                'champ_id' => $participant->championId,
+                                'champion_id' => $participant->championId,
                                 'queue' =>  $info->queueType,
                                 'season' =>  $info->season,
                                 'game_id' => $info->matchId,
@@ -202,7 +202,7 @@ class updateSummoner extends Command
                             DB::table('summoner_games')->where('id', $participantIdentity->player->summonerId . "-" . $info->matchId)->update(array(
                                 'id' => $participantIdentity->player->summonerId . "-" . $info->matchId ,
                                 'summoner_id' => $participantIdentity->player->summonerId,
-                                'champ_id' => $participant->championId,
+                                'champion_id' => $participant->championId,
                                 'queue' =>  $info->queueType,
                                 'season' =>  $info->season,
                                 'game_id' => $info->matchId,

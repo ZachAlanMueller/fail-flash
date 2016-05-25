@@ -25,8 +25,18 @@
 				<img src="{{$summonerInfo->badge_img_link}}" width="80px" height="80px">
 			</div>
 			<div class="col-xs-2 text-center" style="font-family: Georgia, serif;"> 
-				<p><b>{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}}</b></p>
-				<p><b>{{$summonerInfo->league_points}} LP </b></p>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<p><b>{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}}</b></p>
+						<p><b>{{$summonerInfo->league_points}} LP </b></p>
+					</div>
+					<div class="panel-footer">
+						<div class="progress progress-striped active">
+                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{$summonerInfo->league_points}}" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                            </div>
+                        </div>
+					</div>
+				</div>
 			</div>
 		</div>
     </div>

@@ -56,6 +56,8 @@ class MainController extends Controller
 
     public function displaySummoner($id){
         $userInfo = getUserInfo();
+        var_dump($userInfo);
+        die();
         $summonerInfo = DB::table('summoners')->where('id', $id)->get();
         $summonerInfo = $summonerInfo[0];
         $summonerInfo->profile_img_link = "/images/profile-icons/".$summonerInfo->profile_icon_id.".png";

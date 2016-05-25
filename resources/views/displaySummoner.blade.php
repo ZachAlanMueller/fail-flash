@@ -16,13 +16,14 @@
 			</div>
 			<div class="col-xs-2">
 				<button type="button" class="btn btn-info btn-sm btn-block">Refresh Info</button>
-				<button type="button" class="btn btn-warning btn-sm btn-block">Look for Live</button>
+				<button type="button" class="btn btn-warning btn-sm btn-block">Look for Live Game</button>
 			</div>
 			<div class="col-xs-2">
 				<p style="visibility:hidden;"> Blarg</p>
 			</div>
 			<div class="col-xs-3">
-				<img src="{{$summonerInfo->badge_img_link}}" width="80px" height="80px">{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}} 
+				<img src="{{$summonerInfo->badge_img_link}}" width="80px" height="80px">
+				<p class="text-center">{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}} </p>
 			</div>
 		</div>
     </div>

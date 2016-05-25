@@ -26,7 +26,7 @@
 					<div class="col-xs-2"  style="border-right: solid;border-color: black">
 c
 					</div>
-					<div class="col-xs-3" style="border-right: solid;border-color: black">
+					<div class="col-xs-3" style="border-right: solid;border-color: black" style="vertical-align: middle;">
 						<img src="{{$summonerInfo->badge_img_link}}" class="img-circle" height="100px" width="auto">{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}} 
 					</div>
 				</div>

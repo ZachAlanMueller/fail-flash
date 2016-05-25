@@ -35,9 +35,6 @@
 					<div class="col-xs-1" style="border-right: solid;border-color: black">
 					d
 					</div>
-					<div class="col-xs-1" style="border-right: solid;border-color: black">
-					e
-					</div>
 				</div>
             </div>
             <!-- /.panel-heading -->

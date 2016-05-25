@@ -30,9 +30,9 @@
 						</div>
 					</div>
 					<div class="col-xs-6">
-						@for($i = 0; $i < 3; $i++)
-
-						@endfor
+						@foreach($last3Games as $game)
+							$game->champions.img_link
+						@endforeach
 					</div>
 				</div>
             </div>

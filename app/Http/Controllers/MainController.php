@@ -55,18 +55,12 @@ class MainController extends Controller
     }
 
     public function displaySummoner($id){
-        $userInfo = getUserInfo();
         $summonerInfo = DB::table('summoners')->where('id', $id)->get();
         $summonerInfo = $summonerInfo[0];
         $summonerInfo->profile_img_link = "/images/profile-icons/".$summonerInfo->profile_icon_id.".png";
         $summonerInfo->badge_img_link = "/images/badges/".ucwords(strtolower($summonerInfo->tier)).".png";
         // Link to images for Rank-Badge and Profile Icon
-        $recentGames = DB::table('summoner_games')->select('game_id')->where('summoner_id', $id)->limit(10)->get();
-        $gameIds = array();
-        foreach($recentGames as $game){
-            array_push($gameIds, $game->game_id);
-        }
-        $recentGames = DB::table('summoner_games')->join('games', 'games.id', '=', 'summoner_games.game_id')->whereIn('game_id', $gameIds)->get();
+        $last3Games = DB::table('summoner_games')->join('games', 'games.id', '=', 'summoner_games.game_id')->join('champions', 'c.id', '=', 'summoner_games.champion_id')->where('summoner_id', $id)->limit(3)->get();
         
         if(Auth::check()){
             $userInfo = getUserInfo();

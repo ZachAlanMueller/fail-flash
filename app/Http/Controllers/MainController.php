@@ -55,9 +55,7 @@ class MainController extends Controller
     }
 
     public function displaySummoner($id){
-        $userInfo = getUserInfo();
-        var_dump($userInfo);
-        die();
+
         $summonerInfo = DB::table('summoners')->where('id', $id)->get();
         $summonerInfo = $summonerInfo[0];
         $summonerInfo->profile_img_link = "/images/profile-icons/".$summonerInfo->profile_icon_id.".png";
@@ -69,10 +67,21 @@ class MainController extends Controller
             array_push($gameIds, $game->game_id);
         }
         $recentGames = DB::table('summoner_games')->join('games', 'games.id', '=', 'summoner_games.game_id')->whereIn('game_id', $gameIds)->get();
-        return view('displaySummoner')
-            ->with('userInfo', $userInfo)
-            ->with('summonerInfo', $summonerInfo)
-            ->with('recentGames', $recentGames);
+        
+        if(Auth::check()){
+            $userInfo = getUserInfo();
+            return view('main')
+                ->with('img_link', $img_link);return view('displaySummoner')
+                ->with('userInfo', $userInfo)
+                ->with('summonerInfo', $summonerInfo)
+                ->with('recentGames', $recentGames);
+        else{
+            return view('main')
+                ->with('img_link', $img_link);return view('displaySummoner')
+                ->with('userInfo', $userInfo)
+                ->with('summonerInfo', $summonerInfo)
+                ->with('recentGames', $recentGames);
+        }
     }
 
 

@@ -30,9 +30,6 @@
 						</div>
 					</div>
 					<div class="col-xs-6">
-						@foreach($last3Games as $game)
-							{{$game->img_link}}
-						@endforeach
 					</div>
 				</div>
             </div>

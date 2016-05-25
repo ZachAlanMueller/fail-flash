@@ -19,10 +19,9 @@
 				<button type="button" class="btn btn-warning btn-sm btn-block">Look for Live</button>
 			</div>
 			<div class="col-xs-2">
-c
 			</div>
 			<div class="col-xs-3">
-				<img src="{{$summonerInfo->badge_img_link}}" class="img-circle" height="100px" width="auto">{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}} 
+				<img src="{{$summonerInfo->badge_img_link}}" width="80px" height="80px">{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}} 
 			</div>
 		</div>
     </div>

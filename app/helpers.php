@@ -81,7 +81,7 @@
                 DB::table('games')->insert(array('id' => $game->matchId));
             }
             $count = DB::table('summoner_games')->where('game_id', $game->matchId)->where('summoner_id', $summoner_id)->count();
-            $userInfo = array('id' => $summoner_id . "-" . $game->matchId, 'summoner_id' => $summoner_id, 'champ_id' => $game->champion, 'role' => $game->role, 'lane' => $game->lane, 'timestamp' => $game->timestamp, 'queue' => $game->queue, 'season' => $game->season, 'game_id' => $game->matchId);
+            $userInfo = array('id' => $summoner_id . "-" . $game->matchId, 'summoner_id' => $summoner_id, 'champion_id' => $game->champion, 'role' => $game->role, 'lane' => $game->lane, 'timestamp' => $game->timestamp, 'queue' => $game->queue, 'season' => $game->season, 'game_id' => $game->matchId);
             if($count < 1){
                 DB::table('summoner_games')->insert($userInfo);
             }

@@ -23,7 +23,6 @@
 			</div>
 			<div class="col-xs-1">
 				<img src="{{$summonerInfo->badge_img_link}}" width="80px" height="80px">
-				<p>{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}}</p>
 			</div>
 			<div class="col-xs-2 text-center" style="font-family: Georgia, serif;"> 
 				<p>{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}}</p>

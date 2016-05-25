@@ -5,7 +5,7 @@
 @section('content')
 	<div class="row">
 	
-        <div class="row" style="border-bottom: solid;border-bottom-width: 1px; border-color: #eee;"> 
+        <div class="row" style="border-bottom: solid;border-bottom-width: 1px; border-color: #eee; padding-bottom: 5px;"> 
 			<div class="col-xs-2 text-center">
 				<img src="{{$summonerInfo->profile_img_link}}" class="img-circle" width="80px" height="80px">
 			</div>

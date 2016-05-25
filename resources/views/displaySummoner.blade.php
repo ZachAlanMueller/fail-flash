@@ -5,8 +5,8 @@
 @section('content')
 	<div class="row">
 	
-        <div class="row">
-			<div class="col-xs-2" style="border-right: solid;border-color: black">
+        <div class="row"> 
+			<div class="col-xs-2 text-center" style="border-right: solid;border-color: black">
 				<img src="{{$summonerInfo->profile_img_link}}" class="img-circle" width="80px" height="80px">
 			</div>
 			<div class="col-xs-3" style="border-right: solid;border-color: black">

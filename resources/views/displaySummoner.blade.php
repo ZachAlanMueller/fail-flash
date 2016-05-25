@@ -5,23 +5,23 @@
 @section('content')
 	<div class="row">
 	
-        <div class="row" style="border-bottom: solid; border-color: gray;"> 
-			<div class="col-xs-2 text-center" style="border-right: solid;border-color: black">
+        <div class="row" style="border-bottom: solid;border-bottom-width: 1px; border-color: #eee;"> 
+			<div class="col-xs-2 text-center">
 				<img src="{{$summonerInfo->profile_img_link}}" class="img-circle" width="80px" height="80px">
 			</div>
-			<div class="col-xs-3" style="border-right: solid;border-color: black">
+			<div class="col-xs-3">
 				<h2 class="text-center" style="font-family: Georgia, serif;">
 					{{$summonerInfo->name}}
 				</h2>
 			</div>
-			<div class="col-xs-2" style="border-right: solid;border-color: black">
+			<div class="col-xs-2">
 				<button type="button" class="btn btn-info btn-sm btn-block">Refresh Info</button>
-				<button type="button" class="btn btn-warning btn-sm btn-block">Look for Live Game</button>
+				<button type="button" class="btn btn-warning btn-sm btn-block">Look for Live</button>
 			</div>
-			<div class="col-xs-2"  style="border-right: solid;border-color: black">
+			<div class="col-xs-2">
 c
 			</div>
-			<div class="col-xs-3" style="border-right: solid;border-color: black">
+			<div class="col-xs-3">
 				<img src="{{$summonerInfo->badge_img_link}}" class="img-circle" height="100px" width="auto">{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}} 
 			</div>
 		</div>

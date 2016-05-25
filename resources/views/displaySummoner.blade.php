@@ -10,7 +10,7 @@
 				<img src="{{$summonerInfo->profile_img_link}}" class="img-circle" width="80px" height="80px">
 			</div>
 			<div class="col-xs-3">
-				<h2 class="text-center" style="font-family: Georgia, serif; font-size:100vw;">
+				<h2 class="text-center" style="font-family: Georgia, serif;">
 					{{$summonerInfo->name}}
 				</h2>
 			</div>

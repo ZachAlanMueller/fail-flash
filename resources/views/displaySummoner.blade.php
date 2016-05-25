@@ -25,8 +25,8 @@
 				<img src="{{$summonerInfo->badge_img_link}}" width="80px" height="80px">
 			</div>
 			<div class="col-xs-2 text-center" style="font-family: Georgia, serif;"> 
-				<p>{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}}</p>
-				<p>{{$summonerInfo->league_points}} LP </p>
+				<p><b>{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}}</b></p>
+				<p><b>{{$summonerInfo->league_points}} LP </b></p>
 			</div>
 		</div>
     </div>

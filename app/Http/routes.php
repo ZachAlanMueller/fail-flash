@@ -21,6 +21,8 @@ Route::post('/user/profile', array('as' => 'update-profile', 'uses' => 'MainCont
 //Search User
 Route::get('/summoner/{id}', array('as' => 'display-summoner', 'uses' => 'MainController@displaySummoner'));
 Route::get('/summoner/{id}/softUpdate', array('as' => 'summoner-soft-update', 'uses' => 'MainController@softUpdate'));
+Route::get('/summoner/{id}/mediumUpdate', array('as' => 'summoner-medium-update', 'uses' => 'MainController@mediumUpdate'));
+Route::get('/summoner/{id}/hardUpdate', array('as' => 'summoner-hard-update', 'uses' => 'MainController@hardUpdate'));
 
 
 //Admin routes

@@ -53,6 +53,14 @@ class MainController extends Controller
         softUpdate($id);
         return Redirect('/summoner/'.$id);
     }
+    public function mediumUpdate($id){
+        mediumUpdate($id);
+        return Redirect('/summoner/'.$id);
+    }
+    public function hardUpdate($id){
+        hardUpdate($id);
+        return Redirect('/summoner/'.$id);
+    }
 
     public function displaySummoner($id){
         $summonerInfo = DB::table('summoners')->where('id', $id)->get();

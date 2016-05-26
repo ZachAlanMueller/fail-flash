@@ -287,6 +287,7 @@ class updateSummoner extends Command
                         }
                         if(isset($event->creatorId)){
                             $arrayTemp['creator_id'] = $event->creatorId;
+                            $arrayTemp['particiapnt_id'] = $event->creatorId;
                         }
                         if(isset($event->position)){
                             $arrayTemp['position_x'] = $event->position->x;
@@ -299,6 +300,7 @@ class updateSummoner extends Command
                         }
                         if(isset($event->killerId)){
                             $arrayTemp['killer_id'] = $event->killerId;
+                            $arrayTemp['participant_id'] = $event->killerId;
                         }
                         if(isset($event->victimId)){
                             $arrayTemp['victim_id'] = $event->victimId;

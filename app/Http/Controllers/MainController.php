@@ -68,15 +68,14 @@ class MainController extends Controller
         $summonerInfo->profile_img_link = "/images/profile-icons/".$summonerInfo->profile_icon_id.".png";
         $summonerInfo->badge_img_link = "/images/badges/".ucwords(strtolower($summonerInfo->tier)).".png";
         // Link to images for Rank-Badge and Profile Icon
-        $games_15_ids_temp = DB::table('summoner_games')->select('game_id')->where('summoner_id', $id)->orderBy('game_id', 'desc')->limit(15)->get();
-        $games_15_ids = array();
-        foreach($games_15_ids_temp as $game_15_id){
-            array_push($games_15_ids, $game_15_id->game_id);
-        }
-        var_dump($games_15_ids);
-        die();
-
         
+        //current query:
+        //select * from games g 
+// join summoner_games sg on sg.game_id = g.id
+// join frames f on f.participant_id = sg.participant_id and f.game_id = g.id
+// join frame_events fe on fe.game_id = g.id and ()
+// where g.id in (2197421887,2197357033,2197313909,2197231869,2197226888,2197195037,2197115329,2197077401,2197072484,2197065942,2197051736,2196752009,2196747493,2196705314,2196658192);
+
         
         if(Auth::check()){
             $userInfo = getUserInfo();

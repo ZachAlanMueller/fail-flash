@@ -68,11 +68,13 @@ class MainController extends Controller
         $summonerInfo->profile_img_link = "/images/profile-icons/".$summonerInfo->profile_icon_id.".png";
         $summonerInfo->badge_img_link = "/images/badges/".ucwords(strtolower($summonerInfo->tier)).".png";
         // Link to images for Rank-Badge and Profile Icon
-        $games_15_ids = DB::table('summoner_games')->select('game_id')->where('summoner_id', $id)->orderBy('game_id', 'desc')->limit(15)->get();
-        foreach($games_15_ids as $game_15_id){
-            var_dump($game_15_id);
-            die();
+        $games_15_ids_temp = DB::table('summoner_games')->select('game_id')->where('summoner_id', $id)->orderBy('game_id', 'desc')->limit(15)->get();
+        $games_15_ids = array();
+        foreach($games_15_ids_temp as $game_15_id){
+            array_push($games_15_ids, $game_15_id->game_id);
         }
+        var_dump($games_15_ids);
+        die();
 
         
         

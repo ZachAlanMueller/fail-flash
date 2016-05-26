@@ -68,7 +68,9 @@ class MainController extends Controller
         $summonerInfo->profile_img_link = "/images/profile-icons/".$summonerInfo->profile_icon_id.".png";
         $summonerInfo->badge_img_link = "/images/badges/".ucwords(strtolower($summonerInfo->tier)).".png";
         // Link to images for Rank-Badge and Profile Icon
-        
+        $games_15 = DB::raw("select * from summoner_games sg join games g on g.id = sg.game_id join champions c on c.id = sg.champion_id where summoner_id = '23703122' order by game_id desc limit 15")->get();
+        var_dump($games_15);
+        die();
         
         if(Auth::check()){
             $userInfo = getUserInfo();

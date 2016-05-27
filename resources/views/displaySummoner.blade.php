@@ -66,7 +66,7 @@
 									            label: 'Gold',
 									            data: [
 									            @foreach($lastGame->frames as $a => $frame)
-									        		"2" @if( $a != count($lastGame->frames)), @endif
+									        		"{{2 * $a}}" @if( $a != count($lastGame->frames)), @endif
 									        	@endforeach
 									        ]
 									        }]

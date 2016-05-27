@@ -70,25 +70,17 @@ class MainController extends Controller
         // Link to images for Rank-Badge and Profile Icon
         
         //A super awesome 1-query join could cause excess time.  Best to just join games to all of them and reference them all by game ID
-        $ids_temp = DB::table('summoner_games')->select('game_id')->where('summoner_id', $id)->whereNotNull('winner')->orderBy('game_id', 'desc')->limit(10)->get();
-        $game_ids = array();
-        foreach($ids_temp as $id_temp){
-            array_push($game_ids, $id_temp->game_id);
-        }
-        $recentFrames = DB::table('frames')->whereIn('game_id', $game_ids)->get();
-        $recentFrameEvents = DB::table('frame_events')->whereIn('game_id', $game_ids)->get();
-        $recentSummonerGames = DB::table('summoner_games')->join('games', 'games.id', '=', 'summoner_games.game_id')->join('champions', 'champions.id', '=', 'summoner_games.champion_id')->whereIn('game_id', $game_ids)->get();
-
+        //try just 'last game'
+        $latestGameId = DB::table('games')->select(DB::raw('id order by id desc limit 1'));
+        var_dump($latestGameId);
+        die();
 
         
         if(Auth::check()){
             $userInfo = getUserInfo();
             return view('displaySummoner')
                 ->with('userInfo', $userInfo)
-                ->with('summonerInfo', $summonerInfo)
-                ->with('recentFrames', $recentFrames)
-                ->with('recentFrameEvents', $recentFrameEvents)
-                ->with('recentSummonerGames', $recentSummonerGames);
+                ->with('summonerInfo', $summonerInfo);
         }
         else{
             return view('displaySummoner')

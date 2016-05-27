@@ -50,7 +50,7 @@
                 <div class="row">
                 	<div class="col-xs-6">
                 		@if(true)
-                			<canvas id="lastGame" width="auto" height="auto"></canvas>
+                			<canvas id="lastGame"  height="300" width="auto"></canvas>
                 			<script>
                 				$(document).ready(function() {
 	                				var ctx = document.getElementById('lastGame');

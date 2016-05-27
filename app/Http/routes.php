@@ -29,7 +29,7 @@ Route::get('/summoner/{id}/hardUpdate', array('as' => 'summoner-hard-update', 'u
 Route::get('/admin/updates', array('as' => 'admin-updates', 'uses' => 'AdminController@updates'));
 Route::post('/admin/updates', array('as' => 'update-database', 'uses' => 'UpdateController@databaseUpdates'));
 
-Route::get('/foobar', array('as', => 'foobar', 'uses' => 'MainController@foobar'));
+Route::get('/foobar', array('as' => 'foobar', 'uses' => 'MainController@foobar'));
 
 
 

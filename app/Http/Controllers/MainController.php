@@ -77,6 +77,10 @@ class MainController extends Controller
         $lastGameSummonerGames = DB::table('summoner_games')->join('games', 'games.id', '=', 'summoner_games.game_id')->join('champions', 'champions.id', '=', 'summoner_games.champion_id')->where('game_id', $latestGameId)->get();
         $lastGameFrames = DB::table('frames')->where('game_id', $latestGameId)->get();
         $lastGameFrameEvents = DB::table('frame_events')->where('game_id', $latestGameId)->get();
+        $lastGame = new stdClass();
+        $lastGame->frameEvents = $lastGameFrameEvents;
+        $lastGame->frames = $lastGameFrames;
+        $lastGame->players = $lastGameSummonerGames;
 
 
         
@@ -84,11 +88,13 @@ class MainController extends Controller
             $userInfo = getUserInfo();
             return view('displaySummoner')
                 ->with('userInfo', $userInfo)
-                ->with('summonerInfo', $summonerInfo);
+                ->with('summonerInfo', $summonerInfo)
+                ->with('lastGame', $lastGame);
         }
         else{
             return view('displaySummoner')
-                ->with('summonerInfo', $summonerInfo);
+                ->with('summonerInfo', $summonerInfo)
+                ->with('lastGame', $lastGame);
         }
     }
 
@@ -110,8 +116,5 @@ class MainController extends Controller
     }
     public function saveProfile(){
 
-    }
-    public function foobar(){
-        return view('foobar');
     }
 }

@@ -69,19 +69,26 @@ class MainController extends Controller
         $summonerInfo->badge_img_link = "/images/badges/".ucwords(strtolower($summonerInfo->tier)).".png";
         // Link to images for Rank-Badge and Profile Icon
         
-        //current query:
-        //select * from games g 
-// join summoner_games sg on sg.game_id = g.id
-// join frames f on f.participant_id = sg.participant_id and f.game_id = g.id
-// join frame_events fe on fe.game_id = g.id and ()
-// where g.id in (2197421887,2197357033,2197313909,2197231869,2197226888,2197195037,2197115329,2197077401,2197072484,2197065942,2197051736,2196752009,2196747493,2196705314,2196658192);
+        //A super awesome 1-query join could cause excess time.  Best to just join games to all of them and reference them all by game ID
+        $ids_temp = DB::table('summoner_games')->select('game_id')->where('summoner_id', $id)->whereNotNull('winner')->orderBy('game_id', 'desc')->limit(10)->get();
+        $game_ids = array();
+        foreach($ids_temp as $id_temp){
+            array_push($game_ids, $id_temp->game_id);
+        }
+        $recentFrames = DB::table('frames')->whereIn('game_id', $game_ids)->get();
+        $recentFrameEvents = DB::table('frame_events')->whereIn('game_id', $game_ids)->get();
+        $recentSummonerGames = DB::table('summoner_games')->join('games', 'games.id', '=', 'summoner_games.game_id')->('champions', 'champions.id', '=', 'summoner_games.champion_id')->whereIn('game_id', $game_ids)->get();
+
 
         
         if(Auth::check()){
             $userInfo = getUserInfo();
             return view('displaySummoner')
                 ->with('userInfo', $userInfo)
-                ->with('summonerInfo', $summonerInfo);
+                ->with('summonerInfo', $summonerInfo)
+                ->with('recentFrames', $recentFrames)
+                ->with('recentFrameEvents', $recentFrameEvents)
+                ->with('recentSummonerGames', $recentSummonerGames);
         }
         else{
             return view('displaySummoner')

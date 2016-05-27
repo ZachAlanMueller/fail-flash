@@ -57,10 +57,18 @@
 	                				var lastGame = new Chart(ctx, {
 									    type: 'line',
 									    data: {
-									        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+									        labels: [
+										        @foreach($lastGame->frames as $a => $frame)
+										        	"{{round($frame->timestamp / 1000, 0) }}" @if( $a != count($lastGame->frames)), @endif
+										        @endforeach
+									        ],
 									        datasets: [{
-									            label: '# of Votes',
-									            data: [12, 19, 3, 5, 2, 3]
+									            label: 'Gold',
+									            data: [
+									            @foreach($lastGame->frames as $a => $frame)
+									        		"2" @if( $a != count($lastGame->frames)), @endif
+									        	@endforeach
+									        ]
 									        }]
 									    },
 									    options: {

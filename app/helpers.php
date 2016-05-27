@@ -264,9 +264,9 @@
             } 
             foreach($info->timeline->frames as $frame){
                 foreach($frame->participantFrames as $pFrame){
-                    $count = DB::table('frames')->where('id', $info->matchId . '-' . $frame->timestamp . '-' . $pFrame->participantId)->count();
+                    $count = DB::table('frames_participants')->where('id', $info->matchId . '-' . $frame->timestamp . '-' . $pFrame->participantId)->count();
                     if($count < 1){
-                        DB::table('frames')->insert(array(
+                        DB::table('frames_participants')->insert(array(
                             'id' => $info->matchId . "-" . $frame->timestamp . "-" . $pFrame->participantId,
                             'game_id' => $info->matchId,
                             'participant_id' => $pFrame->participantId,
@@ -278,7 +278,7 @@
                             'xp' => $pFrame->xp));
                     }
                     else{
-                        DB::table('frames')->where('id', $info->matchId .'-' .$frame->timestamp . '-' . $pFrame->participantId)->update(array(
+                        DB::table('frames_participants')->where('id', $info->matchId .'-' .$frame->timestamp . '-' . $pFrame->participantId)->update(array(
                             'id' => $info->matchId . "-" . $frame->timestamp . "-" . $pFrame->participantId,
                             'game_id' => $info->matchId,
                             'participant_id' => $pFrame->participantId,

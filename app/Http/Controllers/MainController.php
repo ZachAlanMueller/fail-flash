@@ -77,7 +77,7 @@ class MainController extends Controller
         }
         $recentFrames = DB::table('frames')->whereIn('game_id', $game_ids)->get();
         $recentFrameEvents = DB::table('frame_events')->whereIn('game_id', $game_ids)->get();
-        $recentSummonerGames = DB::table('summoner_games')->join('games', 'games.id', '=', 'summoner_games.game_id')->('champions', 'champions.id', '=', 'summoner_games.champion_id')->whereIn('game_id', $game_ids)->get();
+        $recentSummonerGames = DB::table('summoner_games')->join('games', 'games.id', '=', 'summoner_games.game_id')->join('champions', 'champions.id', '=', 'summoner_games.champion_id')->whereIn('game_id', $game_ids)->get();
 
 
         

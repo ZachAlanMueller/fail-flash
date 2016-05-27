@@ -59,7 +59,7 @@
 									    data: {
 									        labels: [
 										        @foreach($lastGame->frames as $a => $frame)
-										        	"{{round(($frame->timestamp / 1000), 0) }}" @if( $a != count($lastGame->frames)), @endif
+										        	"{{round(($frame->timestamp / 6000), 0) }}" @if( $a != count($lastGame->frames)), @endif
 										        @endforeach
 									        ],
 									        datasets: [{

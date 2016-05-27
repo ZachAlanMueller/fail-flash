@@ -71,7 +71,7 @@ class MainController extends Controller
         
         //A super awesome 1-query join could cause excess time.  Best to just join games to all of them and reference them all by game ID
         //try just 'last game'
-        $latestGameId = DB::table('games')->select('id')->orderBy('id', 'desc')->limit(1)->get();
+        $latestGameId = DB::table('summoner_games')->select('game_id')->where('summoner_id', $id)->orderBy('game_id', 'desc')->limit(1)->get();
         var_dump($latestGameId);
         die();
 

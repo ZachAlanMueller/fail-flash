@@ -60,7 +60,7 @@
 									        labels: [
 										        @foreach($lastGame->frames as $a => $frame)
 										        	@if(($a % count($lastGame->players)) == 0)
-										        		"{{round(($frame->timestamp / 1000), 0) }}" @if( $a != count($lastGame->frames)), @endif
+										        		"{{round(($frame->timestamp / 60000), 0) }}" @if( $a != count($lastGame->frames)), @endif
 										        	@endif
 										        @endforeach
 									        ],

@@ -53,7 +53,7 @@
                 			<canvas id="lastGame" width="auto" height="auto"></canvas>
                 			<script>
                 				$(document).ready(function() {
-	                				var ctx = ocument.getElementById('lastGame');
+	                				var ctx = document.getElementById('lastGame');
 	                				var lastGame = new Chart(ctx, {
 									    type: 'line',
 									    data: {

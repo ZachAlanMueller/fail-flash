@@ -81,8 +81,6 @@ class MainController extends Controller
         $lastGame->frameEvents = $lastGameFrameEvents;
         $lastGame->frames = $lastGameFrames;
         $lastGame->players = $lastGameSummonerGames;
-        var_dump($lastGameSummonerGames);
-        die();
 
 
         

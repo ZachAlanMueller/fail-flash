@@ -59,7 +59,7 @@
 									    data: {
 									        labels: [
 										        @foreach($lastGame->frames as $a => $frame)
-										        	@if($frame->participant_id == $lastGame->players->{$summonerInfo->id}->participant_id)
+										        	@if(($a % count($lastGame->players)) == 0)
 										        		"{{round(($frame->timestamp / 1000), 0) }}" @if( $a != count($lastGame->frames)), @endif
 										        	@endif
 										        @endforeach

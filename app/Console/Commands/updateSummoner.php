@@ -88,7 +88,7 @@ class updateSummoner extends Command
                     $t1_kills += $participantInfo->stats->kills;
                 }
                 else{
-                    $t2_kills += $participantInfo->stats->kills;   
+                    $t2_kills += $participantInfo->stats->kills;
                 }
             }
             if($counter == 0){
@@ -237,7 +237,7 @@ class updateSummoner extends Command
                         }
                     }
                 }
-            } 
+            }
             foreach($info->timeline->frames as $frame){
                 foreach($frame->participantFrames as $pFrame){
                     $count = DB::table('frames_participants')->where('id', $info->matchId . '-' . $frame->timestamp . '-' . $pFrame->participantId)->count();
@@ -340,7 +340,7 @@ class updateSummoner extends Command
                         }
                     }
                 }
-            }  
+            }
         }
     }
 }

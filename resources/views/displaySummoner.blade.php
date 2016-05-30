@@ -4,8 +4,8 @@
 
 @section('content')
 	<div class="row">
-	
-        <div class="row" style="border-bottom: solid;border-bottom-width: 1px; border-color: #eee; padding-bottom: 10px;"> 
+
+        <div class="row" style="border-bottom: solid;border-bottom-width: 1px; border-color: #eee; padding-bottom: 10px;">
 			<div class="col-xs-2 text-center">
 				<img src="{{$summonerInfo->profile_img_link}}" class="img-circle" width="80px" height="80px">
 			</div>
@@ -24,7 +24,7 @@
 			<div class="col-xs-1">
 				<img src="{{$summonerInfo->badge_img_link}}" width="80px" height="80px">
 			</div>
-			<div class="col-xs-2 text-center" style="font-family: Georgia, serif;"> 
+			<div class="col-xs-2 text-center" style="font-family: Georgia, serif;">
 				<p><b>{{ucwords(strtolower($summonerInfo->tier))}} {{$summonerInfo->division}}</b></p>
 				<p><b>{{$summonerInfo->league_points}} LP </b></p>
 			</div>
@@ -88,10 +88,10 @@
                 		@endif
                 	</div>
                 	<div class="col-xs-3">
-                		
+
                 	</div>
                 	<div class="col-xs-3">
-                		
+
                 	</div>
                 </div>
             </div>

@@ -75,7 +75,7 @@ class MainController extends Controller
         $latestGameId = $latestGameId[0]->game_id;
 
         $lastGameSummonerGames = DB::table('summoner_games')->join('games', 'games.id', '=', 'summoner_games.game_id')->join('champions', 'champions.id', '=', 'summoner_games.champion_id')->where('game_id', $latestGameId)->get();
-        $lastGameFrames = DB::table('frames_participants')->join('summoner_games', 'summoner_games.participant_id', '=', 'frames_participants.participant_id')->where('summoner_games.game_id', $latestGameId)->where('frames_participants.game_id', $latestGameId)->orderBy('timestamp', 'asc')->orderBy('participant_id', 'asc')->get();
+        $lastGameFrames = DB::table('frames_participants')->join('summoner_games', 'summoner_games.participant_id', '=', 'frames_participants.participant_id')->where('summoner_games.game_id', $latestGameId)->where('frames_participants.game_id', $latestGameId)->orderBy('frames_participants.timestamp', 'asc')->orderBy('frames_participants.participant_id', 'asc')->get();
         $lastGameFrameEvents = DB::table('frame_events')->where('game_id', $latestGameId)->get();
         $lastGame = new stdClass();
         $lastGame->frameEvents = $lastGameFrameEvents;

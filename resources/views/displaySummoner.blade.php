@@ -68,7 +68,7 @@
 									            label: 'Gold',
 									            data: [
 									            @foreach($lastGame->frameEvents as $a => $frameEvent)
-																@if($frameEvent->summoner_id == $userInfo->summoner_id && $frameEvent->)
+																@if($frameEvent->summoner_id == $userInfo->summoner_id && $frameEvent->event_type == "CHAMPION_KILL" and $frameEvent->victim_id == $userInfo->summoner_id)
 																	"{{2 * $a}}" @if( $a != count($lastGame->frames)), @endif
 																@endif
 									        	@endforeach

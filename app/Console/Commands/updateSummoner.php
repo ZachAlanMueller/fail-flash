@@ -207,108 +207,110 @@ class updateSummoner extends Command
                     }
                 }
             }
-            foreach($info->timeline->frames as $frame){
-                foreach($frame->participantFrames as $pFrame){
-                    $count = DB::table('frames_participants')->where('id', $info->matchId . '-' . $frame->timestamp . '-' . $pFrame->participantId)->count();
-                    if($count < 1){
-                        DB::table('frames_participants')->insert(array(
-                            'id' => $info->matchId . "-" . $frame->timestamp . "-" . $pFrame->participantId,
-                            'game_id' => $info->matchId,
-                            'participant_id' => $pFrame->participantId,
-                            'timestamp' => $frame->timestamp,
-                            'current_gold' => $pFrame->currentGold,
-                            'total_gold' => $pFrame->totalGold,
-                            'minions_killed' => $pFrame->minionsKilled,
-                            'level' => $pFrame->level,
-                            'xp' => $pFrame->xp));
-                    }
-                    else{
-                        DB::table('frames_participants')->where('id', $info->matchId .'-' .$frame->timestamp . '-' . $pFrame->participantId)->update(array(
-                            'id' => $info->matchId . "-" . $frame->timestamp . "-" . $pFrame->participantId,
-                            'game_id' => $info->matchId,
-                            'participant_id' => $pFrame->participantId,
-                            'timestamp' => $frame->timestamp,
-                            'current_gold' => $pFrame->currentGold,
-                            'total_gold' => $pFrame->totalGold,
-                            'minions_killed' => $pFrame->minionsKilled,
-                            'level' => $pFrame->level,
-                            'xp' => $pFrame->xp));
-                    }
-                }
-                if(isset($frame->events)){
-                    foreach($frame->events as $eventId => $event){
-                        $count = DB::table('frame_events')->where('id', $info->matchId . '-' . $eventId . '-' . $event->timestamp)->count();
-                        $arrayTemp = array(
-                                'id' => $info->matchId . '-' . $eventId . '-' . $event->timestamp,
-                                'game_id' => $info->matchId,
-                                'event_type' => $event->eventType,
-                                'timestamp' => $event->timestamp,
-                                'event_id' => $eventId);
-                        if(isset($event->participantId)){
-                            $arrayTemp['participant_id'] = $event->participantId;
-                        }
-                        if(isset($event->assistingParticipantIds)){
-                            foreach($event->assistingParticipantIds as $PNumber => $assistingParticipant){
-                                $num = $PNumber + 1;
-                                $ref = 'assisting_participant_id_'.$num;
-                                $arrayTemp[$ref] = $assistingParticipant;
-                            }
-                        }
-                        if(isset($event->creatorId)){
-                            $arrayTemp['creator_id'] = $event->creatorId;
-                            $arrayTemp['participant_id'] = $event->creatorId;
-                        }
-                        if(isset($event->position)){
-                            $arrayTemp['position_x'] = $event->position->x;
-                        }
-                        if(isset($event->position)){
-                            $arrayTemp['position_y'] = $event->position->y;
-                        }
-                        if(isset($event->itemId)){
-                            $arrayTemp['item_id'] = $event->itemId;
-                        }
-                        if(isset($event->killerId)){
-                            $arrayTemp['killer_id'] = $event->killerId;
-                            $arrayTemp['participant_id'] = $event->killerId;
-                        }
-                        if(isset($event->victimId)){
-                            $arrayTemp['victim_id'] = $event->victimId;
-                        }
-                        if(isset($event->laneType)){
-                            $arrayTemp['lane_type'] = $event->laneType;
-                        }
-                        if(isset($event->buildingType)){
-                            $arrayTemp['building_type'] = $event->buildingType;
-                        }
-                        if(isset($event->levelUpType)){
-                            $arrayTemp['level_up_type'] = $event->levelUpType;
-                        }
-                        if(isset($event->skillSlot)){
-                            $arrayTemp['skill_slot'] = $event->skillSlot;
-                        }
-                        if(isset($event->monsterType)){
-                            $arrayTemp['monster_type'] = $event->monsterType;
-                        }
-                        if(isset($event->teamId)){
-                            $arrayTemp['team_id'] = $event->teamId;
-                        }
-                        if(isset($event->wardType)){
-                            $arrayTemp['ward_type'] = $event->wardType;
-                        }
-                        if(isset($event->itemBefore)){
-                            $arrayTemp['item_before'] = $event->itemBefore;
-                        }
-                        if(isset($event->itemAfter)){
-                            $arrayTemp['item_after'] = $event->itemAfter;
-                        }
-                        if($count < 1){
-                            DB::table('frame_events')->insert($arrayTemp);
-                        }
-                        else{
-                            DB::table('frame_events')->where('id', $info->matchId . '-' . $eventId . '-' . $event->timestamp)->update($arrayTemp);
-                        }
-                    }
-                }
+            if(isset($info->timeline)){  
+              foreach($info->timeline->frames as $frame){
+                  foreach($frame->participantFrames as $pFrame){
+                      $count = DB::table('frames_participants')->where('id', $info->matchId . '-' . $frame->timestamp . '-' . $pFrame->participantId)->count();
+                      if($count < 1){
+                          DB::table('frames_participants')->insert(array(
+                              'id' => $info->matchId . "-" . $frame->timestamp . "-" . $pFrame->participantId,
+                              'game_id' => $info->matchId,
+                              'participant_id' => $pFrame->participantId,
+                              'timestamp' => $frame->timestamp,
+                              'current_gold' => $pFrame->currentGold,
+                              'total_gold' => $pFrame->totalGold,
+                              'minions_killed' => $pFrame->minionsKilled,
+                              'level' => $pFrame->level,
+                              'xp' => $pFrame->xp));
+                      }
+                      else{
+                          DB::table('frames_participants')->where('id', $info->matchId .'-' .$frame->timestamp . '-' . $pFrame->participantId)->update(array(
+                              'id' => $info->matchId . "-" . $frame->timestamp . "-" . $pFrame->participantId,
+                              'game_id' => $info->matchId,
+                              'participant_id' => $pFrame->participantId,
+                              'timestamp' => $frame->timestamp,
+                              'current_gold' => $pFrame->currentGold,
+                              'total_gold' => $pFrame->totalGold,
+                              'minions_killed' => $pFrame->minionsKilled,
+                              'level' => $pFrame->level,
+                              'xp' => $pFrame->xp));
+                      }
+                  }
+                  if(isset($frame->events)){
+                      foreach($frame->events as $eventId => $event){
+                          $count = DB::table('frame_events')->where('id', $info->matchId . '-' . $eventId . '-' . $event->timestamp)->count();
+                          $arrayTemp = array(
+                                  'id' => $info->matchId . '-' . $eventId . '-' . $event->timestamp,
+                                  'game_id' => $info->matchId,
+                                  'event_type' => $event->eventType,
+                                  'timestamp' => $event->timestamp,
+                                  'event_id' => $eventId);
+                          if(isset($event->participantId)){
+                              $arrayTemp['participant_id'] = $event->participantId;
+                          }
+                          if(isset($event->assistingParticipantIds)){
+                              foreach($event->assistingParticipantIds as $PNumber => $assistingParticipant){
+                                  $num = $PNumber + 1;
+                                  $ref = 'assisting_participant_id_'.$num;
+                                  $arrayTemp[$ref] = $assistingParticipant;
+                              }
+                          }
+                          if(isset($event->creatorId)){
+                              $arrayTemp['creator_id'] = $event->creatorId;
+                              $arrayTemp['participant_id'] = $event->creatorId;
+                          }
+                          if(isset($event->position)){
+                              $arrayTemp['position_x'] = $event->position->x;
+                          }
+                          if(isset($event->position)){
+                              $arrayTemp['position_y'] = $event->position->y;
+                          }
+                          if(isset($event->itemId)){
+                              $arrayTemp['item_id'] = $event->itemId;
+                          }
+                          if(isset($event->killerId)){
+                              $arrayTemp['killer_id'] = $event->killerId;
+                              $arrayTemp['participant_id'] = $event->killerId;
+                          }
+                          if(isset($event->victimId)){
+                              $arrayTemp['victim_id'] = $event->victimId;
+                          }
+                          if(isset($event->laneType)){
+                              $arrayTemp['lane_type'] = $event->laneType;
+                          }
+                          if(isset($event->buildingType)){
+                              $arrayTemp['building_type'] = $event->buildingType;
+                          }
+                          if(isset($event->levelUpType)){
+                              $arrayTemp['level_up_type'] = $event->levelUpType;
+                          }
+                          if(isset($event->skillSlot)){
+                              $arrayTemp['skill_slot'] = $event->skillSlot;
+                          }
+                          if(isset($event->monsterType)){
+                              $arrayTemp['monster_type'] = $event->monsterType;
+                          }
+                          if(isset($event->teamId)){
+                              $arrayTemp['team_id'] = $event->teamId;
+                          }
+                          if(isset($event->wardType)){
+                              $arrayTemp['ward_type'] = $event->wardType;
+                          }
+                          if(isset($event->itemBefore)){
+                              $arrayTemp['item_before'] = $event->itemBefore;
+                          }
+                          if(isset($event->itemAfter)){
+                              $arrayTemp['item_after'] = $event->itemAfter;
+                          }
+                          if($count < 1){
+                              DB::table('frame_events')->insert($arrayTemp);
+                          }
+                          else{
+                              DB::table('frame_events')->where('id', $info->matchId . '-' . $eventId . '-' . $event->timestamp)->update($arrayTemp);
+                          }
+                      }
+                  }
+              }
             }
         }
     }

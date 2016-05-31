@@ -58,17 +58,19 @@
 									    type: 'line',
 									    data: {
 									        labels: [
-										        @foreach($lastGame->frames as $a => $frame)
+										        @foreach($lastGame->frameEvents as $a => $frameEvent)
 										        	@if(($a % count($lastGame->players)) == 0)
-										        		"{{round(($frame->timestamp / 60000), 0) }}" @if( $a != count($lastGame->frames)), @endif
+										        		"{{round(($frameEvent->timestamp / 60000), 0) }}" @if( $a != count($lastGame->frameEvent)), @endif
 										        	@endif
 										        @endforeach
 									        ],
 									        datasets: [{
 									            label: 'Gold',
 									            data: [
-									            @foreach($lastGame->frames as $a => $frame)
-									        		"{{2 * $a}}" @if( $a != count($lastGame->frames)), @endif
+									            @foreach($lastGame->frameEvents as $a => $frameEvent)
+																@if($frameEvent->summoner_id == $userInfo->summoner_id && $frameEvent->)
+																	"{{2 * $a}}" @if( $a != count($lastGame->frames)), @endif
+																@endif
 									        	@endforeach
 									        ]
 									        }]

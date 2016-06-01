@@ -16,7 +16,7 @@ class MainController extends Controller
     {
         //Description:
         // Landing page that currently displayes a random poster image.
-        $files = glob('/home/forge/default/public/images/posters/*.*');
+        $files = glob(base_path().'/public/images/posters/*.*');
         $file = array_rand($files);
         $img_link =  $files[$file];
         $pos = strpos($img_link, '/images');

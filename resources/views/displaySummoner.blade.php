@@ -47,55 +47,8 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div class="tab-pane fade in active" id="overview-pills">
-                <div class="row">
-                	<div class="col-xs-6">
-                		@if(true)
-                			<canvas id="lastGame" width="auto" height="auto"></canvas>
-                			<script>
-                				$(document).ready(function() {
-	                				var ctx = document.getElementById('lastGame');
-	                				var lastGame = new Chart(ctx, {
-									    type: 'line',
-									    data: {
-									        labels: [
-										        @foreach($lastGame->frameEvents as $a => $frameEvent)
-										        	@if(($a % count($lastGame->players)) == 0)
-										        		"{{round(($frameEvent->timestamp / 60000), 0) }}" @if( $a != count($lastGame->frameEvent)), @endif
-										        	@endif
-										        @endforeach
-									        ],
-									        datasets: [{
-									            label: 'Gold',
-									            data: [
-									            @foreach($lastGame->frameEvents as $a => $frameEvent)
-																@if($frameEvent->summoner_id == $userInfo->summoner_id && $frameEvent->event_type == "CHAMPION_KILL" and $frameEvent->victim_id == $userInfo->summoner_id)
-																	"{{2 * $a}}" @if( $a != count($lastGame->frames)), @endif
-																@endif
-									        	@endforeach
-									        ]
-									        }]
-									    },
-									    options: {
-									        scales: {
-									            yAxes: [{
-									                ticks: {
-									                    beginAtZero:true
-									                }
-									            }]
-									        }
-									    }
-									});
-	                			});
-                			</script>
-                		@endif
-                	</div>
-                	<div class="col-xs-3">
-
-                	</div>
-                	<div class="col-xs-3">
-
-                	</div>
-                </div>
+                <h4>Home Tab</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
             <div class="tab-pane fade" id="games-pills">
                 <h4>Profile Tab</h4>

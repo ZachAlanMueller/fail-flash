@@ -46,7 +46,7 @@
 	}
 
 	function softUpdate($summoner_id){
-		// --- --- --- --- --- --- --- --- --- --- 
+		// --- --- --- --- --- --- --- --- --- ---
 		$info = API_SummonerID($summoner_id);
 		$count = DB::table('summoners')->where('id', $summoner_id)->count();
 		$infoArray = array('name' => $info->name, 'id' => $info->id, 'profile_icon_id' => $info->profileIconId);
@@ -56,7 +56,7 @@
 		else{
 			DB::table('summoners')->where('id', $summoner_id)->update($infoArray);
 		}
-		// --- --- --- --- --- --- --- --- --- --- 
+		// --- --- --- --- --- --- --- --- --- ---
 		$info = API_League($summoner_id);
 		$count = DB::table('summoners')->where('id', $summoner_id)->count();
 		$infoArray = array();
@@ -94,7 +94,7 @@
 
 	function mediumUpdate($summoner_id){
 		$games = DB::table('summoner_games')->where('summoner_id', $summoner_id)->whereNull('winner')->get();
-		foreach($games as $game){ 
+		foreach($games as $game){
             $info = API_Match($game->game_id);
             if(is_int($info)){
                 sleep(3);
@@ -112,7 +112,7 @@
                     $t1_kills += $participantInfo->stats->kills;
                 }
                 else{
-                    $t2_kills += $participantInfo->stats->kills;   
+                    $t2_kills += $participantInfo->stats->kills;
                 }
             }
             if($counter == 0){
@@ -210,7 +210,7 @@
                                 'true_damage_to_champs' => $participant->stats->trueDamageDealtToChampions,
                                 'kills' => $participant->stats->kills,
                                 'deaths' => $participant->stats->deaths,
-                                'assits' => $participant->stats->assists,
+                                'assists' => $participant->stats->assists,
                                 'total_damage_taken' => $participant->stats->totalDamageTaken,
                                 'magic_damage_taken' => $participant->stats->magicDamageTaken,
                                 'physical_damage_taken' => $participant->stats->physicalDamageTaken,
@@ -247,7 +247,7 @@
                                 'true_damage_to_champs' => $participant->stats->trueDamageDealtToChampions,
                                 'kills' => $participant->stats->kills,
                                 'deaths' => $participant->stats->deaths,
-                                'assits' => $participant->stats->assists,
+                                'assists' => $participant->stats->assists,
                                 'total_damage_taken' => $participant->stats->totalDamageTaken,
                                 'magic_damage_taken' => $participant->stats->magicDamageTaken,
                                 'physical_damage_taken' => $participant->stats->physicalDamageTaken,
@@ -261,7 +261,7 @@
                         }
                     }
                 }
-            } 
+            }
             foreach($info->timeline->frames as $frame){
                 foreach($frame->participantFrames as $pFrame){
                     $count = DB::table('frames_participants')->where('id', $info->matchId . '-' . $frame->timestamp . '-' . $pFrame->participantId)->count();
@@ -362,12 +362,12 @@
                         }
                     }
                 }
-            }  
+            }
         }
 	}
 
 	function hardUpdate($summoner_id){
-		// --- --- --- --- --- --- --- --- --- --- 
+		// --- --- --- --- --- --- --- --- --- ---
 		$info = API_SummonerID($summoner_id);
 		$count = DB::table('summoners')->where('id', $summoner_id)->count();
 		$infoArray = array('name' => $info->name, 'id' => $info->id, 'profile_icon_id' => $info->profileIconId);
@@ -377,7 +377,7 @@
 		else{
 			DB::table('summoners')->where('id', $summoner_id)->update($infoArray);
 		}
-		// --- --- --- --- --- --- --- --- --- --- 
+		// --- --- --- --- --- --- --- --- --- ---
 		$info = API_League($summoner_id);
 		$count = DB::table('summoners')->where('id', $summoner_id)->count();
 		$infoArray = array();

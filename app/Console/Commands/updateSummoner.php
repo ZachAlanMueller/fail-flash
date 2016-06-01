@@ -183,7 +183,7 @@ class updateSummoner extends Command
                             'true_damage_to_champs' => $participant->stats->trueDamageDealtToChampions,
                             'kills' => $participant->stats->kills,
                             'deaths' => $participant->stats->deaths,
-                            'assits' => $participant->stats->assists,
+                            'assists' => $participant->stats->assists,
                             'total_damage_taken' => $participant->stats->totalDamageTaken,
                             'magic_damage_taken' => $participant->stats->magicDamageTaken,
                             'physical_damage_taken' => $participant->stats->physicalDamageTaken,
@@ -207,7 +207,7 @@ class updateSummoner extends Command
                     }
                 }
             }
-            if(isset($info->timeline)){  
+            if(isset($info->timeline)){
               foreach($info->timeline->frames as $frame){
                   foreach($frame->participantFrames as $pFrame){
                       $count = DB::table('frames_participants')->where('id', $info->matchId . '-' . $frame->timestamp . '-' . $pFrame->participantId)->count();

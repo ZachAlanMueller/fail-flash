@@ -74,14 +74,19 @@ class MainController extends Controller
         $latestGameId = DB::table('summoner_games')->select('game_id')->where('summoner_id', $id)->whereNotNull('winner')->orderBy('game_id', 'desc')->limit(1)->get();
         $latestGameId = $latestGameId[0]->game_id;
 
-        $lastGameSummonerGames = DB::table('summoner_games')->join('games', 'games.id', '=', 'summoner_games.game_id')->join('champions', 'champions.id', '=', 'summoner_games.champion_id')->where('game_id', $latestGameId)->get();
-        $lastGameFrames = DB::table('frames_participants')->join('summoner_games', 'summoner_games.participant_id', '=', 'frames_participants.participant_id')->where('summoner_games.game_id', $latestGameId)->where('frames_participants.game_id', $latestGameId)->orderBy('frames_participants.timestamp', 'asc')->orderBy('frames_participants.participant_id', 'asc')->get();
-        $lastGameFrameEvents = DB::table('frame_events')->where('game_id', $latestGameId)->get();
+        $lastGameFrameEvents = 0;
+        $lastGameFrames = 0;
+        $lastGameSummonerGames = 0;
         $lastGame = new stdClass();
         $lastGame->frameEvents = $lastGameFrameEvents;
-        $lastGame->frames = $lastGameFrames;
+        $lastGame->Participantframes = $lastGameFrames;
         $lastGame->players = $lastGameSummonerGames;
 
+        $temp = DB::table('summoner_games')->join('champions', 'champions.id', '=', 'summoner_games.champion_id')->select('kills', 'deaths', 'assists', 'name')->where('summoner_id', $summonerInfo->id)->whereNotNull('winner')->orderBy('game_id', 'desc')->limit(10)->get();
+        
+
+        $kdaChart = new stdClass();
+        $kdaChart = $temp;
 
 
         if(Auth::check()){
@@ -89,6 +94,7 @@ class MainController extends Controller
             return view('displaySummoner')
                 ->with('userInfo', $userInfo)
                 ->with('summonerInfo', $summonerInfo)
+                ->with('kdaChart', $kdaChart)
                 ->with('lastGame', $lastGame);
         }
         else{

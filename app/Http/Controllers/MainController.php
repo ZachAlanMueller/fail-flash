@@ -71,22 +71,16 @@ class MainController extends Controller
 
         //A super awesome 1-query join could cause excess time.  Best to just join games to all of them and reference them all by game ID
         //try just 'last game'
-        $latestGameId = DB::table('summoner_games')->select('game_id')->where('summoner_id', $id)->whereNotNull('winner')->orderBy('game_id', 'desc')->limit(1)->get();
-        $latestGameId = $latestGameId[0]->game_id;
+        $temp = DB::table('summoner_games')
+          ->join('champions', 'champions.id', '=', 'summoner_games.champion_id')
+          ->select(DB::raw('avg(winner) * 100 as win_percent, count(*) as number_games, name, img_link'))
+          ->where('summoner_id', $summonerInfo->id)
+          ->groupBy('champion_id')
+          ->orderBy('number_games', 'desc')
+          ->get();
 
-        $lastGameFrameEvents = 0;
-        $lastGameFrames = 0;
-        $lastGameSummonerGames = 0;
-        $lastGame = new stdClass();
-        $lastGame->frameEvents = $lastGameFrameEvents;
-        $lastGame->Participantframes = $lastGameFrames;
-        $lastGame->players = $lastGameSummonerGames;
-
-        $temp = DB::table('summoner_games')->join('champions', 'champions.id', '=', 'summoner_games.champion_id')->select('kills', 'deaths', 'assists', 'name')->where('summoner_id', $summonerInfo->id)->whereNotNull('winner')->orderBy('game_id', 'desc')->limit(10)->get();
-        
-
-        $kdaChart = new stdClass();
-        $kdaChart = $temp;
+        $champions = new stdClass();
+        $champions->topTen = $temp;
 
 
         if(Auth::check()){
@@ -94,13 +88,12 @@ class MainController extends Controller
             return view('displaySummoner')
                 ->with('userInfo', $userInfo)
                 ->with('summonerInfo', $summonerInfo)
-                ->with('kdaChart', $kdaChart)
-                ->with('lastGame', $lastGame);
+                ->with('champions', $champions);
         }
         else{
             return view('displaySummoner')
                 ->with('summonerInfo', $summonerInfo)
-                ->with('lastGame', $lastGame);
+                ->with('champions', $champions);
         }
     }
 

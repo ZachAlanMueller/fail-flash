@@ -9,6 +9,7 @@ use Auth;
 use stdClass;
 use DB;
 use App\Http\Requests;
+use Carbon\Carbon;
 
 class MainController extends Controller
 {
@@ -63,6 +64,8 @@ class MainController extends Controller
     }
 
     public function displaySummoner($id){
+        $now = Carbon::now();
+        DB::table('summoners')->where('id', $id)->update(array('viewed' => $now));
         $summonerInfo = DB::table('summoners')->where('id', $id)->get();
         $summonerInfo = $summonerInfo[0];
         $summonerInfo->profile_img_link = "/images/profile-icons/".$summonerInfo->profile_icon_id.".png";

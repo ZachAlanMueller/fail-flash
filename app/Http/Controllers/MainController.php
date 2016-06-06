@@ -71,6 +71,9 @@ class MainController extends Controller
 
         //A super awesome 1-query join could cause excess time.  Best to just join games to all of them and reference them all by game ID
         //try just 'last game'
+        $champions = new stdClass();
+        $colors = array("3C8D2F","63A358","8ABA82","B1D1AB","D8E8D5","FFFFFF","E9BFBF","D47F7F","BF3F3F","AA0000");
+
         $temp = DB::table('summoner_games')
           ->join('champions', 'champions.id', '=', 'summoner_games.champion_id')
           ->select(DB::raw('avg(winner) * 100 as win_percent, count(*) as number_games, name, img_link'))
@@ -78,9 +81,19 @@ class MainController extends Controller
           ->groupBy('champion_id')
           ->orderBy('number_games', 'desc')
           ->get();
+        $champions->topPlayed = $temp;
 
-        $champions = new stdClass();
-        $champions->topTen = $temp;
+        $temp = DB::table('summoner_games')
+          ->join('champions', 'champions.id', '=', 'summoner_games.champion_id')
+          ->select(DB::raw('avg(winner) * 100 as win_percent, count(*) as number_games, name, img_link'))
+          ->where('summoner_id', $summonerInfo->id)
+          ->whereNotNull('winner')
+          ->groupBy('champion_id')
+          ->having('number_games', '>', 4)
+          ->orderBy('win_percent', 'desc')
+          ->limit(5)
+          ->get();
+        $champions->topWinners = $temp;
 
 
         if(Auth::check()){
@@ -88,12 +101,14 @@ class MainController extends Controller
             return view('displaySummoner')
                 ->with('userInfo', $userInfo)
                 ->with('summonerInfo', $summonerInfo)
-                ->with('champions', $champions);
+                ->with('champions', $champions)
+                ->with('colors', $colors);
         }
         else{
             return view('displaySummoner')
-                ->with('summonerInfo', $summonerInfo)
-                ->with('champions', $champions);
+              ->with('summonerInfo', $summonerInfo)
+              ->with('champions', $champions)
+              ->with('colors', $colors);
         }
     }
 

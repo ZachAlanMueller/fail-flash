@@ -23,6 +23,9 @@ Route::get('/summoner/{id}', array('as' => 'display-summoner', 'uses' => 'MainCo
 Route::get('/summoner/{id}/softUpdate', array('as' => 'summoner-soft-update', 'uses' => 'MainController@softUpdate'));
 Route::get('/summoner/{id}/mediumUpdate', array('as' => 'summoner-medium-update', 'uses' => 'MainController@mediumUpdate'));
 Route::get('/summoner/{id}/hardUpdate', array('as' => 'summoner-hard-update', 'uses' => 'MainController@hardUpdate'));
+Route::post('/summoner/{id}/softUpdate', array('as' => 'summoner-soft-update-post', 'uses' => 'MainController@softUpdate'));
+Route::post('/summoner/{id}/mediumUpdate', array('as' => 'summoner-medium-update-post', 'uses' => 'MainController@mediumUpdate'));
+Route::post('/summoner/{id}/hardUpdate', array('as' => 'summoner-hard-update-post', 'uses' => 'MainController@hardUpdate'));
 
 
 //Admin routes
@@ -39,6 +42,6 @@ Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('/login', 'Auth\AuthController@getLogin');
 Route::post('/login', 'Auth\AuthController@postLogin');
-Route::get('/logout', 'Auth\AuthController@getLogout'); 
+Route::get('/logout', 'Auth\AuthController@getLogout');
 Route::get('/register', 'Auth\AuthController@getRegister');
 Route::post('/register', 'Auth\AuthController@postRegister');

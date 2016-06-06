@@ -4,7 +4,7 @@
 
 @section('content')
 	<div class="row">
-
+		<meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="row" style="border-bottom: solid;border-bottom-width: 1px; border-color: #eee; padding-bottom: 10px;">
 			<div class="col-xs-2 text-center">
 				<img src="{{$summonerInfo->profile_img_link}}" class="img-circle" width="80px" height="80px">
@@ -16,9 +16,49 @@
 			</div>
 			<div class="col-xs-2">
 				<script>
-				
+					$( document ).ready(function() {
+						//
+						$('#loading-gif').hide();
+						//
+						$.ajaxSetup({
+              headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                'csrftoken' : '{{ csrf_token() }}'
+              }
+            });
+						//
+						$('#refresh-info').click(function()
+            {
+                $('#loading-gif').show();
+                $.ajax({
+                    url: '/summoner/request-update',
+                    type:'POST',
+                    data:
+                    {
+                      id: {{$summonerInfo->id}} ///////
+                    },
+                    success: function(msg)
+                    {
+                      console.log(msg);
+                      $('#loading-gif').hide();
+                    },
+                    failure: function(msg)
+                    {
+											console.log(msg);
+                      $('#loading-gif').hide();
+                    },
+										error: function (xhr, ajaxOptions, thrownError) {
+					           console.log(xhr.status);
+					           console.log(xhr.responseText);
+					           console.log(thrownError);
+						       }
+                });
+            });
+						//
+
+					});
 				</script>
-				<button id="refresh-button" type="button" class="btn btn-info btn-sm btn-block">Refresh Info</button>
+				<button id="refresh-info" type="button" class="btn btn-info btn-sm btn-block">Refresh Info<i id="loading-gif" class='fa fa-circle-o-notch fa-spin fa-fw'></i></button>
 				<button type="button" class="btn btn-warning btn-sm btn-block">Look for Live Game</button>
 			</div>
 			<div class="col-xs-2">

@@ -23,9 +23,7 @@ Route::get('/summoner/{id}', array('as' => 'display-summoner', 'uses' => 'MainCo
 Route::get('/summoner/{id}/softUpdate', array('as' => 'summoner-soft-update', 'uses' => 'MainController@softUpdate'));
 Route::get('/summoner/{id}/mediumUpdate', array('as' => 'summoner-medium-update', 'uses' => 'MainController@mediumUpdate'));
 Route::get('/summoner/{id}/hardUpdate', array('as' => 'summoner-hard-update', 'uses' => 'MainController@hardUpdate'));
-Route::post('/summoner/{id}/softUpdate', array('as' => 'summoner-soft-update-post', 'uses' => 'MainController@softUpdate'));
-Route::post('/summoner/{id}/mediumUpdate', array('as' => 'summoner-medium-update-post', 'uses' => 'MainController@mediumUpdate'));
-Route::post('/summoner/{id}/hardUpdate', array('as' => 'summoner-hard-update-post', 'uses' => 'MainController@hardUpdate'));
+Route::post('/summoner/request-update', array('as' => 'summoner-reqest-update', 'uses' => 'MainController@requestedUpdate'));
 
 
 //Admin routes

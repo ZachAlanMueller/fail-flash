@@ -38,7 +38,7 @@ class MainController extends Controller
 
     public function searchSummoner(){
     	$form = Input::all('post');
-        $name = $form['search'];
+      $name = $form['search'];
     	$summoner = DB::table('summoners')->where('name', $name)->get();
         if(empty($summoner)){
             $summonerAPI = API_SummonerName($name);
@@ -48,6 +48,13 @@ class MainController extends Controller
         else{
             return Redirect('/summoner/'.$summoner[0]->id);
         }
+    }
+    public function requestedUpdate(){
+      $id = Input::all('post');
+      $id = $id['id'];
+      softUpdate($id);
+      $response = array('status' => 'success', 'msg' => 'Soft Update Completed');
+      return Response::json($response);
     }
 
     public function softUpdate($id){

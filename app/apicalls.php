@@ -66,6 +66,7 @@
 			stall();
 			print date("D M d, Y G:i:s a") . " - Match - $match_id\n";
 			$info = json_decode(file_get_contents("https://na.api.pvp.net/api/lol/na/v2.2/match/".$match_id."?includeTimeline=true&api_key=".$api_key));
+
 			return $info;
 		}
 		catch(Exception $e){
@@ -76,12 +77,17 @@
 			elseif (strpos($e, '500 Server Error') !== false){
 				return 500;
 			}
+			elseif(strpos($e, '503 Service Unavailable') !== false){
+				return 503;
+			}
 			elseif(strpos($e, '504 GATEWAY_TIMEOUT') != false){
 				return 504;
 			}
 			elseif(strpos($e, '429 Too Many Requests') != false){
-				print "\n\n 429: sleeping for 10 \n\n";
-				sleep(10);
+				print "\n\n--429: sleeping for 5--\n\n";
+				var_dump($http_response_header);
+				print "\n\n";
+				sleep(5);
 				return 429;
 			}
 			else{

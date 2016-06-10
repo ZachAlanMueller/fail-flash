@@ -10,6 +10,7 @@ use stdClass;
 use DB;
 use App\Http\Requests;
 use Carbon\Carbon;
+use Artisan;
 
 class MainController extends Controller
 {
@@ -52,21 +53,21 @@ class MainController extends Controller
     public function requestedUpdate(){
       $id = Input::all('post');
       $id = $id['id'];
-      softUpdate($id);
+      $this->mediumUpdate($id);
       $response = array('status' => 'success', 'msg' => 'Soft Update Completed');
       return Response::json($response);
     }
 
     public function softUpdate($id){
-        softUpdate($id);
+        Artisan::call('updateSummoner', ['id' => $id, 'option' => 1]);
         return Redirect('/summoner/'.$id);
     }
     public function mediumUpdate($id){
-        mediumUpdate($id);
+        Artisan::call('updateSummoner', ['id' => $id, 'option' => 2]);
         return Redirect('/summoner/'.$id);
     }
     public function hardUpdate($id){
-        hardUpdate($id);
+        Artisan::call('updateSummoner', ['id' => $id, 'option' => 3]);
         return Redirect('/summoner/'.$id);
     }
 

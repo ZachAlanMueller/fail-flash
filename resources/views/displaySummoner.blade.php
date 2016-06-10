@@ -47,11 +47,12 @@
 											console.log(msg);
                       $('#loading-gif').hide();
                     },
-										error: function (xhr, ajaxOptions, thrownError) {
-					           console.log(xhr.status);
-					           console.log(xhr.responseText);
-					           console.log(thrownError);
-						       }
+					error: function (xhr, ajaxOptions, thrownError) {
+			           console.log(xhr.status);
+			           console.log(xhr.responseText);
+			           console.log(thrownError);
+			           $('#loading-gif').hide();
+					}
                 });
             });
 						//
@@ -242,7 +243,15 @@
 										<script>
 											$(document).ready(function() {
 												//
-
+												function Label(short, long, percent, img_link) {
+						              this.short = short;
+						              this.long = long;
+													this.percent = percent;
+													this.img_link = img_link;
+						             }
+						             Label.prototype.toString = function() {
+						              return this.short;
+						             }
 												//
 												var ctx = document.getElementById('topWinningChamps');
 												var topChamps = new Chart(ctx, {
@@ -250,7 +259,7 @@
 													data: {
 												    labels: [
 											        @foreach($champions->topWinners as $j => $winner)
-															"{{$winner->name}}"
+															new Label("{{$winner->name}}", "{{$winner->number_games}}", "{{round($winner->win_percent, 1)}}", "{{$winner->img_link}}")
 															@if($j != count($champions->topWinners)), @endif
 															@endforeach
 												    ],
@@ -294,6 +303,26 @@
 														},
 														tooltips: {
 															enabled: true,
+															callbacks: {
+													      // tooltipItem is an object containing some information about the item that this label is for (item that will show in tooltip).
+													      // data : the chart data item containing all of the datasets
+																title: function(tooltipItem, data) {
+													        // Return string from this function. You know the datasetIndex and the data index from the tooltip item. You could compute the percentage here and attach it to the string.
+																	//console.log(tooltipItem);
+																	return data.labels[tooltipItem[0].index].short;
+													      },
+																beforeLabel: function(tooltipItem, data) {
+													        // Return string from this function. You know the datasetIndex and the data index from the tooltip item. You could compute the percentage here and attach it to the string.
+
+																	return "Win Rate Percent: " + data.labels[tooltipItem.index].percent + "%";
+													      },
+																label: function(tooltipItem, data) {
+													        // Return string from this function. You know the datasetIndex and the data index from the tooltip item. You could compute the percentage here and attach it to the string.
+
+																	return "Ranked Games Played: " + data.labels[tooltipItem.index].long;
+
+													    	}
+															}
 														}
 													},
 												});

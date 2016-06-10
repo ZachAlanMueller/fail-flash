@@ -32,11 +32,11 @@ class UpdateController extends Controller
             $version = json_decode(file_get_contents("http://ddragon.leagueoflegends.com/realms/na.json"));
             $version = $version->v;
             $champions = json_decode(file_get_contents("https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?api_key=".$api_key));
-            define('CHAMP_DIRECTORY', '/home/forge/default/public/images/champions');
+            define('CHAMP_DIRECTORY', base_path().'/public/images/champions');
             foreach($champions->data as $champion){
                 try{
                     $champ_key = $champion->key;
-                    
+
                     $content = file_get_contents('http://ddragon.leagueoflegends.com/cdn/'.$version.'/img/champion/'.$champ_key.'.png');
                     fopen(CHAMP_DIRECTORY.'/'.$champ_key.'.png', 'w');
                     file_put_contents(CHAMP_DIRECTORY.'/'.$champ_key.'.png', $content);
@@ -47,11 +47,11 @@ class UpdateController extends Controller
                 }
             }
             $items = json_decode(file_get_contents("https://global.api.pvp.net/api/lol/static-data/na/v1.2/item?api_key=".$api_key));
-            define('ITEM_DIRECTORY', '/home/forge/default/public/images/items');
+            define('ITEM_DIRECTORY', base_path().'/public/images/items');
             foreach($items->data as $item){
                 try{
                     $item_id = $item->id;
-                    
+
                     $content = file_get_contents('http://ddragon.leagueoflegends.com/cdn/'.$version.'/img/item/'.$item_id.'.png');
                     fopen(ITEM_DIRECTORY.'/'.$item_id.'.png', 'w');
                     file_put_contents(ITEM_DIRECTORY.'/'.$item_id.'.png', $content);
@@ -62,17 +62,17 @@ class UpdateController extends Controller
                 }
             }
             $profile_icon_ids = DB::table('summoners')->select('profile_icon_id')->whereNotNull('profile_icon_id')->groupBy('profile_icon_id')->get();
-            define('PROFILE_DIRECTORY', '/home/forge/default/public/images/profile-icons');
+            define('PROFILE_DIRECTORY', base_path().'/public/images/profile-icons');
             foreach($profile_icon_ids as $id){
                 try{
                     $id = $id->profile_icon_id;
-                    
+
                     $content = file_get_contents('http://ddragon.leagueoflegends.com/cdn/'.$version.'/img/profileicon/'.$id.'.png');
                     fopen(PROFILE_DIRECTORY.'/'.$id.'.png', 'w');
                     file_put_contents(PROFILE_DIRECTORY.'/'.$id.'.png', $content);
                 }
                 catch(Exception $e){
-                    
+
                 }
             }
         }

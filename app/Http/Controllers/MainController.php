@@ -63,7 +63,7 @@ class MainController extends Controller
         return Redirect('/summoner/'.$id);
     }
     public function mediumUpdate($id){
-        Artisan::call('updateSummoner', ['id' => $id, 'option' => 2]);
+        Artisan::call('updateSummoner', ['id' => $id, 'option' => 2, 'num' => 10]);
         return Redirect('/summoner/'.$id);
     }
     public function hardUpdate($id){
